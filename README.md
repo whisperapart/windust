@@ -8,10 +8,11 @@
 
 ## Links
 - <a href="https://windust.anpena.com/demo/" target="_blank">Online Trail</a>
- - <a href="https://steamcommunity.com/app/2640630" target="_blank">Steam</a>
- - <a href="https://windust.anpena.com" target="_blank">Official website</a> : https://windust.anpena.com
- - <a href="https://github.com/whisperapart/windust" target="_blank">Github</a> : https://github.com/whisperapart/windust
- - <a href="https://gitee.com/whisperapart/windust" target="_blank"> Gitee </a> : https://gitee.com/whisperapart/windust
+- <a href="https://whisperapart.github.io" target="_blank">Trail in github</a>
+- <a href="https://steamcommunity.com/app/2640630" target="_blank">Steam</a>
+- <a href="https://windust.anpena.com" target="_blank">Official website</a> : https://windust.anpena.com
+- <a href="https://github.com/whisperapart/windust" target="_blank">Github</a> : https://github.com/whisperapart/windust
+- <a href="https://gitee.com/whisperapart/windust" target="_blank"> Gitee </a> : https://gitee.com/whisperapart/windust
 
 ##  Features vs Full Game
 | Features | Full Game | Trail Version |
