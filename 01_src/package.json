@@ -1,0 +1,38 @@
+{
+  "name": "com.ccpcsoft.peerless.hana",
+  "displayName": "peerless",
+  "version": "1.1.0",
+  "description": "风尘三侠传",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "jim.dai.cn@gmail.com",
+  "license": "",
+  "devDependencies": {
+    "@ahovakimyan/cordova-plugin-wkwebviewxhrfix": "^1.0.1",
+    "cordova-browser": "^6.0.0",
+    "cordova-ios": "^7.0.0",
+    "cordova-plugin-browsersync-gen2": "github:DimitrisRK/cordova-plugin-browsersync-gen2",
+    "cordova-plugin-screen-orientation": "^3.0.3",
+    "cordova-plugin-whitelist": "^1.3.4"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-browsersync-gen2": {},
+      "@ahovakimyan/cordova-plugin-wkwebviewxhrfix": {},
+      "cordova-plugin-screen-orientation": {}
+    },
+    "platforms": [
+      "browser",
+      "ios"
+    ]
+  },
+  "dependencies": {
+    "cordova-osx": "6.0.0"
+  }
+}

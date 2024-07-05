@@ -1,0 +1,1814 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+    .version{
+      font-size:12px;color: #E4E4E4;padding-right: 20px; width: 100vw;text-align: center;margin-top:20px;
+    }
+    .title-center{
+      font-size: 24px;text-align: center;color:goldenrod;padding-bottom: 20px;
+    }
+    .title-center img{width:30vmin;}
+    .studio{letter-spacing:4px;font-weight:800;color:dodgerblue; padding-bottom: 40px;font-size: 36px;font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+      text-stroke: 6px #F7FFFF;
+      -webkit-text-stroke: 6px #F7FFFF;
+    }
+    [data-content]::before{
+      content: attr(data-content);
+      position: absolute;
+      -webkit-text-stroke: 0;
+      color:dodgerblue;
+    }
+    .div-left{
+      text-align: right; width: 40vw;padding-left: 10vw;padding-right: 10vw;display: inline-block;
+    }
+    .div-right{
+      text-align: left; width: 40vw;padding-left: 10vw;padding-right: 10vw;display: inline-block;
+    }
+    .chapter{
+      padding-top: 20px;margin-top:20px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 0%);
+      background-position: top;
+      background-size: 20px 1px;
+      background-repeat: repeat-x;
+      /*animation: linearGradientMove 20s infinite linear;*/
+    }
+    @keyframes linearGradientMove {
+      0%{
+      }
+      100%{
+        background-position: 100% 0,0 0, 0 100%,0 0;
+      }
+    }
+    .tall{height:100vh; line-height: 40vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding-bottom: 0 !important;
+    }
+    .special-thanks ul{ width:100vw;padding:10px;}
+    .special-thanks ul li {text-align: center;min-height: 24px;text-decoration: none; color:#F7EEEE;}
+    table{color:#E4E4E4;margin-bottom: 40px;margin-left:10vw;}
+    table tr td:first-child{width:40vw;text-align: right;padding-right:2vw; color: #eb6864;}
+    table tr td{width:50vw;text-align: left;padding-left:2vw; color:#F7EEEE;vertical-align: top;padding-right:10px;}
+    #timeline_table{border: none;border-spacing: 0;}
+    #timeline_table tr.trh1 td:first-child{background-color: #eb6864;color: white;font-size: 1.25em;font-weight: 800;box-shadow: none;}
+    #timeline_table tr.trh1 td{border-top:solid 1px #eb6864;border-bottom:solid 1px #eb6864; color:#eb6864;}
+    #timeline_table tr td:first-child{width:36vw;text-align: right;padding-right:2vw; color: #eb6864;font-size: 1.1em;font-weight: 600;border-right:solid 1px #eb6864;}
+    #timeline_table tr td{width:62vw;text-align: left;padding-left:2vw; color:#F7EEEE;vertical-align: top;}
+  </style>
+  <title></title>
+</head>
+<body style="background-color: #333;opacity: 0.6;overflow: hidden;">
+  <div class="title-center chapter" style="min-height: 45vh;padding-top: 10vh;"><img src="assets/images/main/logo.png"></div>
+  <div class="version" style="min-height: 10vh;">Version: # 1.2.240515 Build(20240515) </div>
+  <div class="title-center studio" data-content="ANPENA Studio" style="min-height: 45vh;padding-top: 10vh">ANPENA Studio</div>
+  <div class="chapter" style="min-height: 20vh;padding-top: 9vh;">
+    <table>
+      <tbody>
+      <tr><td>风尘三侠</td><td>Wind and Dust</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="chapter">
+    <div class="title-center">CAST</div>
+    <table>
+      <tbody>
+        <tr><td>Game Design</td><td>Jim Dai</td></tr>
+        <tr><td>Programming</td><td>Jim Dai</td></tr>
+        <tr><td></td><td><i>&nbsp;+&nbsp;Black Coffee and Red Tea</i></td></tr>
+        <tr><td></td><td><i>&nbsp;-&nbsp;Sugar</i></td></tr>
+        <tr><td>Data</td><td>Jim Dai</td></tr>
+        <tr><td>QA</td><td>Jim Dai</td></tr>
+        <tr><td>Music</td><td>Jim Dai</td></tr>
+        <tr><td>Graphics</td><td>Jim Dai</td></tr>
+        <tr><td>Sales</td><td>Jim Dai</td></tr>
+        <tr><td>Support</td><td>Jim Dai</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- special thanks -->
+  <div class="chapter">
+    <div class="title-center" id="specialThanksDiv">SPECIAL THANKS</div>
+    <table>
+      <tbody>
+      <tr><td>BETA</td><td>
+        鹏鹏<br/>
+        信歌<br/>小安<br/>Pony
+      </td></tr>
+      <tr><td>Framework</td><td>Phaser.io</td></tr>
+      <tr><td>Libs</td><td>Bootstrap.com</td></tr>
+      <tr><td></td><td>Bootswatch.com</td></tr>
+      <tr><td></td><td>IconFont.cn</td></tr>
+      <tr><td>SCM</td><td>GitHub.com</td></tr>
+      <tr><td>Map Design</td><td>mapeditor.org</td></tr>
+      <tr><td>Music Sharing</td><td>
+        Apologies for any misplacement of information during code migration. <br/>
+        If your creation was used but remains unlisted, <br/>
+        kindly contact me at 40217368@qq.com and accept my sincere regrets.
+      </td></tr>
+      <tr><td>Text</td><td>ChatGPT</td></tr>
+      <tr><td>Graphics</td><td>Stable Diffusion</td></tr>
+      <tr><td>Programming Languages</td><td>Javascript</td></tr>
+      <tr><td> </td><td>Python</td></tr>
+      <tr><td> </td><td>HTML / CSS</td></tr>
+      <tr><td>平台</td><td>itch.io</td></tr>
+      <tr><td></td><td>steampowered.com</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- # end of special thanks -->
+
+  <!-- Links and Urls -->
+  <div class="chapter">
+    <div class="title-center">LINKS & URLS</div>
+    <table>
+      <tbody>
+      <tr><td>Official WebSite</td><td>http://windust.anpena.com</td></tr>
+      <tr><td>Wiki and Helps</td><td>http://windust.anpena.com</td></tr>
+      <tr><td>itch.io</td><td>https://chaoseq.itch.io/windust</td></tr>
+      <tr><td>steam</td><td>https://store.steampowered.com/app/2640630</td></tr>
+      <tr><td>indienova</td><td>https://indienova.com/g/windust</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- # end of Links and Urls -->
+
+  <!-- THANKS -->
+  <div class="chapter">
+    <div class="title-center tall" id="thanksDiv1">THANKS FOR PLAYING</div>
+  </div>
+  <!-- # end of THANKS -->
+
+  <!-- timeline -->
+  <div class="chapter">
+    <div class="title-center">TIMELINE</div>
+    <table id="timeline_table">
+      <tbody>
+          <tr class="trh1"><td>2015</td><td>Game Novel</td></tr>
+          <tr class="trh1"><td>2016</td><td>Project Initiative</td></tr>
+          <tr class="trh1"><td>2017</td><td>C# Iteration, 技术验证, code name = TBWS</td></tr>
+          <tr><td></td><td>
+            <ol>
+              <li>实现控制台功能，对输入命令进行处理<ol>
+                <li>固定物品的产生</li>
+                <li>随机物品的创建</li>
+                <li>任务基本属性及真气结构定义</li>
+                <li>随机武学的创建</li>
+                <li>战斗系统，控制台模拟战斗</li>
+                <li>人物属性及装备系统</li>
+                <li>任务系统 漕运系统 大地图港口点击的判断<ol>
+                  <li>物品 掉落系统</li>
+                  <li>合成 武学领悟</li>
+                  <li>unity 瀑布</li>
+                  <li>随机地图生成</li>
+                  <li>高阶怪物技能</li>
+                </ol>
+                </li>
+                <li>构造一个世界：引入饥饿值，饱腹效果 正常效果 饥饿效果， 选择食物类型：素食 肉食 双脚羊。。。。<ol>
+                  <li>NPC 除了战斗也需要吃饭，有自己的简单日常。 </li>
+                  <li>张巡及兵的属性长期饥饿，人食。 </li>
+                  <li>加入其他简单而真实设定，烘托真实世界。呈现的不是一个游戏，而是真实的世界。</li>
+                </ol>
+                </li>
+              </ol>
+              </li>
+              <li>一些决定<ol>
+                <li>SQLite 在各个不同平台与Unity打交道似乎比较麻烦，再考虑性能问题，决定放弃数据库方案</li>
+                <li>物品数量进行控制，基本物品，及构成动态随机物品的基本元素，用静态结构数组保存</li>
+                <li>对于需要随机生成物品的情况，调用创造函数，生成物品，并使用Unity的方式进行保存。</li>
+                <li>Unity读取物品时候的逻辑：静态结构体数组，从前生成的物品列表，实现物品编号自增。</li>
+                <li>物品 = 普通物品 + 动态物品（当前版本可能没有）+ 动态武学秘籍</li>
+                <li>对于物品， 普通物品 与 动态物品 分开进行记录和处理， 静态物品编号为 string 与全局变量名对应， 动态物品编号为字符串 guid</li>
+                <li>所有爆击率、加速率等等，程序内全部用小数表示 有效位数小数点后5，展示的时候转换为百分比：ab.cd%  计算的时候仍旧用5位</li>
+                <li>baseState 结构体中保存 float型，用5位小数存在问题，直接用展示数值代替，例如：提高爆率等级5 ，就保存5.0f， 最后根据爆击等级，换算爆率。</li>
+                <li>所有的副本在退出后自动重置</li>
+                <li>添加虎王，死后刷新宝箱</li>
+                <li>添加金库/豪宅，有守卫，里面有宝箱</li>
+                <li>添加始皇帝陵墓，曹操墓，李卫公墓，里面有兵马俑，有宝箱。</li>
+                <li>添加泰州附近的迷宫，里面有简单宝箱</li>
+                <li>商人秘笈类物品随机范围是0.75柏松，自己领悟是0.5柏松。商人更贵，但是不能选择真气类型，自己领悟可以选择真气类型。</li>
+                <li>外功除了根据武器选择不同的特殊攻击方式  圆、扇形等之外，随机产生不同的效果：击退、眩晕、定身、僵直、减速、中毒。这类似于内功附带的真气效果，不过是给怪物的。FieldEffect<ol>
+                  <li>控场效果： 眩晕 僵直 定身 击退 减速 中毒</li>
+                  <li>僵直 = 无法攻击</li>
+                  <li>定身 = 无法移动</li>
+                  <li>眩晕 = 无法攻击 无法移动</li>
+                  <li>击退 = 推向玩家相反方向</li>
+                  <li>减速 = 减慢移动速度和攻击速度</li>
+                  <li>中毒 = 持续减少HP</li>
+                </ol>
+                </li>
+                <li>考虑了一下随机商人（类似韦小宝，全局唯一，在部分主城等待玩家，访问后改变）</li>
+                <li>考虑了一下随机寻宝任务，和随机大地图神庙事件。前者类似大航海时代online的反复刷新的探宝图，可以挖出来之后卖钱；后者类似三国志11的大地图格随机神庙。</li>
+                <li>物的攻击可以被打断，需要做力量的判断。怪物的攻击技能有一个被打断的力量阈值。主角力量大于等于就可以打断，小于就无法打断。</li>
+                <li>怪物有被攻击后的僵直效果，设置持续时间</li>
+                <li>姚汝能修书 安禄山事迹 里面马嵬坡射杨国忠的人是 张小敬</li>
+                <li>CSS<pre><code class="language-css">    water{background-color: #ADD2FF;}
+    hill{background-color: #CFE8A7;}
+    ground{background-color: #FCF9F2;}
+    darkred{background-color: #C76A79;}
+    orange{background-color: #EFB486;}
+</code></pre>
+                </li>
+              </ol>
+              </li>
+              <li>没有确定<ol>
+                <li>怪物不随机掉落物品，因为主要的目的是通过休息时间内功、外功提升能力，要弱化装备的作用。</li>
+                <li>但是固定的物品数量实在太少，所以引入铁匠、锻造机制？</li>
+                <li>目前的考虑是，引入 精华， 怪物根据品级  掉落 品级/2 等级的精华</li>
+                <li>精华残片=1 精华碎片=2 破碎精华=3 精华=4 完美精华=5 璀璨精华=6 光辉精华=7</li>
+                <li>每3个低级可以合成一个高级</li>
+                <li>利用精华，在铁匠处可以赌博/抚摸物品， 附加的能力个数是 精华等级/2 例如 璀璨会得到3属性装备， 光辉可能3，可能4（不确定，也许除以3？）</li>
+                <li>利用精华，可以领悟/找宗师 购买 武学秘笈， 附加的能力个数是 精华等级 例如 光辉产生的内功武学 可能提高 7 个属性</li>
+                <li>附魔武器、取得秘笈的单个属性最大值根据品级确定，品级X3, 掉落时候产生的范围服从泊松分布。例如：7级的可能领悟到 单个属性最大加成 21，波松分布11中位数，所以大概率得到的是 11 或者12</li>
+                <li>附魔武器、秘笈的价格 = 基础价格 + 所有属性品级价格  ，例如：基本价格 + 11 + 其他属性值</li>
+                <li>内功、外功、轻功 需要引入 Tier? 根据不同Tier 确定范围、效果、最低要求、数值的柏松中位数 ？</li>
+                <li>当前的武器也只提供强度加成，没有伤害。所有的伤害直接根据强度计算。是否需要引入伤害？如果引入了，不同攻击类型伤害的平衡是个问题：拳套跟剑怎么算？初衷是强调武功的威力，弱化装备。如果不引入，那么远程武器的弹药就没有任何意义了？改为饰品？</li>
+              </ol>
+              </li>
+            </ol>
+          </td></tr>
+          <tr class="trh1"><td>2018</td><td></td></tr>
+          <tr><td>20181114</td><td>
+            <ol>
+              <li>C# 完成Mob生成，静态物品掉落</li>
+            </ol></td>
+          </tr><tr><td>20181115</td><td>
+            <ol>
+              <li>C# 开始实现动态物品 --  利用模板生成  模版，品级，区分防具和武器</li>
+            </ol></td>
+          </tr><tr><td>20181116</td><td>
+            <ol>
+              <li>C# 完成动态物品，完成怪物动态物品掉落，商人物品属性泊松分布完成。商人数据结构、商品列表待添加</li>
+            </ol></td>
+          </tr><tr><td>20181117</td><td>
+            <ol>
+              <li>C# NPC类，Player类，MOb类、MobModel结构体 设计完善。</li>
+            </ol></td>
+          </tr><tr><td>20181119</td><td>
+            <ol>
+              <li>C# Neigong类完成，Player展示完成。</li>
+            </ol></td>
+          </tr><tr><td>20181120</td><td>
+            <ol>
+              <li>C# WaiGong Debuff，CDCMobeElite, 重构CDCMob类</li>
+            </ol>
+          <tr class="trh1"><td>2019</td>
+            <td>PhaserJS Iteration, 技术验证, code name = undefined</td>
+          </tr><tr><td>201902</td><td>
+            <ol>
+              <li>放弃Unity，迁移至phaser3.js</li>
+            </ol></td>
+          </tr><tr><td>20190326</td><td>
+            <ol>
+              <li>phaser JS 引入</li>
+              <li>游戏大地图tiledmap生成</li>
+              <li>加入海洋</li>
+              <li>实现人物移动及摄象机跟随</li>
+            </ol></td>
+          </tr><tr><td>20190406</td><td>
+            <ol>
+              <li>实现鼠标的替换</li>
+            </ol></td>
+          </tr><tr><td>20190609</td><td>
+            <ol>
+              <li>贸易系统演示版本完毕：trade.html</li>
+              <li>投资系统尚未完毕，决定与商人系统一起开发。</li>
+              <li>实现港口载入</li>
+              <li>实现港口基本功能：补给、出售货物、购买货物</li>
+              <li>实现出售后同种类价格波动</li>
+              <li>实现每日价格波动</li>
+              <li>实现部分船只定义、功能、补给等</li>
+            </ol></td>
+          </tr><tr><td>20190610</td><td>
+            <ol>
+              <li>开始将原先物品生成的C#代码迁移至js</li>
+              <li>决定每天至少投入1小时，每周16小时在本项目</li>
+            </ol></td>
+          </tr><tr><td>20190611</td><td>
+            <ol>
+              <li>cdcConfig cdcDict cdcFunc done</li>
+              <li>decided to rewrite cdcGongFu with ECMAScript V.6.</li>
+            </ol></td>
+          </tr><tr><td>20190612</td><td>
+            <ol>
+              <li>C#代码中，对于基础数据的定义（例如真气）使用类和方法来构造。在Javascript中可以直接以json的方式给出。<pre><code class="language-csp">    static CDCBaseState zxMaxState = CDSBaseState.initFromValue(0,20,0,0...); ...
+    static CDCBaseState zxZhenQi = new CDSZhenQi(CDEZhenQiType.zx, zxMaxState); ...
+    static CDCBaseState [] zqArray = [
+       zxZhenQi,hbZhenQi,lyZhenQi,xmZhenQi,tjZhenQi,sqZhenQi,  // 紫霞 寒冰 六阴 玄冥 太极 三清
+    ];
+</code></pre>
+                <blockquote>
+                  <p>可以直接改为：</p>
+                </blockquote>
+                <pre><code class="language-javascript">    const zqArr = [
+        {type:CDEZhenqiType.zx,maxState:{ap:0,dp:20,...}},
+        ...,
+    ];
+</code></pre>
+              </li>
+            </ol></td>
+          </tr><tr><td>20190616</td><td>
+            <ol>
+              <li>所有唯一的，用 {} 表示，比如 player, dictionary</li>
+              <li>所有需要复用的，用类表示，比如 mob： 其中可能封装方法，如果都用静态的class中的方法，传递参数效率有问题</li>
+              <li>结构体，枚举值，用 {} ，比如 baseState, enumNeiliType 等： 虽然有公共方法，但是更多使用值，把方法封装到对应的方法类。</li>
+              <li>方法类使用CDC开头，其中包括{}的创建及初始化函数，例如 CDCBaseState.iniFromValue()</li>
+            </ol></td>
+          </tr><tr><td>20190618</td><td>
+            <ol>
+              <li>继续重写C#代码，根据616规则重构</li>
+              <li>gem 的level从7及改为11级</li>
+              <li>考虑了一下随机商人（类似韦小宝，全局唯一，在部分主城等待玩家，访问后改变）</li>
+              <li>考虑了一下随机寻宝任务，和随机大地图神庙事件。前者类似大航海时代online的反复刷新的探宝图，可以挖出来之后卖钱；后者类似三国志11的大地图格随机神庙。</li>
+            </ol></td>
+          </tr><tr><td>20190719</td><td>
+            <ol>
+              <li>考虑了战斗打断的设计（力量相关）</li>
+              <li>结合长安十二的相关资料，添加张小敬等NPC，具体细节尚未确定</li>
+              <li>决定整理玩家对象数据，添加战斗场景，开始横版战斗设计</li>
+            </ol></td>
+          </tr><tr><td>20190707</td><td>
+            <ol>
+              <li>too busy those days, busy like hell, phaser fine now, considering merge Trade Item Ship Port and World Map together</li>
+              <li>gui need to re-design, also the map tiles needs to redo. this is the 3rd or more redo. Decide to follow GaodeMap / BaiduMap style. Hope this is the last time we change style.<pre><code class="language-css">    water{background-color: #ADD2FF;}
+    hill{background-color: #CFE8A7;}
+    ground{background-color: #FCF9F2;}
+    darkred{background-color: #C76A79;}
+    orange{background-color: #EFB486;}
+</code></pre>
+              </li>
+              <li>world map with tiled is very poor, considering svg map instead. The collision is a pain.</li>
+            </ol></td>
+          </tr><tr><td>20190625</td><td>
+            <ol>
+              <li>modified few logics in cdcPlayer class, incomplete</li>
+              <li>switched to phaser.3.18, new issues found, need to debug</li>
+            </ol></td>
+          </tr><tr><td>20190624</td><td>
+            <ol>
+              <li>fixed few bugs of javascript switch case ===</li>
+              <li>re-test and fixed few issues of creatItem(cate,tier);</li>
+            </ol></td>
+          </tr><tr><td>20190623</td><td>
+            <ol>
+              <li>Basically all C# codes are migrate to JS.</li>
+              <li>Create a Button to verify ItemCreate Logic, so far so good, more tests(items, mobs) required though.</li>
+            </ol></td>
+          </tr><tr><td>20190620</td><td>
+            <ol>
+              <li>Mob Done.</li>
+              <li>DropItem and DropItemModel done</li>
+              <li>cdcPlayer done.</li>
+              <li>update and changed CDCSkill, <del>add practiceExp for each skill</del> 决定保持金庸群侠传做法，修习武学才能提升，而不是通过使用次数。</li>
+            </ol></td>
+          </tr><tr><td>20190619</td><td>
+            <ol>
+              <li>cdcConfig cdcDict cdcEnum cdcFunc cdcGongFu cdcPlayerState</li>
+            </ol></td>
+          </tr><tr><td>20191029</td><td>
+            <ol>
+              <li>phaser3 最新文档阅读</li>
+              <li>2500x2500 瓦片 分 chunk 50x50 加载的技术预研</li>
+              <li>重做中国地图, 2500 x 2500 瓦片 x 40 像素 实现 (原先 512 x 512 瓦片 x 200像素)<ol>
+                <li>陆地边界矢量数组 （线段）1000x1000</li>
+                <li>长江矢量数组（线段）1000x1000</li>
+                <li>黄河矢量数组（线段）1000x1000</li>
+                <li>主要湖泊矢量数组 (闭合线段) 1000x1000</li>
+              </ol>
+              </li>
+            </ol></td>
+          </tr><tr><td>20191101</td><td>
+            <ol>
+              <li>textures website found: aigei.com<pre><code class="language-css">    water{background-color: #ADD2FF;}
+    hill{background-color: #CFE8A7;}
+    ground{background-color: #FCF9F2;}
+    darkred{background-color: #C76A79;}
+    orange{background-color: #EFB486;}
+    pond-light{background-color: #52a8ff;}
+    pond-dark{background-color: #007dff;}
+    sand-light{background-color: #eae2c4;}
+    sand-dark{background-color: #e3c395;}
+    stone-light{background-color: #e4e4e4;}
+    stone-dark{background-color: #b1b1b1;}
+    sky-deep{background-color: #00BFFF;}
+    sky-light{background-color: #87CEFA;}
+    tunnel-dark{background-color: #2d2d2d;}
+</code></pre>
+              </li>
+            </ol></td>
+          </tr><tr><td>20191113</td><td>
+            <ol>
+              <li>re-do china map to 2500x2500</li>
+              <li>write a python util to generate china map</li>
+              <li>chunks implementation, reduce mem-usage - ref: libs/chunks_tutorial-master</li>
+            </ol></td>
+          </tr><tr><td>20191114</td><td>
+            <ol>
+              <li>loading map-chunk-tile done, met phaser err in displaying chunks, might because of embedded tileset.</li>
+              <li>loading maps with chunk done, fixed few issues in split.js,</li>
+              <li>still problems(map fail - dark ) when loading/destroying frequently - exists even in demo</li>
+            </ol></td>
+          </tr><tr><td>20191118</td><td>
+            <ol>
+              <li>try to fix frequent (un)load chunk issue - removed the &quot;remove logic&quot;</li>
+              <li>add collide, port vs player + ship, player vs riverside, ship vs riverside, player vs river, ship vs land
+                [B: Boundary], [C: City and Battlefield], [E: land-water],
+                [L:Land, W:Water], [H:hill and Forest],
+                [M: mountain], [P: port], [S: Spawn Point]</li>
+              <li>prepare city and port data (coordinates)</li>
+            </ol></td>
+          </tr><tr><td>20191119</td><td>
+            <ol>
+              <li>todo: need to opt the remove logic,</li>
+              <li>todo: first screen collide bug-fixing</li>
+              <li>enhance tiledmap</li>
+              <li>tiledmap: decorations and buildings, adding cites and ports</li>
+            </ol></td>
+          </tr><tr><td>20191126</td><td>
+            <ol>
+              <li>more features added in world map: ~ 5% of 100%</li>
+              <li>main story line and branch tasks, also the world events and bosses - 5%</li>
+              <li>decided to make a plan / WBS along with estimate and deadline for game design. - target to get done today.</li>
+            </ol>
+          <tr class="trh1"><td>2020</td>
+            <td>Iteration 1, code name = wind / 夏风冬雪，春花秋月</td>
+          </tr><tr><td>20200110</td><td>
+            <ol>
+              <li>New Project plan along with release plan created</li>
+              <li>New Wiki server created for R&amp;D with WikiJS</li>
+              <li>New requirement documentation created</li>
+            </ol></td>
+          </tr><tr><td>20200311</td><td>
+            <ol>
+              <li>iteration 1 , code name &quot;wind&quot; baseline created</li>
+              <li>wind - avatar package done</li>
+              <li>wind - console main function done</li>
+            </ol></td>
+          </tr><tr><td>20200325</td><td>
+            <ol>
+              <li>gGuiClass partly done</li>
+              <li>puzzleModal done</li>
+              <li>continue with other modals, currently - inventory</li>
+            </ol></td>
+          </tr><tr><td>20200523</td><td>
+            <ol>
+              <li>激活武学 - 提高攻击强度百分比 的计算规则修正。</li>
+              <li>激活武学之后，buff 栏 的更新</li>
+              <li>激活武学的时候，遗忘、激活按钮/已激活（取消激活） 状态的判断</li>
+              <li>获取exp，并自动升级，支持跳级</li>
+              <li>激活武学的时候，外功需要重新计算强度</li>
+              <li>等级和经验条，在character里面的更新</li>
+              <li>Character 窗口 加点 按钮的问题，以及更新玩家属性</li>
+              <li>BaseStatModel  限制 dge par def 最大值</li>
+            </ol></td>
+          </tr><tr><td>20200525</td><td>
+            <ol>
+              <li>从物品学习武学，获取经验 CharacterModel.gainExp()</li>
+              <li>随机武学生成系统 KFNew(kfTier, kfNeili, kfType)</li>
+              <li>CharacterModel.calcTotalState : add gcd and tickInterval</li>
+              <li>CharacterModel.forgetKF</li>
+              <li>CharacterModel - rewrite to fix the arguments issue</li>
+              <li>实现治疗功能，与heal 数值挂钩</li>
+              <li>characterModel.getHurt(dmg)</li>
+            </ol></td>
+          </tr><tr><td>20200524</td><td>
+            <ol>
+              <li>update HUD in game loop</li>
+              <li>HUDWidget 样式及逻辑重新美化</li>
+              <li>等级和经验条，在 hud 里面的更新</li>
+              <li>交易系统金钱</li>
+              <li>交易系统船只及容量，船只面板</li>
+              <li>交易系统，船只改装</li>
+              <li>商人、物品买卖</li>
+              <li>菜单 保存 功能</li>
+            </ol></td>
+          </tr><tr><td>20200526</td><td>
+            <ol>
+              <li>生成动态物品功能</li>
+              <li>鉴定物品功能</li>
+              <li>SupplyModel 恢复、tick、max等相关逻辑。</li>
+            </ol></td>
+          </tr><tr><td>20201029</td><td>
+            <ol>
+              <li>修正city画面中图片拉伸的问题</li>
+              <li>修正非交易城市、关口等进入city画面的问题，结合新图片集  buildings tileset实现</li>
+            </ol></td>
+          </tr><tr><td>20201030</td><td>
+            <ol>
+              <li>bug fix: 新地图里面潼关仍然会发生碰撞，在中心格子。</li>
+              <li><del>GUI全局：多次点击触发问题修正</del></li>
+              <li>效率问题：当前的gTimer效率低，尝试改为phaser 的 update 函数，比较效率问题</li>
+              <li>添加保存游戏的位置，提供3个位置供保存，调整localStorage的存储结构。</li>
+            </ol></td>
+          </tr><tr><td>20201031</td><td>
+            <ol>
+              <li>characterModal 的装备排列位置样式修正</li>
+            </ol></td>
+          </tr><tr><td>20201101</td><td>
+            <ol>
+              <li>完善游戏UI里面提示类（是否确定、提示）的界面交互：退出游戏、载入游戏、返回主界面、保存成功的提示等</li>
+              <li>游戏载入逻辑 - 载入后无法移动</li>
+              <li>确保弹出的inGameMenu在最上方，比如有characterModal 按esc</li>
+              <li>交易系统测试</li>
+              <li>游戏存档功能继续调试</li>
+              <li>进入城市的时候按住方向键，退出城市，人物继续移动的问题</li>
+              <li>按下了InGameMenu，时间还在流逝的问题</li>
+            </ol></td>
+          </tr><tr><td>20201109</td><td>
+            <ol>
+              <li>player on_land on_board sprite 切换</li>
+              <li>purchaseModal 功能逻辑验证，动画交互增加</li>
+              <li>saleModal 出售货物 - 实现本地特产品半价</li>
+            </ol></td>
+          </tr><tr><td>20201112</td><td>
+            <ol>
+              <li>saleModal 出售货物 - 交易逻辑</li>
+            </ol></td>
+          </tr><tr><td>20201116</td><td>
+            <ol>
+              <li>添加了purchase购买时候的moneyDelta动画</li>
+              <li>sale的money动画添加</li>
+            </ol></td>
+          </tr><tr><td>20201117</td><td>
+            <ol>
+              <li>purchase Sale OnBtnOK 之后金钱的抬头显示效果，位置及动画调整</li>
+              <li>交易过程中 金币浮点数问题</li>
+              <li>修正：购买物品后的价格波动函数异常。</li>
+              <li>贩卖和出售窗口的slot展示</li>
+              <li>确保弹出的inGameMenu按钮正确，只有大地图可以保存游戏</li>
+              <li>优化HUD，加入HUD点击事件 - 打开玩家窗口</li>
+              <li>在大地图保存游戏的时候，需要保存在水还是在陆地，并且记录位置，在创建player的时候，也要判断ship foot horse</li>
+            </ol></td>
+          </tr><tr><td>20201118</td><td>
+            <ol>
+              <li>dailyPriceWave 修正</li>
+              <li>buyModal money 特效</li>
+              <li>buyModal 点击修正</li>
+              <li>千分位导致的价格问题修正</li>
+              <li>船契功能实现，影响船只速度，舱位</li>
+            </ol></td>
+          </tr><tr><td>20201119</td><td>
+            <ol>
+              <li>船只modal</li>
+              <li>投资modal</li>
+            </ol></td>
+          </tr><tr><td>20201121</td><td>
+            <ol>
+              <li>骑马移动及buff效果完毕</li>
+              <li>步行骑马切换的粒子效果</li>
+            </ol></td>
+          </tr><tr><td>20201124</td><td>
+            <ol>
+              <li>city页面查看城市发展度</li>
+              <li>buyModal purchase / sale 的货物动画效果，cityInfoPanel money更新</li>
+              <li>城市cargoItem basePrice 调整，优化游戏参数</li>
+            </ol></td>
+          </tr><tr><td>20201129</td><td>
+            <ol>
+              <li>todo: bankin out, 共享物品</li>
+              <li>todo: 千军岭、卧龙山 地点、灵州附近加入港口或灵州设置为港口城市</li>
+              <li>todo: 远程 - 引入蓄力攻击功能</li>
+              <li>todo: 游戏按钮被快速多次点击问题</li>
+              <li>todo: 第一个副本切换</li>
+            </ol></td>
+          </tr><tr><td>20201204</td><td>
+            <ol>
+              <li>shipModal 优化</li>
+              <li>船只的supply 单独出来，而且改船不影响supply</li>
+              <li>todo: 播放音效 购买失败 - 获得经验 - 等级提升</li>
+              <li>todo: 在大地图默认满血，在战斗场景启动mpreg hpreg</li>
+            </ol></td>
+          </tr><tr><td>20201206</td><td>
+            <ol>
+              <li>supply 完成,consumption完成</li>
+              <li>船只港口关系，出港对船只停靠港口的判断</li>
+              <li>卖船（有港口就可以），改船（必须当前港口）</li>
+              <li>买船（设定当前港口）</li>
+            </ol></td>
+          </tr><tr><td>20201207</td><td>
+            <ol>
+              <li>出港状态下，hud里面的饥饿值改成船只补给</li>
+              <li>foot horse 状态下，hud里面的饥饿值改为普通饥饿值</li>
+              <li>更新了HUD显示: exp hp mp food</li>
+              <li>修正puzzleModal 页面</li>
+              <li>puzzleModal exp 获取</li>
+              <li>玩家死亡逻辑 gTme.eventDaily - 船只补给=0 | 玩家食物=0 等等</li>
+              <li>todo: 验证和分析 puzzleModal Exp 函数</li>
+              <li>todo: 有指南针 HUD 才显示坐标</li>
+            </ol></td>
+          </tr><tr><td>20201208</td><td>
+            <ol>
+              <li>玩家吃饭逻辑</li>
+              <li>饥饿 饱腹 buff 效果</li>
+              <li>武学激活重新设计：todo: 外功不需装备，直接对应1234 快捷键，右键治疗，手机端用 上下左右四个按钮，中间治疗</li>
+              <li>外功武学重新设计：拳掌无需装备 cd 1.5秒（也可装备拳套，但就只能用拳掌），剑需要装备剑 cd 1.5秒，刀需要装备刀（cd 3.0），长柄需要装备长柄(cd 4.5) ，弓箭蓄力1.5 cd1.5 cd完毕才可以蓄力，蓄力max 伤害=150%</li>
+              <li>攻击技能组合：装备拳套使用拳掌，装备剑使用剑法和拳掌，装备刀使用刀、CD过程使用拳掌按照空手算，长柄同刀CD更长，弓箭蓄力需要按下鼠标左键，cd过程中可以用拳掌</li>
+              <li>加入召唤技能，可以召唤另外两个角色入场协助战斗（属性按当时情况，AI接管战斗逻辑），持续时间60s</li>
+            </ol></td>
+          </tr><tr><td>20201209</td><td>
+            <ol>
+              <li>武学秘笈在inventory中展示修习需要的条件，例如技能、内力需求等</li>
+              <li>玩家能够修习的武学与对应内力类型挂钩</li>
+              <li>实现武学修习</li>
+              <li>商人贩卖随机武学 1 - 4 tier, 解决武学断层问题</li>
+            </ol></td>
+          </tr><tr><td>20201210</td><td>
+            <ol>
+              <li>医术重新设计，加入不同等级的医疗技能，始终最高等级的生效：急救术 草药学 运气疗伤 易经洗髓 三花聚顶 脱胎换骨 等</li>
+              <li>不同级别的医疗技能，消耗内力与治疗量不同，todo:更高等级的移除debuff效果</li>
+              <li>todo:医书的获取途径增加，也许:赌博/npc根据玩家技能给出不同的书（类似金庸群侠的张三丰）</li>
+            </ol></td>
+          </tr><tr><td>20201221</td><td>
+            <ol>
+              <li>基本实现大部分武学及装备效果</li>
+              <li>todo: 弓箭蓄力效果尚未实现</li>
+              <li>实现玩家发射粒子效果</li>
+            </ol>
+          <tr class="trh1"><td>2021</td>
+          </tr><tr><td>20210127</td><td>
+            <ol>
+              <li>实现了场景的切换和再切换（重启大地图）</li>
+              <li>todo: 战斗场景1 与 战斗场景2 的切换</li>
+              <li>实现了战斗场景中player的基本动作</li>
+              <li>实现了战斗场景中missile 资源池</li>
+              <li>实现了 wge 基类， 实现了 line 特效，</li>
+              <li>实现了 wge sprite 切换</li>
+              <li>实现了 wge 粒子效果</li>
+              <li>实现了 mob 基类</li>
+              <li>实现了 cavalry katana bow shield spear 多兵种基本动作动画</li>
+            </ol></td>
+          </tr><tr><td>20210128</td><td>
+            <ol>
+              <li>mob spear wge 特效及粒子效果</li>
+              <li>mob 根据玩家位置的行为 - 基本AI（近战、远程、多技能切换、位置控制）, cooldown 放入AI中</li>
+              <li>todo: mob 资源池，重复利用：setPoolSize getNextAvailable disable etc..</li>
+            </ol></td>
+          </tr><tr><td>20210723</td><td>
+            <ol>
+              <li>配置菜单增加跳过战斗选项，提供跳过副本切换直接生成战斗结果</li>
+            </ol></td>
+          </tr><tr><td>20210727</td><td>
+            <ol>
+              <li>todo: 进行“跳过战斗”的设置后，保存游戏设置，下次自动载入 gApp</li>
+              <li>zone 配置实现刷新cooldown, 怪物信息</li>
+              <li>快速战斗弹窗</li>
+              <li>实现快速战斗</li>
+              <li>在切磋页面发起的快速战斗</li>
+              <li>最小分辨率，与画面比例的设置调整</li>
+            </ol></td>
+          </tr><tr><td>20211019</td><td>
+            <ol>
+              <li>item unique check... in dropItem \ sortItem\ sellItem\BuyItem</li>
+              <li>sellModal done</li>
+              <li>Quick Battle, in round - todo: implement AI logic in quick battle</li>
+            </ol></td>
+          </tr><tr><td>20211021</td><td>
+            <ol>
+              <li>item unique check... in dropItem \ sortItem\ sellItem\BuyItem</li>
+              <li>SellModal: done</li>
+              <li>bug-fixed: 骑马到城市之后，出来，所有碰撞失效</li>
+              <li>quickBattle: 快速战斗详细日志；</li>
+              <li>quickBattle: 玩家闪避、招架、减伤；</li>
+              <li>quickBattle: - 外功需要消耗内力</li>
+              <li>quickBattle: - 实现技能的智能选择</li>
+              <li>battle AI: with skill , auto heal</li>
+              <li>quickBattle: 根据武器技巧熟练度，影响攻强和dmg</li>
+              <li>王二初始技能、初始物品调整</li>
+              <li>bug-fixing: 无法学习医疗技能</li>
+              <li>王二居 改为 王家院子</li>
+              <li>小月居 王家院子 可以休息，HP MP全满</li>
+            </ol></td>
+          </tr><tr><td>20211022</td><td>
+            <ol>
+              <li>C 页面 饥饿值不会自动刷新。应该做某种自动刷新机制</li>
+              <li>大地图随机战斗，区分不同区域刷新不同等级怪物，级别相差太大不刷新 - 放弃，觉得体验不好。</li>
+              <li>quickBattle: - 战斗过程中不能变更装备，禁用 I K C ESC O</li>
+              <li>治疗效果受治疗技能加成</li>
+            </ol></td>
+          </tr><tr><td>20211023</td><td>
+            <ol>
+              <li>大地图旅行增加经验值</li>
+              <li>调整zoneId=55 怪物强度</li>
+              <li>sysToast</li>
+            </ol></td>
+          </tr><tr><td>20211025</td><td>
+            <ol>
+              <li>任务系统 - 任务窗口，发送任务NPC的标记，任务完成的标记，Log窗口</li>
+              <li>怪物技能系统 - 影响快速战斗，实现技能选择，平衡怪物强度</li>
+              <li>todo: 新建游戏任务属性随机，str 60-130 wis 60-130 总和240max 等，自定义姓名、头像，等。</li>
+              <li>quickBattle 添加 mob 击杀数量</li>
+            </ol></td>
+          </tr><tr><td>20211101</td><td>
+            <ol>
+              <li>更新全地图怪物 dbMobsInZone</li>
+              <li>特例 - 无尽模式 以及 秘境模式</li>
+            </ol></td>
+          </tr><tr><td>20211106</td><td>
+            <ol>
+              <li>dbNPC.npcDesc 与 dbMob.npc.title 一致</li>
+              <li>worldmap 里面 pass 没有 collide, 加 isCity 标记，重新生成</li>
+              <li>questEditor使用textarea \n=换行，因此游戏中task.brief task.detail也需要用textarea 并且支持\n，而不是用<br/></li>
+            </ol></td>
+          </tr><tr><td>20211124</td><td>
+            <ol>
+              <li>task 和 Journal 基本完成</li>
+              <li>增加了 questEditor 用于编辑任务</li>
+              <li>puzzleModal 更新，满足quest需要</li>
+              <li>任务击杀列表逻辑更新</li>
+              <li>切磋部分牵涉到比较多的快速战斗修改，未完成：</li>
+            </ol></td>
+          </tr><tr><td>20211125</td><td>
+            <ol>
+              <li>回合间隔增大</li>
+              <li>待命的回合，回复hp mp</li>
+              <li>死亡的惩罚改掉，看是打怪模式还是切磋模式，如果是切磋模式，无死亡，只是挑战失败。</li>
+              <li>todo: 怪物的技能影响攻击效果，目前直接用atk 的，要实现怪物技能的选择</li>
+              <li>todo: 战斗日志区分左右，玩家在左边，怪物在右，类似聊天窗口</li>
+            </ol></td>
+          </tr><tr><td>20211126</td><td>
+            <ol>
+              <li>bug 学医书到升级，还其他武学学习，例如轻功后，直接从1级变成10级，并且报错</li>
+              <li>bug 学习崩木掌后报错， characterModel.js:147 kfType找不到</li>
+              <li>bug 存在在城市里面吃了食物，切换出城市的时候，粒子效果不消失的情况</li>
+              <li>bug-fix 马商无法出售马匹</li>
+              <li>bug-fix 完成任务的提示换行了，显示不下</li>
+              <li>bug-fix 提交口粮的任务，在本城小二不应该可以出售口粮 - 振武 平原 南阳</li>
+              <li>bug-fix 在任务详情窗口，Journal，显示killList 中对应的进度</li>
+              <li>bug-fix 需要口粮的任务，完成的时候，口粮没有扣除。 24 粮草先行</li>
+              <li>bug 急救术学会后，bubble 里面的图标虽然出现了，但是技能不能用</li>
+              <li>bug 武学缀学之后，战斗，学习的图标又装备回去了</li>
+              <li>bug-wont-fix 杜甫的物品不随机，不确定，需要复查</li>
+              <li>bug-fix 缰绳的价格降低</li>
+              <li>bug-fix 检查 大地图时间速度，目前太快了</li>
+              <li>bug-fix 食物的消耗速度调整</li>
+              <li>bug-fix 无法下马</li>
+              <li>bug 宝箱的触发事件没有完成 530，11</li>
+              <li>bug 虎牙的掉率要调整高</li>
+              <li>bug-fixed 诊疗技能未实装</li>
+              <li>bug itemadd 21 1 然后整理，显示有问题，最后加入的item没有移除（前面的组里面数量加了）</li>
+              <li>鉴定功能未实装</li>
+              <li>bug 修炼武学的Charactermodal 进度条不对</li>
+              <li>bug 王二学会的新武学，无法点击。K按钮</li>
+              <li>bug 骑马-进入zone-快速战斗，碰撞体积没有改，确认下是否进入快速战斗前让玩家下马了，并且刷新大地图碰撞体积</li>
+              <li>bug 购买界面，购买按钮灰化及启用，避免多次购买-比如一直点买粮食</li>
+              <li>bug 从平原出港，没有变成船形态。</li>
+            </ol></td>
+          </tr><tr><td>20211201</td><td>
+            <ol>
+              <li>gambling modal</li>
+              <li>meditation modal</li>
+              <li>bug 外功技能4个都满的时候不允许再学新武学</li>
+              <li>todo 全部宝箱掉落调整 dtzone.sceneArray</li>
+              <li>done 宝石升级合成 202112122</li>
+            </ol></td>
+          </tr><tr class="trh1"><td>20211204</td>
+            <td>2021.12.04 10:14 baby born.</td></tr><tr><td>20211208</td><td>
+            <ol>
+              <li>todo:工匠加入合成与分解gem的菜单 - done</li>
+            </ol></td>
+          </tr><tr><td>20211211</td><td>
+            <ol>
+              <li>fixed: 船在杭州，人陆地移动到南京，采购和贩卖不应允许。</li>
+            </ol></td>
+          </tr><tr><td>20211214</td><td>
+            <ol>
+              <li>合成规则 composeModal</li>
+            </ol></td>
+          </tr><tr><td>20211222</td><td>
+            <ol>
+              <li>合成、分解完成 - 目前免费，没有加入费用。</li>
+              <li>领悟modal 继续</li>
+            </ol>
+          <tr class="trh1"><td>2022</td>
+            <td>Iteration 2, code name = snow / 夏风冬雪，春花秋月</td></tr><tr><td>20220117</td><td>
+            <ol>
+              <li>加入限制：不同胜境 能够 领悟的武学不同</li>
+            </ol></td>
+          </tr><tr><td>20220129</td><td>
+            <ol>
+              <li>few bug fixes - progress bar etc.</li>
+              <li>外功次序调整功能 - 完成</li>
+            </ol></td>
+          </tr><tr><td>20220130</td><td>
+            <ol>
+              <li>修正 - 骑马进入城市之后的粒子效果不消失问题</li>
+              <li>碰撞，isCliff = true 判断轻功</li>
+              <li>添加领悟的引导任务 - questEditor已完成，待导出json</li>
+            </ol></td>
+          </tr><tr><td>20220203</td><td>
+            <ol>
+              <li>快速战斗 mob 添加闪避、招架，调整hp mp atk def 参数</li>
+              <li>? 增加一个npc，收费介绍游戏规则，例如 轻功40 可以跳树和岩石，70可以翻山。</li>
+            </ol></td>
+          </tr><tr><td>20220204</td><td>
+            <ol>
+              <li>more tasks added</li>
+            </ol></td>
+          </tr><tr><td>20220207</td><td>
+            <ol>
+              <li>特殊任务处理：128风尘三侠-通关 129再攀巅峰-parLevel 178 探访五岳-</li>
+              <li>Journal 里面显示任务进度(收集物品)没有显示</li>
+              <li>小月 王大 解锁需要小王刀 银戒指，任务要更新，重新导入</li>
+              <li>需要增加一个梅花鹿 熊 老虎的zone，在灵州附近，方便鹿茸任务</li>
+              <li>长安等沿途增加小的怪物zone，目前前期只有一个后山太少了</li>
+              <li>大地图加路径标志，就用绿色草地？连接城市</li>
+              <li><del>not</del> bug - <del>weekevent 未触发。 gTrade class 成员函数写法有问题</del> - 发展 投资400 不升级，需要超过400？</li>
+              <li>彻底移除大地图粒子效果</li>
+              <li><del>todo - 普通马的价格降低到 1万？ 5万不变？</del></li>
+              <li>拉开不同tier的武学的学习所需经验</li>
+              <li>[fixed] 移动速度受到身法影响计算不对，28+3的身法，只提高了1% = 101</li>
+              <li>精华的出售价格要调整</li>
+              <li>[done] 李钦 要加强，现在比周万顷弱太多</li>
+              <li>[done] 周万顷 nerf</li>
+              <li>[done] 静边 任务的先后次序要调整，现在先杀了后面很多个怪，然后要杀前面的新兵。</li>
+              <li>bug task description 里面 奖励的金钱，用readable String 表示</li>
+              <li>[done] task description 里面没有列出 任务接收人</li>
+              <li>[done] 李光弼的任务完成后（打败李沁），增加一个去支援平原 颜真卿的任务</li>
+              <li>bug 丢弃功能未实现？</li>
+              <li>[done] 魏郡 第一个50级别的虎王太猛，要改掉，到这边大概23级</li>
+              <li>[done] 可能是bug，开局可以从汉中跑到成都到长沙，有船厂，那么颜真卿解锁船的任务给的船契可能重复？</li>
+              <li>[done] 荆州有两个李玲，而且头像不一样</li>
+              <li>bug 荆州市集， npc太多，放不下应该自动折行</li>
+              <li>[done] 目前大地图关卡都无碰撞，导致开局就可以游历全地图，要修正并限制。</li>
+              <li>[done] 强弓uniqe 但是鲁炅的任务需提交10个，修改。</li>
+              <li>[bug fixed] 高级内力的获取，任务获取的奖励，例如 327 破天诀（kfid18） 329 明镜玄功（kfid20) 阴柔内力任务获取方式也要加任务</li>
+              <li>[done] 魏郡 111 向润客 太猛，25级大不了，而现在的任务要这边做完才解锁船。要么改任务，要么nerf 向润客</li>
+              <li>todo 医术的修炼速度要降低，升级所需经验要提高</li>
+              <li>todo  nerf 怪物的闪避与招架</li>
+              <li>bug 领悟的时候2个宝石，领悟用掉一个，但是另外一个也被删除了</li>
+            </ol></td>
+          </tr><tr><td>20220213</td><td>
+            <ol>
+              <li>[todo 先不改？]各种精华的售价要调整</li>
+              <li>[bug fixed] 宝箱给了100个金锭，但是行囊只有51个</li>
+              <li>[bug fixed] <del>挑战失败之后，战斗的按钮也应该隐藏</del></li>
+              <li>[bug fixed] <del>向润客的掉落要调整，不要掉落霸王</del></li>
+              <li>[done]<del>sale的时候，也要获得经验</del></li>
+              <li>广陵，鉴真 再攀巅峰 任务点击后错误</li>
+              <li>[done] 金陵、广陵加入投资任务，引导交易</li>
+              <li>[done] 加入可重复任务：完成后不更新taskList即可，任务编辑器加标志 isRepeatAble<ol>
+                <li>注意，可重复任务不能是其他任务的前置任务。</li>
+                <li>如果有任务以这个任务为前置任务，不能重复任务</li>
+              </ol>
+              </li>
+              <li>[done] 移动增加的exp调高</li>
+              <li>[done] 武学所需的exp适当调低</li>
+              <li>[done] 添加固定的贸易线路，调整对应的波动函数或者需求情况，营造利润线路</li>
+              <li>[done] 添加一个trade 模拟器，调试price wave / on sale</li>
+            </ol></td>
+          </tr><tr><td>20220215</td><td>
+            <ol>
+              <li>[bug fixed] 幸运兔脚唯一，但是有任务要5个，改</li>
+              <li>[bug fixed] 轻功的修炼有bug 直接到10级？</li>
+              <li>[bug ] 赌博界面阴柔和调和的文字颜色要改，不是金黄色</li>
+              <li>[bug fixed] 最新导出的cityCargo cityId cargoId 是int 之前是 string 导致purchase sale页面异常。</li>
+              <li>[done] 保存的时候，也要保存当前的交易数组；载入的时候也要载入交易数组。载入后不再波动当前价格。</li>
+              <li>[bug fixed] 船只移动的时候，移动速度应该是船的速度，而不是身法加成之后的速度</li>
+              <li>[todo 先不改？]战斗要平衡，怪物的攻击力减弱，血条加长（或者玩家的攻击力减弱，或者怪物的防御提高），把战斗时间回合放多</li>
+              <li>[done] cargo 的价格太低，导致利润很少，即使固定线路也难赚钱，价格5倍或者10倍，提升赚钱体验</li>
+              <li>[todo 先不改？] 投资1块钱等于5块钱，这样1000万投资能发展1个城市到顶级，否则现在要5kw，比较难</li>
+              <li>[done] 千里马加了任务了，所以售价可以进行调整，放更贵。</li>
+              <li>[done] 杜甫 - 金陵 的销售清单 移除 《三》</li>
+              <li>[done] 修习武功提升技能的速度要降低，不同品级能够提升到的上限要限制</li>
+              <li>[done] 秘笈的价格（包括随机生成的）， 2pow(tier+1)*100 e.g. t3=1600</li>
+            </ol></td>
+          </tr><tr><td>20220217</td><td>
+            <ol>
+              <li>[done] sellModal 整堆出售的逻辑有问题，改为全部出售，改正数量bug e.g 1堆50 1堆40</li>
+              <li>[bug fix] 修正物品名称与级别问题</li>
+            </ol></td>
+          </tr><tr><td>20220218</td><td>
+            <ol>
+              <li>大地图仍然可以从成都绕出去，成都右侧河边的缝隙要堵起来</li>
+              <li>音乐和音效，itch.io
+                <del>1. 改为export module 模式</del></li>
+              <li>实现随机战斗地图 - 由不同的地图场景组合而成<ol>
+                <li>做不同的场景 = room  在tiled 里面做</li>
+                <li>bfscene 加载 rooms，然后随机拼接。</li>
+                <li>有dynamicScene 拼接（每个room有怪物点+概率），也有staticScene 地图固定，按脚本刷怪</li>
+                <li>scene = {type:&quot;Dynamic/Static/Chest&quot;,mob:[],drop:[]}</li>
+                <li>dynamicScene 有 start BOSS end 等关键场景，其他用 room 随机填充</li>
+                <li>随机room: W(all 高墙 户外) P(assage 通道 户外) F(orest 树林 户外) C(amp 军营 户外) G(rass 草原 户外) R(ock 岩石 室内) T(unnel 通道 室内)</li>
+                <li>固定scene: A(rena 竞技场 固定刷怪 地图小) D(efence 塔防 固定刷怪 地图大)</li>
+              </ol>
+              </li>
+              <li>在重庆加入比较多的与成都互动的任务，把成都附近的任务线丰满起来：<ol>
+                <li>成都圈=享乐主义     重庆=贸易任务 成都=冒险任务 武庙任务线</li>
+                <li>灵州圈=平叛主义     平原=贸易任务 灵州=冒险任务 安史任务线</li>
+                <li>荆州圈=准备造反     荆州=贸易任务 襄阳=冒险任务 永王任务线</li>
+                <li>金陵圈=自由主义     金陵=贸易任务 广陵=冒险任务 烟花三月？言情线？</li>
+                <li>东南圈=科学主义     广州=贸易任务 东南=化学和材料、科研、观察</li>
+              </ol>
+              </li>
+              <li>[bug ?] 宝箱的开启情况也应该存到 world 配置里面，而不是存在 player</li>
+              <li>[done] bug 碰到zone 等情况下马的时候，会导致玩家的碰撞位置出现问题，需要重新上马下马才行。</li>
+              <li>[done] bug 骑马，碰撞zone, 在上一个问题的修正方式下，下马了。但是这时候退出，发现玩家继续超前移动了距离。</li>
+              <li>[done] 金陵 增加附近副本，天古刹的任务</li>
+              <li>[done] 贸易增加的exp 不能提升 武学经验。</li>
+              <li>增加 宁远 任务线，再东北</li>
+              <li>增加 安琪 任务线，再西南</li>
+              <li>增加日本和韩国彼此之间不满意的任务线</li>
+              <li>[done] 增加仙山任务线，引导任务，到东南</li>
+              <li>[bug fixed] 遗忘轻功功能有问题</li>
+              <li>考虑是否加入贸易准入，只有签约、有占有率的城市，才允许通商？这样带来占有率的问题，还有是否引入声望机制？<ol>
+                <li>[done] 投资界面，每一个小格子提高0.1%占有度，max = 3.6%</li>
+                <li>[done] 投资过的城市，才能进行贸易 gGui.actHandler9 10</li>
+                <li>[done] 并且贸易可以采购的物品最大数量 = 库存 * 占有度</li>
+                <li>[done] 部分城市存在最大占有限制: 重庆 60%玄宗，荆州80%李玲，金陵 30%玄宗 30%肃宗，平原90%肃宗</li>
+                <li>[done] 不考虑销售和采购对占有度的影响</li>
+                <li>[done] 占有度超过50%的城市，每周提供收入，金额为 发展度 * 7 * 占有率</li>
+                <li>[to be decided] 随之加入声望系统？李亨 玄宗 李玲，边界副本任务（内战），影响版图？</li>
+                <li>边界副本任务（内战），反复争夺据点所有权。</li>
+                <li>全部城市发展度对比，以及不同主要阵营城市的发展度对比，影响最终结局：李玲 vs 李亨 vs 李隆基</li>
+              </ol>
+              </li>
+              <li>[ difficult ]<del>城市的demandMax与城市的发展度挂钩，越繁华的城市，波动越小</del></li>
+              <li>[done] 船的动画重做 - texture packer</li>
+              <li>[done] 当前快速战斗日志，玩家在左边怪物在右边，应该颠倒过来，玩家在右边，怪物在左边。</li>
+              <li>[done] 港口的投资额用 readableString</li>
+              <li>[done] purchase Sale的金额，特别是delta，也用readableString</li>
+              <li>[bug fix] swift = 66+3 的时候，升级了轻功到 70以上，触发了swift 更新collision，但是还是不能过树。但是骑马下马之后，就好了。 -- 第二号存档 save1</li>
+              <li>加入新的战斗模式，类似仙剑1？支持1vN，当前的mobInZone 应该理解为 mobGroupInZone<ol>
+                <li>实装更多武学外功的差异</li>
+                <li>实装怪物攻击技能</li>
+              </ol>
+              </li>
+              <li>[done] 实现杜甫的随机城市唯一刷新, 存档记录</li>
+              <li>各城市加入更多其他随机npc？ - 浪人 强盗 ？ 类似花姑娘的有？</li>
+              <li>[done] - 作为新版本? - wind 版本存档 / wind snow bloom moon: 春有百花秋有月 夏有凉风冬有雪</li>
+              <li>[bug fix] iconfont.js console error: <path> attribute d: Expected number, &quot;MNaN NaNmNaN NaNa…&quot;. icon-xianglian2 removed</li>
+              <li>实现 王大 小秋的解锁</li>
+              <li>调整王二 王大 小秋的初始任务完成清单，实现 王大 小秋 的特定任务</li>
+              <li>[bug ] 潜在问题：目前的taskKillList 跟踪的是mobid，但是mob_template_id 会复用，要同时判断zone ，但是zone 存在都是竞技场的可能，所以还要判断mob_name</li>
+            </ol></td>
+          </tr><tr><td>20220411</td><td>
+            <ol>
+              <li>地图改成了6格子宽的地面，可以支持上下左右和跳，但是带来问题：碰撞怎么判断，站在最终下面格子跳，按照arcade碰撞会撞到2，3，4格子。这些格子都是地面。</li>
+              <li>todo 上，向上移动，跳=跳，跳的时候记录标志位和y坐标，跳的动画分为跳上，跳滚，跳下。跳滚的时候进行二段跳判断，跳下到y坐标中止（手动实现跳）。</li>
+              <li>移除 dynamic map 的 gravity，手动实现跳</li>
+              <li>对于在高处的敌人，从简处理，放在main的地面6格的上面格子，与far重叠，这样跳起来之后y 能够匹配。</li>
+              <li>现在screen far 好像也有石头，不适合晃动，改掉之后可以。也就是说 far screen 只能有植被，表示风的效果</li>
+            </ol></td>
+          </tr><tr><td>20220425</td><td>
+            <ol>
+              <li>extrude new bf-map</li>
+              <li>remove collision for decorations</li>
+              <li>set start / end location for player - 直接写死在第一个地图的左边坐标位置</li>
+              <li>set mob spawn position for map and spawn ratio / logic - 直接写死逻辑，moblist做资源池，地图随机刷新？ boss 固定最后一张图</li>
+              <li>use mana to cast spell and do damage</li>
+              <li>load mobs from moblist for zone</li>
+              <li>mob ai / hp - battle logic</li>
+              <li>show fps for debug purpose</li>
+            </ol></td>
+          </tr><tr><td>20220506</td><td>
+            <ol>
+              <li><strong>重要！！！ 为了解决循环引用问题，必须显式地把循环引用的设置为 null ，特别关注 mobModel mobSpirte mobAI, CharacterModel等</strong></li>
+            </ol></td>
+          </tr><tr><td>20220517</td><td>
+            <ol>
+              <li>[done]: 取消 C K 等view 的鼠标冒泡，防止在dynamicScene 唤醒界面点了之后，也触发场景的鼠标点击
+                event.stopPropagation();<ol>
+                  <li>发现会先再 dynamicScene触发，然后才到 C 界面。dom顺序反的？扯淡。。。</li>
+                  <li>决定把CJK 弹窗都禁用算了</li>
+                </ol>
+              </li>
+              <li>[done]: Bubble wg-trigger5= heal 加入 治疗动作</li>
+              <li>[done]: blade arc 还有 circle? 效果重做？</li>
+              <li>[in progress]: bullet 碰撞<ol>
+                <li>[fixed]检查overlap 过程中是否触发多次？</li>
+                <li>[done]mob dead 的处理, animation, callback, drops, destroy etc.</li>
+                <li>[done]增加一个死亡中的状态，在这个状态内，播放dead 动画，经过这个状态时常之后，尸体消失（？），解决dead了之后立刻不update的问题</li>
+                <li>[done]player ： 攻击动画播放-回调中发射wge，带来的问题是回调多次绑定，导致多次触发，所以需要再回调中移除</li>
+                <li>[done] 但是对于Mob，也存在上述问题，不过回调中难以确定具体哪个mob，所以可能需要用update里面标记actionReady/是否被打断 状态，而不是回调来实现</li>
+              </ol>
+              </li>
+              <li>[done]: mob bullet 的效果 : fist? arrow? mobskill</li>
+            </ol></td>
+          </tr><tr><td>20220524</td><td>
+            <ol>
+              <li>todo: 后续加入游戏难度，可以设置，调整怪物血量 技能伤害 掉落等</li>
+              <li>bug: mob flee 的时候，超出了可以走的范围（应该跟玩家一样，限制 y 坐标范围）</li>
+            </ol></td>
+          </tr><tr><td>20220530</td><td>
+            <ol>
+              <li>[done]playerSprite 也要添加hud</li>
+              <li>[done]mob的missile 命中玩家之后的逻辑</li>
+              <li>[done]mob hurt 如果 招架/闪避 了，也要显示hud</li>
+              <li>[不存在?]player 攻击的时候 Miss 显示 miss，只有mob 闪避</li>
+              <li>[done]取消 尸体自动消失的设计，改为点击了之后掉落物品。- 不销毁对象，同时解决 hud 里面的info 不消失的问题</li>
+              <li>[done]玩家死亡的逻辑</li>
+              <li>[done]退出dynamicZone的逻辑 ，在 startRoom endRoom 加入 zone - mob 逃跑的范围.x问题？</li>
+            </ol></td>
+          </tr><tr><td>20220602</td><td>
+            <ol>
+              <li>[done]怪物的ngList附带的 debuff 效果，需要放在bullet里面，碰撞后作用在玩家身上，体现在右上buff栏</li>
+              <li>dynamicScene 性能优化</li>
+              <li>更多类型怪物、动作。</li>
+              <li>[done]首先解决竞技场，载入mob，便于ngList调试</li>
+              <li>dynamicScene 击杀boss 后，右侧的退出zone 生效</li>
+              <li>[done]dynamicScene 没有击杀地图boss 之前，左侧的退出zone 一直生效</li>
+              <li>[done]115 竞技场的入参mob，从单个，改为数组，同时调整多个boss竞技场的位置排列问题。</li>
+              <li>[done]mob 反伤/吸血等效果要在mob 的 getHurt 实现：mobModel- _skill813 814 fdb</li>
+              <li>注意测试玩家怪物互相反伤吸血，死循环的情况</li>
+            </ol></td>
+          </tr><tr><td>20220623</td><td>
+            <ol>
+              <li>[done]背景音乐与音效</li>
+              <li>[done]加载速度太慢，导致进入世界明显卡顿，考虑解决方案</li>
+              <li><del>压缩音频资源大小</del> 放弃此方案</li>
+              <li>[done]加入 loadScene</li>
+              <li>考虑是否把 Dynamic Scene 也放入开始加载序列，需要更改scene 切换逻辑：目前是destroy掉重新开</li>
+            </ol></td>
+          </tr><tr><td>20220722</td><td>
+            <ol>
+              <li>[done]把 dynamic Scene 等更多加载资源，都放入到 loadScene，</li>
+              <li><del>DynamicScene 在初期加载</del>  不行，因为 world 是chunk加载，dynamic 是动态生成，所以可以部分资源放进去，但是不能完全从boot</li>
+              <li>[done]更多资源归入 loadScene，包括图片、音乐等<ol>
+                <li>载入优化，在bootScene载入所有的room? 目前的逻辑是DynamicScene初始化的时候载入需要的Room</li>
+              </ol>
+              </li>
+              <li>实现切磋的场景切换，以及切磋完毕之后切换回原地图？<ol>
+                <li>有问题，因为切了场景，原来的gameScene被销毁了？</li>
+                <li>目前的行为：切换回大地图，需要重新进入城市。</li>
+                <li>期望的行为：切换回原场景，如果是进入的地城，在大地图，如果是在城市内切磋，打开对应的城市页面？</li>
+                <li>目前world 和 dynamic 切换的时候把 game destroy，寻找更有效率的解决方案</li>
+              </ol>
+              </li>
+              <li>分解、领悟 modal 是否根据新的 bankModal 进行重写？如果不重写，验证功能是否存在丢失宝石问题<ol>
+                <li>composeModal 在合成盘旋转的时候，可以点击物品加入旋转盘，问题不大，可改可不改。</li>
+              </ol>
+              </li>
+              <li>[done]进入大地图自动播放音乐</li>
+              <li>[done]音乐声音可以调节</li>
+              <li>[done]bankIn bankOut 功能未实现<ol>
+                <li>[done]<del>存入需要钱 - 取出不需要钱</del> - 改为买保险箱需要钱</li>
+                <li>[done]Bank-in bank-out 应该是同一个modal</li>
+              </ol>
+              </li>
+              <li>[fixed] 丢弃物品后，inventory 没有刷新</li>
+              <li>[done]检查 refit-modal 是否还需要，确认，可以移除。</li>
+              <li>[fixed]DrawCity 里面还有声望，判断是否要处理？ - 修正了声望丢失的问题</li>
+            </ol></td>
+          </tr><tr><td>20220813</td><td>
+            <ol>
+              <li>重做所有mob 的 图片和动画</li>
+              <li>重做dynamic scene 玩家的动画 ，jing 的版权问题</li>
+              <li>音乐大小调整</li>
+              <li>检查 mp3 是否的确会带来版权问题</li>
+              <li>整理全部任务文本，充实游戏任务</li>
+              <li>所有场景 room 设计</li>
+              <li>[todo] 地图战斗 的 debuff 效果</li>
+              <li>实现无尽模式（无尽）、100关模式（竞技场？）、奶牛关（秘境）等特殊游戏模式</li>
+              <li>战斗场景地图 extruded，解决分裂线问题</li>
+              <li>[bug] 广陵 鉴真 [lv=100]再攀高峰 taskId=129 任务完成条件 toString  出错 itemModel.js 312 undefined itemCate</li>
+              <li>[bug] 任务40 军心，完成诗词北山，需要成都的百姓，错误？应该是荆州的？</li>
+              <li>苏州、常州、广陵、杭州-摩天塔，需要增加大量公共任务，荆州-凌霄楼<ol>
+                <li>[done] 广陵 - 学术城市，回收书籍，大量诗词任务，开辟东南航线，诗词复杂程度降低</li>
+                <li>[done] 泉州 - 贸易 冒险城市，倭，万象，航线</li>
+                <li>[fix to be check] 也许是bug：提交任务 货物 x 若干的时候，如果船不在NPC 对应的城市，应该不能完成任务才对？ taskModel.taskStatus line 171</li>
+                <li>[done] 杭州 - 佛教城市 - 宗教 的虚伪，让别人捐钱，改信不同的信仰，谁对我有用我信谁,破除迷信</li>
+                <li>[done] 金陵 - 综合城市，七宗罪 , 天古刹 参合庄</li>
+                <li>[done] 苏州 - 旅游、贸易城市，各种跑腿、牵线、爱情任务 - 徐霞客游记？</li>
+                <li>[done] 常州 - 手工业 工业城市，需要大量各种原材料，银、金、精华等</li>
+              </ol>
+              </li>
+              <li>验证 王大、小邱 游戏性 - 专属任务、共享银行<ol>
+                <li>王大初始属性调整  -</li>
+                <li>需要区分专属任务，默认都可以接？questEditor需要调整 - 基本完毕</li>
+                <li>加入 小秋专属任务，鬼魂系列</li>
+                <li>[done] 怪物吸血强度要buff: 10% - 25% mobModel.js._skill814() line 484 =&gt; 0.25</li>
+                <li>[done] luck 影响掉落 : mobModel.js.initDrops() line 16 =&gt; 0.36 * dbPlayer[pId].totalState.luk</li>
+                <li>[done] luck 影响 add : gQuickBattle.aggroSaving() line 536 =&gt; - dbPlayer[pId].totalState.luk</li>
+                <li>[done]接任务逻辑进行判断 - prequest + reserved( ==0 or == pId + 1)</li>
+                <li>[bug fix] 云中的强盗 改名为 云中强盗，与其他任务的强盗区分 - taskId=21</li>
+                <li>[done] 快速战斗默认技能要准备好，免得怪物没放出大招就被秒了 - 改为gcd没有好，但是所有技能都好了 CDMOdel.ready()</li>
+                <li>bug：一个NPC有感叹号，有问号的时候，显示感叹号+问号？ - 没改好</li>
+                <li>[bug fix] 任务描述文本中，奖励经验和金钱的展示要用千分位分割</li>
+                <li>[not a bug] 王大应该不能学习 阳刚内功，但是现在可以，存档2 -- not a bug: 调和内力可以学所有武功</li>
+                <li>[done] cityBuilding 点击了之后颜色区分，方便知道目前在哪个地方</li>
+                <li>[bug fix] 快速战斗失败后，退回大地图，自动跟踪的镜头失效</li>
+                <li>快速战斗，怪物技能伤害修正</li>
+                <li>快速战斗，玩家范围效果、内力特殊效果、不同武器和攻击类型、修正</li>
+                <li><del>修改现在player的cd，改成 CDClass - 20221109</del></li>
+                <li>[done]玩家攻击 附带的debuff 效果实现</li>
+                <li>[done]怪物攻击 附带的debuff 效果实现</li>
+                <li>[done]怪物的 毒 效果持续时间增加，毒 可以被 治疗治愈。</li>
+                <li>[done]中了debuff 的时候，在buffWidget显示debuff 效果，fade的时候移除</li>
+                <li>dynamicScene 里面 buffWidget 相关的逻辑，记得也要更新 CharacterModel.update</li>
+                <li>[done] debuff 触发概率太高，要调低，否则玩家被无限连招</li>
+                <li>[done] debuff 概率与怪物level挂钩，受玩家抗性影响: 抗性max 100%，概率=40%+mob.level/125</li>
+                <li>[done] heal 武学等级大于5级的时候，移除debuff</li>
+                <li>[bug fix] 已经学会4个外功的时候，再学习新的外功，应该不能装备才对</li>
+                <li>[bug fix] 玩家死亡，或者重新开始快速战斗的时候，或者debuff 重绘制的时候，要么重置dbPlayer[pId].dbfObj 里面的duration，要么根据这个重绘debuff图标</li>
+                <li>[bug fix] 采购，最大，的逻辑：库存1200个，钱够，投资数量低，每次最大能买的数量跟钱对不上，是不是乘以了占有率折扣？但是库存没有乘以占有率折扣？</li>
+                <li>[待验证] 存档2，已经通过绕路，在其他地方买了船，开回平原完成送船任务，会不会有问题？ - 代码已修复待验证</li>
+              </ol>
+              </li>
+              <li>通关、结局实现</li>
+              <li>DynamicScene 完毕之后，集成测试快速战斗</li>
+              <li>调整快速战斗中，不同类型的武学的加成系数，平衡单体、范围武学。一次攻击变为多次，而不是增加单次的伤害。</li>
+            </ol></td>
+          </tr><tr><td>20221020</td><td>
+            <ol>
+              <li>[done with stable diffusion]city中，场景的配图，重做并美化</li>
+              <li>[bug fix] 修正快速战斗中的mob.cdModel问题</li>
+              <li>[bug fix] 进入快速战斗，退出，esc对话框 无法弹出</li>
+            </ol></td></tr>
+          <tr class="trh1"><td>2023</td>
+            <td>Iteration 3, code name = hana / 夏风冬雪，春花秋月</td></tr>
+          <tr><td></td><td>
+              <ol>
+                <li>整体目标 : 游戏基本完成，具备Beta测试条件</li>
+                <li>游戏功能<ol>
+                  <li>实现无尽模式（无尽）、100关模式（竞技场？）、奶牛关（秘境）等特殊游戏模式<ol>
+                    <li>无尽</li>
+                    <li>百人道场（竞技场、道场）- 洪都 不良人 任务146搏击俱乐部通关奖励。</li>
+                    <li>秘境</li>
+                  </ol>
+                  </li>
+                  <li>通关、结局实现</li>
+                  <li>制作组按钮和页面、效果，与通关结局是否关连？</li>
+                  <li>验证 王大、小邱 游戏性 - 专属任务、共享银行</li>
+                  <li>加入cmd命令行模式，控制台全面加强，纯文本？场景：老板键，便于人多的时候摸鱼玩耍。- 也许只能实现自动战斗</li>
+                </ol>
+                </li>
+                <li>战斗场景 Enhancement<ol>
+                  <li>重做所有mob 的 图片和动画</li>
+                  <li>重做dynamic scene 玩家的动画 ，jing 的版权问题</li>
+                  <li>所有场景 room 设计<ol>
+                    <li>围城类 room : s001 - s020</li>
+                    <li>道场类 room : a001 - a005</li>
+                    <li>街道/宫城类 room:</li>
+                    <li>野外/草木类 room : p001 - p020</li>
+                    <li>地下城 room : t001 - t010</li>
+                  </ol>
+                  </li>
+                  <li>地图战斗 的 debuff 效果</li>
+                  <li>战斗场景地图 extruded，解决分裂线问题</li>
+                </ol>
+                </li>
+                <li>音乐<ol>
+                  <li>检查 mp3 是否的确会带来版权问题</li>
+                </ol>
+                </li>
+                <li>任务<ol>
+                  <li>整理全部任务文本，充实游戏任务</li>
+                </ol>
+                </li>
+                <li>后续版本规划，盈利：加入云端存档（设备id或账号：上传/下载）、提供云端游玩、云端充值购买礼包。<ol>
+                  <li>云端的存档可以在云端直接游玩，</li>
+                  <li>可以直接在网站上充值购买精华、金锭、银锭、金币</li>
+                  <li>云端开始的也可以下载到设备，包括购买的解锁内容</li>
+                  <li>建账号 - 开游戏/绑定已经开始的存档游戏 - 上传云端 - 云端登陆（网站） - 充值购买礼包 - 云端游戏存档中生效 - 云端继续玩 / 同步到设备继续玩</li>
+                  <li>网页支付直接对接支付宝/微信个人收付款。</li>
+                  <li>是否，真气可以多个，不需要激活，但是效果同时生效，可以叠加？这样需要练多种内功</li>
+                </ol>
+                </li>
+                <li>缺陷<ol>
+                  <li>[bug] 广陵 鉴真 [lv=100]再攀高峰 taskId=129 任务完成条件 toString  出错 itemModel.js 312 undefined itemCate</li>
+                  <li>[bug] 任务40 军心，完成诗词北山，需要成都的百姓，错误？应该是荆州的？</li>
+                  <li>[done] 苏州、常州、广陵、杭州-摩天塔，需要增加大量公共任务，荆州-凌霄楼</li>
+                  <li>dynamicScene 里面 buffWidget 相关的逻辑，记得也要更新 CharacterModel.update</li>
+                  <li>[fix to be check] 也许是bug：提交任务 货物 x 若干的时候，如果船不在NPC 对应的城市，应该不能完成任务才对？ taskModel.taskStatus line 171</li>
+                </ol>
+                </li>
+                <li>调整<ol>
+                  <li><del>luck 可以作用于自动战斗的怪物 aggro 判断</del></li>
+                  <li>[done] 进入快速战斗也切换背景音乐 - 目前是城镇音乐，要换成别的，应该在某几种之间随机，而不是全随机</li>
+                  <li>[done] 航海地图太单调，海洋中加入 深水、水草、主航道等装饰，城市主径标记</li>
+                  <li>[fixed] 荔枝 和 剑南春任务无法完成，进行调整</li>
+                  <li>[done] 重庆改名为 南平。</li>
+                  <li>[fixed] 新茶任务无法完成，改为交至重庆</li>
+                  <li>[done] 每个任务加当前城市 0.5% 声望</li>
+                  <li>[done] 鉴定：只有真的有需要鉴定物品才收钱，鉴定费用减少 10000 &gt; 1000</li>
+                  <li>[done] 平原-&gt;金陵之后，加入金陵引导寻找小秋和王大的主线任务。安抚流民等。</li>
+                  <li>[done] tobeVerified: 因目前产量与占有率挂钩，大幅上调金陵、广陵、常州 等地产量，降低交易难度 生产率=4.0-&gt;8.0</li>
+                  <li>[done] tobeVerified: 投资升级城市所需的费用太高，降低难度，目前投资金额 = 实际金额 * 3 ，需继续试用验证系数</li>
+                  <li>[done] 检查 解锁王大 小秋 的任务奖励</li>
+                  <li>[toBeVerify] 共享银行</li>
+                  <li>[done] [toBeVerify] 增加 解锁王大 小秋 的系统提示弹窗</li>
+                  <li>[done] [toBeVerify] 优化 点击领悟的时候判断行囊物品数量，大于63 无空位，提示无空位，不给领悟，加入shake动画</li>
+                  <li>[done] [toBeVerify] 优化 领悟窗口如果放入了宝石，点击退出，把宝石也拿走</li>
+                  <li>[done] 优化 领悟窗口如果领悟了武学，没有点击就退出，武学丢失，应该在领悟之后自动放入行囊</li>
+                  <li>优化 检查分解/合成 的窗口逻辑，尽量避免因为忘记点宝石就关闭窗口，导致宝石丢失的情况（关闭的时候自动把所有宝石放回行囊即可）。</li>
+                  <li>[done] 优化 购买船契的界面，加入船契对应的船只情况的描述</li>
+                  <li>[done and checked] 卖船的时候，把 dbPlayer[pId].shipFitSpeed 还有 shipFitCargo 都清0 - CharacterModel.removeShip</li>
+                  <li>[done] 增加任务：从金陵出发送雨花石 获得 武学精华 的任务，以及返程获取 武学精华的任务，打通 贸易和武学的壁垒</li>
+                  <li>[done] 调整任务：增加任务获取的经验值和奖励（金币）数量，提升升级速度，降低难度。</li>
+                  <li>[done] 检查 投资超过50%之后，可以获得城市投资收益。</li>
+                  <li>[fixed] 升级船的时候，npcHail 的z-index 低于dialog-box，导致提示内容看不到的问题 - 小分辨率情况 - 调整了top值</li>
+                  <li>[fixed] 建筑里面npc过多，不会换行，导致部分npc无法点击到的问题 - 小分辨率情况下</li>
+                  <li>[done] 优化 提高 成都3000、金陵2500、长沙2500、杭州2500、荆州2500 初始发展度。</li>
+                  <li>[done] [toBeVerify] 优化 完成任务的时候，如果有奖励物品发放，但是已经没有空间，进行提醒，并拒绝完成任务：例如，毛皮换白银任务、</li>
+                  <li>[done] [toBeVerify] 开宝藏的时候判断行囊数量</li>
+                  <li>[done] [toBeVerify] 所有解锁flag 和 reward代码重新完善</li>
+                  <li>[done] 优化 轻功 70翻树 105爬山，改为 40翻树 70爬山</li>
+                  <li>[done] [toBeVerify] bug 宝箱物品未完善</li>
+                  <li>[done] 地图更新，添加新的战斗zone，等级控制在35-70之间，充实游戏中期内容</li>
+                  <li>[done] [toBeVerify] 加入合成配方，正负零，转换精华类型。</li>
+                  <li>[done] 平衡调整：真气增加的hpMax mpMax *3,  hpReg mpReg *4</li>
+                  <li>[fixed] 在打开弹窗例如 C 的时候，sysToast弹出提示投资收益， 关闭后 mask 没有消失？</li>
+                  <li>检查 解锁 无尽模式、道场 等其他游戏模式</li>
+                </ol>
+                </li>
+              </ol></td>
+          </tr><tr><td>20230510</td><td>
+            <ol>
+              <li>特殊游戏状态下zone-怪物表：百人道场、秘境奶牛关、竞技场</li>
+              <li>zoneId=112 百人道场 unlockCode=5 解锁后 flagAshram ,进入 zone 切换至百人状态，否则进入 普通状态。</li>
+              <li>zoneId=113 无尽模式，没有解锁时候无法进入，解锁后进入并刷新怪物</li>
+              <li>zoneId=82 秘境奶牛关，没有解锁时候无法进入，解锁后进入并刷新怪物</li>
+              <li>zoneId=109 武道会，没有推荐状无法进入，有推荐状刷新怪物，完成任务风尘三侠通关后，进入则变为boss竞技场=直接随机刷新boss</li>
+              <li>任务编号 129，多种条件，解锁 巅峰等级的判断</li>
+              <li>任务编号 450，多种条件，检查 风尘三侠 四本书，完成任务的判断，解锁 boss单挑</li>
+            </ol></td>
+          </tr><tr><td>20230513</td><td>
+            <ol>
+              <li>通关场景 credits<ol>
+                <li><del>512x512 的水墨画 6张 横排，从右边向左卷动 &lt;-</del></li>
+                <li>人员名单、鸣谢 等，从 右边向左卷动 &lt;- 快速</li>
+                <li>播放场景配乐</li>
+                <li>可以退出</li>
+                <li>wind and dust 狂风惊澜 世人浮沉 离落如尘。三人联袂，涤荡  兵起祸连惊狂风 世人零落泛如尘</li>
+              </ol>
+              </li>
+              <li>获取经验 巅峰等级解锁判断</li>
+            </ol></td>
+          </tr><tr><td>20230515</td><td>
+            <ol>
+              <li>boss 战斗，boss aggro 取消，降低难度。</li>
+              <li><del>百人道场 aggro 取消，强制1v1</del></li>
+            </ol></td>
+          </tr><tr><td>20230516</td><td>
+            <ol>
+              <li>debuffManager 和 目前的 1VN 的quickBattle 逻辑混乱，需要重构代码</li>
+            </ol></td>
+          </tr><tr><td>20230517</td><td>
+            <ol>
+              <li>解锁小秋已确认，物品调整。</li>
+              <li>解锁王大已确认。</li>
+            </ol></td>
+          </tr><tr><td>20230518</td><td>
+            <ol>
+              <li>怪物 掉率乘以随机数，进一步调整掉率 ：20级以下，等级保护，新手区，掉率不修正。20级以上掉率需要先随机。</li>
+              <li>玩家命中可以减少怪物的闪避，玩家幸运可以减少怪物的招架</li>
+            </ol></td>
+          </tr><tr><td>20230515</td><td>
+            <ol>
+              <li>重新设计真气属性加成 - 按照潜在外功类型对应的build，设计真气效果。</li>
+            </ol></td>
+          </tr><tr><td>20230521</td><td>
+            <ol>
+              <li>幸运改名为精准，效果保持不变</li>
+              <li>新装新的真气效果设计</li>
+              <li>检查 反伤 逻辑，反弹的是被def减少后的数值，还是没有被def的数值？ -- 是否改为没有被 def 的数值</li>
+              <li>生成武学的逻辑进行调整，由原来的基本值+tier随机，改为 基础值 + tier随机 * 0.5 + tier随机 * 0.5 ，调整分布</li>
+              <li>根据治疗ID 对应的技能，增加基础抗性？</li>
+            </ol></td>
+          </tr><tr><td>20230522</td><td>
+            <ol>
+              <li><del>bug 金陵旁边的宝箱是空的，why ，载入存档0</del> 触发了多次事件，已修正。</li>
+            </ol></td>
+          </tr><tr><td>20230523</td><td>
+            <ol>
+              <li>陌刀任务，陌刀装备情况下，无法完成任务 - 已验证。</li>
+              <li>fixed 自古南平/汉中 任务，同一个击杀目标，只更新了taskList靠前的，应该两个都更新 - find index 之后不能跳出，应该是查找所有。</li>
+            </ol></td>
+          </tr><tr><td>20230524</td><td>
+            <ol>
+              <li>剑南春 特产品 通过任务解锁，可以0 价格 倾销。</li>
+              <li>fixed : 购买保险箱的 钱的 hud 效果 位置有问题。</li>
+              <li>fixed : 轻功70以后，可以翻山，导致移动出了地图边界，需要做限制。</li>
+              <li>fixed : task 的toString description 的 \n 自动替换成 <br/></li>
+            </ol></td>
+          </tr><tr><td>20230526</td><td>
+            <ol>
+              <li>price wave logic enhance and price re-balance</li>
+            </ol></td>
+          </tr><tr><td>20230528</td><td>
+            <ol>
+              <li>fixed : 声音设置只影响了phaser的声音，没有影响html音效类。</li>
+            </ol></td>
+          </tr><tr><td>20230529</td><td>
+            <ol>
+              <li>fixed :  声音设置菜单导致0号存档丢失问题</li>
+              <li>快速战斗增加 &quot;我赶时间&quot;</li>
+            </ol></td>
+          </tr><tr><td>20230530</td><td>
+            <ol>
+              <li>河内的枯业任务改为可重复 普洱-万象山庄加入可重复任务 金陵部分重复任务移动到其他城市</li>
+              <li>seedRandom, rewrite Math.random 随机结果稳定 <del>存档时加入随机数序列 rand 和 possRand 序列，载入时也载入，取随机数的逻辑优先从随机数序列，其次才实时计算</del> - 解决存档读档刷武学问题</li>
+              <li>开新游戏档案加入 uuid seed，存档唯一。保存、写入游戏的时候保持一致。确保游戏内读档随机数结果一致；确保不同游戏档的结果不一致。</li>
+              <li>我赶时间 1 vs All 的时候，mob先cd 和 技能cd 清零，等玩家先出手。</li>
+            </ol></td>
+          </tr><tr><td>20230602</td><td>
+            <ol>
+              <li>cargo supplyMax调整，部分UI性能及布局改进</li>
+            </ol></td>
+          </tr><tr><td>20230603</td><td>
+            <ol>
+              <li>cargo价格调整，按照绝对值判断利润而非按照价格比例；</li>
+              <li>李隆基的终极奖励从钱改为辉光调和精华 灵州的改为 辉光阳刚，永王的改为 辉光阴柔</li>
+              <li>lv75 真信 太强力需要 nerf</li>
+            </ol></td>
+          </tr><tr><td>20230605</td><td>
+            <ol>
+              <li>赌博目前太强力，要调整，一个是高级物品价格要改，或者改法是不让人能看具体等级、外功类型等</li>
+              <li>是否赌博只能外功武学，但是领悟可以指定外功类型，拳剑刀枪暗</li>
+            </ol></td>
+          </tr><tr><td>20230606</td><td>
+            <ol>
+              <li>检查 如果已经买了千里马，那么千里马任务的奖励？ - 提示已经有了，无法完成，也是可以的。因为可以卖掉再交任务。</li>
+              <li>翡翠扳指买过了，但是任务又给了一个，需要检查所有类似 unique 物品的任务发放逻辑问题。</li>
+              <li>开宝箱遇到唯一物品，折算为钱。</li>
+            </ol></td>
+          </tr><tr><td>20230607</td><td>
+            <ol>
+              <li><del>是否上调王大的基本等级，和基础武学修行，让他默认轻功40可以爬树？</del></li>
+              <li>player 的 def 重新设计，与mob的统一，改为硬免伤（伤害-防御），而非现在的百分比，验证战斗逻辑~~<ol>
+                <li><del>注意：mob的def也不是硬免伤，是 1 - def/1000，还是算百分比。</del></li>
+                <li><del>那实际上是不是可以统一，只要下调真气给的def 数值就行了。72%其实等于 720，太强力。nerf即可</del></li>
+              </ol>
+              </li>
+              <li>player 的 闪避、招架等数值重新平衡调整，max 应该可以到95%，检查目前的真气、轻功数值是否需要调整</li>
+              <li>fixed 载入其他角色的时候，武学界面 治疗 没有清空，还是上一个playerId 的</li>
+            </ol></td>
+          </tr><tr><td>20230608</td><td>
+            <ol>
+              <li>小秋买船出港偶尔情况money变为 NaN，未能复现，需要排查问题。<ol>
+                <li>已排查所有对dbPlayer[pId].money 直接操作的代码，进行改良。</li>
+              </ol>
+              </li>
+              <li>通关还是应该跳转到 制作组，或者播放个什么东西，否则通关一点感觉都没有。。。。</li>
+            </ol>
+          </td></tr>
+          <tr><td>20230612</td><td>
+            <ol>
+              <li>gui Enhancement, player sprite</li>
+            </ol>
+          </td></tr>
+          <tr><td>20230614</td><td>
+            <ol>
+              <li>new npc avatar</li>
+              <li>next - mob sprite sheet</li>
+              <li>next - dynamic scene tile map</li>
+            </ol></td></tr>
+          <tr><td>20230618</td><td>
+            <ol>
+              <li>new mobs sprite done</li>
+              <li>decide to add game difficulty.<ol>
+                <li>泛泛之徒=简单=1 - 当前内功设置，需要激活，玩家不会战死，死亡无惩罚，只会饿死，饿死GameOver，</li>
+                <li>武艺超群=普通=3 - 内功属性变为1/4，四个内功同时生效，不需要激活，只能对应阴阳调和，玩家会战死，战死损失30%金钱,饿死，饿死GameOver.</li>
+                <li>绝顶高手=困难=5 - 内功属性同困难，调和可以学阴阳，阴阳可以学调和，战死损失100%金币,饿死，饿死GameOver.</li>
+                <li>立派宗师=骨灰=8 - 难度同困难，死(战死、饿死)后角色不再可用。（但是另外的pId 如果解锁了 还能继续）</li>
+                <li>开始新游戏的时候可以选择，游戏开始后不可调整。</li>
+              </ol>
+              </li>
+            </ol></td></tr>
+          <tr><td>20230619</td><td>
+            <ol>
+              <li>player animation : idle(with weapon) stand(with weapon) walk(with weapon) jump(with weapon) attack(fist,sword+fist,machete+fist,spear+fist,bow+fist)</li>
+              <li>所有的sprite 忘记做第二攻击效果，例如剑的攻击，应该还有拿剑的时候用拳掌攻击的动画。</li>
+              <li>pId=2 增加 戒指的属性，考虑+攻防、恢复，加描述，王二的关怀激励着她 云云，这个戒指绑定</li>
+            </ol>
+          <tr><td>20230624</td><td>
+            <ol>
+              <li>animation pId=3 done</li>
+            </ol></td></tr>
+          <tr><td>20230625</td><td>
+            <ol>
+              <li>animation pId=2 begins</li>
+            </ol></td></tr>
+          <tr><td>20230627</td><td>
+            <p>重做dynamic scene 玩家的动画</p></td></tr>
+          <tr><td>20230628</td><td>
+            <ol>
+              <li>animations done.</li>
+              <li>1-machete 1-spear 3-machete 3-spear jump 中间有阴影，要移除。</li>
+            </ol></td></tr>
+          <tr><td>20230629</td><td>
+            <ol>
+              <li>重做所有mob 的 图片和动画  - done</li>
+            </ol></td></tr>
+          <tr><td>20230630</td><td>
+            <ol>
+              <li>所有场景 room 设计 : 野外/草木类 room : p001 - p020</li>
+            </ol></td></tr>
+          <tr><td>20230701</td><td>
+            <ol>
+              <li>所有场景 room 设计 : 地下城 room : t001 - t010</li>
+            </ol></td></tr>
+          <tr><td>20230702</td><td>
+            <ol>
+              <li>所有场景 room 设计 : 街道/宫城类 room: w001-w010</li>
+            </ol></td></tr>
+          <tr><td>20230703</td><td>
+            <ol>
+              <li>所有场景 room 设计 : 道场类 room : a001 - a005</li>
+            </ol></td></tr>
+          <tr><td>20230704</td><td>
+            <ol>
+              <li>所有场景 room 设计 : 围城类 room : s001 - s020</li>
+              <li>地图战斗 的 debuff 效果</li>
+              <li>战斗场景地图 extruded，解决分裂线问题</li>
+              <li>1mobAI 调整，近战距离不再反复不断地移动、找背</li>
+              <li>mob 会移动到超过地平线上方，需要限制 -- 应该和玩家的逻辑相同，可能忘记改了</li>
+              <li>玩家被攻击后可能导致浮空的问题，需要修正。</li>
+              <li>近战的距离太短，王二刚出场的刀法有效距离太小，或者持续时间太短。</li>
+              <li>取消竹林等对怪物和玩家的碰撞</li>
+              <li>boss 的比例放大</li>
+              <li>怪物的碰撞体积body 尺寸似乎有问题</li>
+            </ol></td></tr>
+          <tr><td>20230705</td><td>
+            <ol>
+              <li>player attack 根据武器与武学情况，决定放 attack 还是 melee 动画</li>
+              <li>BubbleWidget 按键 1234 RM 之后，增加音效 （成功 / 失败）</li>
+              <li><del>mob 根据远程的情况下 bow-1 bow-2 bow-3 还有cavalry 应该根据情况，决定放attack 还是 melee 的动画</del></li>
+            </ol></td></tr>
+          <tr><td>20230706</td><td>
+            <ol>
+              <li>Dynamic 掉落的弩的图标是本书的造型</li>
+              <li>bullet 的tint 效果需要调整</li>
+              <li>玩家武学的射程没有明确的显示，暗器的射程不明显，或者太短。</li>
+              <li>暴击、吸血、反伤、治疗，显示 hud info</li>
+              <li>加入更简单的游戏基本操作介绍任务，例如 装备、武学 说明任务</li>
+              <li>dynamic 中 竞技场、秘境等的判断和载入，应该与quickBattle相同调整</li>
+              <li>dynamic scene 6个朝向的散射效果，箭头角度有误</li>
+              <li>dynamic scene chaseObj 发出后就默认与玩家碰撞了。疑似因为实际fire都是从player坐标发出的，而非mob坐标。需要进一步排查。</li>
+              <li>mob 散射的角度不对</li>
+              <li>mob 地刺的发射速度不对，太快了. 03_dbMob. wgeAniLast 时间需要提高。</li>
+              <li>在loading scene 可以按按钮打开 行囊、武学等，应该禁止？</li>
+              <li>mob 发射的missile 的朝向反了。可能跟之前修改 6个朝向的箭头的时候改的朝向有关系。需要再传个参数修正 - 问题7</li>
+              <li>addHurtInfo 的字体大小无效问题</li>
+              <li>player 王二的锥形效果反了，应该从小到大。现在是从大到小了。</li>
+              <li>player attack 的 debuff 效果确认</li>
+            </ol></td></tr>
+          <tr><td>20230710</td><td>
+            <ol>
+              <li>切换到DynamicScene 的背景音乐需要调整 - 改为和 gQuickBattle一样的战斗背景音乐</li>
+              <li>DynamicScene GameOver 之后的背景音乐要调整 ？ 或者 停止</li>
+              <li>调整了怪物AI，现在范围内无可用技能的时候会朝玩家追击</li>
+              <li>在城市无法打开背包、船只界面问题。</li>
+              <li>所有t0x 的room，far那层表示地面的地砖要改掉，不使用242，改成另外的。否则碰撞有问题。例如长沙旁边的墓</li>
+              <li>mob 在 dynammic 的Y 最大可移动范围要调整，与现在player的一致。目前Y的最小值偏小了，导致mob走到了地面上方。</li>
+              <li>DynamicScene 加载战斗怪物的逻辑，参照gQuickBattle 修改</li>
+              <li>Dynamic 无尽模式1000个怪，地图尺寸可能需要调整 -- 验证效率问题<ol>
+                <li>地图尺寸100 可以，但是1000个MobAI 导致卡顿，需要优化</li>
+                <li>dropArr 太多了，如果不捡，应该过若干时间自动消失 - 加入cd 逻辑即可</li>
+                <li>无尽关加入 下一波 的提示。 目前在 player.hud里面的效果非常不明显。</li>
+                <li><del>小问题：必须尸体都捡完，army 里面的 shouldDestroy才标记，进而导致必须点完所有尸体才刷下一波，是否调整？ -- 可以不管。或者不掉落？</del></li>
+              </ol>
+              </li>
+              <li>入口的entrance 加入明显的效果，阴影等，表示是entrance</li>
+              <li>无尽关新的波次更改背景音乐</li>
+            </ol></td></tr>
+          <tr><td>20230712</td><td>
+            <ol>
+              <li>DynamicScene 的Wave 提示放到 gGui中</li>
+              <li>没有mob 的空旷提示，用 gGui 的提示实现，而不是 addHurtInfo</li>
+              <li>mob 增加 slow forze stun 的 tInt 效果，浅蓝深蓝灰色，debuff取消后移除</li>
+              <li><del>考虑给Missile加入粒子效果，根据特效不同，Stun Slow 剧毒 等，增加不同的颜色效果：mob的看debuffArr，一个效果一个对应的粒子，可以多个。玩家的看wge特效。</del></li>
+            </ol></td></tr>
+          <tr><td>20230713</td><td>
+            <ol>
+              <li>游戏基本功能完毕，剩余：难度、云端备份等，不在本轮处理</li>
+              <li>后续计划：<ol>
+                <li>webpack 打包 - 打包后 cordova 问题</li>
+                <li>electron 桌面应用/ 或者 osx windows - 屏幕分辨率问题</li>
+                <li>steam 发布文档阅读</li>
+                <li>全面测试<ol>
+                  <li>dynamicScene mob的可移动位置有问题，会超出地平线上方，可以参照exitZone 位置</li>
+                  <li>初期武学的学习速度太慢，要修正？ --  wis/600 -&gt; wis/400</li>
+                  <li>DynamicScene 背景音乐循环，但是不改变，导致部分旋律短的效果不好，要用播放列表循环</li>
+                  <li><del>大地图的 player sprite 动画有周围不透明边缘，图片要进行修缮处理</del></li>
+                  <li>后山的怪物的闪避率太高，是否有问题，要复查；-- 快速战斗的闪避很少，但是Dynamic里面战斗很多闪避。</li>
+                  <li>开始的zone后山战斗的节奏不行，因为经常没蓝，要调整 -- 实际上所有武学的内力值都要下调。</li>
+                </ol>
+                </li>
+              </ol>
+              </li>
+            </ol></td></tr>
+          <tr><td>20230718</td><td>
+            <ol>
+              <li>electron winx64 arm 打包成功</li>
+              <li>写个程序来做js min css json 等资源打包。nodejs terser cleancss</li>
+              <li>加入繁体中文支持？多语言支持？</li>
+              <li>问题<ol>
+                <li>切换分辨率问题 - 需要调用electron api，需要设置phaser的resize 事件</li>
+                <li>electron 默认app 有上方的menu菜单，需要隐藏的。</li>
+                <li>需要支持 window 和 fullScreen 模式</li>
+                <li><del>需要继续验证 fps 。目前在electron 的包上面 不太稳定，也许尝试直接打windows的 - 确认是arm虚拟机问题。</del></li>
+                <li>characterModal 在mac 全屏 状态下字太小了。应该是跟超高分辨率有关 -  或者字体单位</li>
+                <li>在load screen 可以打开 inventory character 等modal，也显示bubble，不对。</li>
+                <li>loadingScene 的图片位置没有居中显示，靠近左上角</li>
+                <li>Mob getHurt 的时候会有 -0 的情况</li>
+                <li>后山地图有个雪山的room，tile的远近有问题，需要改正</li>
+                <li>加一个引导 设置 快速战斗 的任务</li>
+                <li>手机端打包，操作的交互问题要考虑，分辨率问题要调整。</li>
+                <li>生产的包，要移除gConsole。或者放进去，但是加开关。</li>
+                <li>load screen 需要禁用所有的输入，否则可以打开 esc menu 退出游戏 ｜ 需要关闭bubble debuff  hud 等</li>
+                <li>logo 不醒目。</li>
+                <li>武学说明里面 米 改为 像素</li>
+                <li>调整 gui 字体 长宽等，更加适合正常分辨率。 -- windows</li>
+                <li>loading页面加入一些游戏提示。</li>
+                <li>完善打包文档。</li>
+                <li>自定义按键 -- 暂不支持？ 按键设置 的事件需要完成，用按键图</li>
+                <li>electron  - 加 窗口-最大化 的分辨率设置</li>
+                <li>dynamicScene 跟老兵教头单挑，无法碰撞到老兵教头？</li>
+                <li>玩家攻击mob 的时候，在dynamic 仍然会有 -0 的情况。= 玩家失误，增加了玩家的hud信息提示</li>
+                <li>在背后攻击加暴击几率50%？ 玩家在怪物背后，或者怪物打玩家背？</li>
+                <li>狗熊岭 和 枯木荡 的坐标交换一下。</li>
+                <li>新手区30级以前，所有的怪物难度需要进一步nerf。目前dynamic的战斗比较吃力，而且怪物时随机刷的，容易厉害的怪刷到前面。</li>
+                <li>初级治疗的治疗量太少，需要翻倍以上</li>
+                <li>10级以下怪物、20级以下怪物，基本移动速度，<del>MobAI 降低</del> - 降低初期dynamic难度</li>
+                <li>调整王二初始的内功属性，增加mp恢复，降低hp恢复。 - 增加dynamic 续航</li>
+              </ol>
+              </li>
+            </ol></td></tr>
+          <tr><td>20230726</td><td>
+            <ol>
+              <li>进入dynamic 加满HP？</li>
+              <li>杀死boss之后，出现 另外的出口。endRoom 。注意 无限关的情况。</li>
+              <li>王二使用1.5s的拳掌后，4秒的刀技能的冷却也重置，而且需要4秒才冷却，而不是1。5秒 -- 冷却时间不同导致。</li>
+              <li>王二的刀技能存在刷出来就和怪物重叠，而没有触发碰撞的情况，导致攻击无效。</li>
+              <li>低等级武学所需要的经验值进一步降低。</li>
+              <li>bubble Exp的两个progressbar 的长度似乎不对。没有改成跟变宽了之后一样的长度。 bubbleWdiget hard-coded</li>
+              <li>mainMenu 继续游戏 的 css 样式调整，目前不醒目</li>
+              <li>在dynamic 死亡没有解开 行囊等键的禁用，退回载入进度之后，这些按键仍然被禁用。</li>
+              <li>背刺应该无法招架 - 玩家在怪物背后。同时增加提示： 怪物无法招架背后的攻击，而玩家可以。</li>
+              <li>背刺的逻辑要调整，不是需要站在怪物背后 - 如果是范围伤害，只要bullet在怪物背后命中，就是背刺。 -- 同时增加关于这个规则的提示。</li>
+              <li>整军待发 任务，打败10次改为打败1次</li>
+              <li>静边新兵的击杀数量，以及怪物强度调低。</li>
+              <li>dynamic 玩家加入连击记录，每多一次真实伤害提高10%，加入规则提示，加入dynamic 提示连击数 followplayer，被攻击/闪避/未命中等连击=0</li>
+              <li>加入规则提示：定身、僵直状态无法防御</li>
+              <li>加强王二初始技能，<del>刀法改为 左右护体效果</del>，降低打背难度，掌法增加定身特效。</li>
+            </ol></td></tr>
+          <tr><td>20230727</td><td>
+            <ol>
+              <li>整军待发 奖励 锁甲，而身上已经有锁甲，卡住，然后继续，但是锁甲没给到玩家。 -- 应该是折算成钱的，检查逻辑，考虑加npcHail的提示。</li>
+              <li>作气，云中大盗 数量改为4个</li>
+              <li>刷新怪位置的逻辑需要调整，不能完全随机，解决苦力刷在很后面的问题。应该分批次刷，前面的在前面位置随机刷新。例如分3-4批</li>
+              <li><del>也许？ 移除苦力的 狂刀 技能</del></li>
+              <li>攻城战地图，某个砖头城门的地图，存在空气墙，砖头城门下方无法走过去。 3格砖头门，两边有两个X</li>
+              <li><del>被怪物攻击后</del>，杀死怪物后，似乎会导致治疗的CD重置，即使没有放治疗，也需要等很长时间。-</li>
+              <li>也许？room中间有概率刷一个包子？可以补满HP / 20%hp，但是吃了就没了。 -- 增加续航。目前没有恢复，等mana治疗，前期比较蛋疼。</li>
+              <li>或者，mob死亡后的掉落，增加一个概率的包子/口粮？，吃了可以回血。</li>
+              <li>怪物眩晕后，招架了，检查代码逻辑。</li>
+              <li>周万顷 的 大小没有变，应该是1.2倍？ - data 里面设置的1.1 逻辑无误，数据改为了1.3</li>
+              <li>拔营 数量改为7以下。先锋 数量改为10以下。： 一次就能杀够。</li>
+              <li>采购页面，字体太小，包括商品名称，还有虚拟数字按键的键盘数字，都太小。</li>
+              <li>1200分辨率情况下，npc头像9.6vmin 也有点小，改大</li>
+            </ol></td></tr>
+          <tr><td>0230731</td><td>
+            <ol>
+              <li>build automation for windows</li>
+              <li>build automation for osx</li>
+              <li>build automation for ios</li>
+              <li>ios css adaption</li>
+              <li>ios user-input adaption: up down left right 1 2 3 4 rightMouse jump / I C O J K ESC ...</li>
+              <li>移动输入改为在 scene 实现，而非gui。</li>
+              <li>输入区定在左下角，left bottom 10vmin ，宽度13vw - camera 宽度</li>
+              <li>荆州的landExit 位置在荆州城左边水里？Dynamic 单挑完成之后，自动出城，站在水里了，要改。</li>
+              <li>bug- 开船进城市，玩家坐标在水上，进入单挑，出zone，退回到原坐标，在水上。- 进zone 的时候，把位置改成zone位置。</li>
+              <li><del>提取所有字符串，添加多语言支持</del> 太难了。也许以后吧。。。。。。</li>
+              <li>大地图 空格 骑马 -- tobe tested. merge to dynamic if success</li>
+              <li>修改了iosHtml 中modal 关闭/离开/确认的表述、位置、btnClass 等。 index.html 和 index.for.pack.html 也需要做调整。</li>
+            </ol></td></tr>
+          <tr><td>20230808</td><td>
+            <ol>
+              <li>build for ios/osx/windows DONE! - documents updated in ROOT_FOLDER/readme.md</li>
+              <li>因为刘海屏问题，ios的gui位置需要重新适配，妈的。。。。主要问题在与左边的屏幕弧度</li>
+              <li>iOS css 按钮样式美化，考虑跟玩家tint 相关。 css 发光动画？</li>
+              <li>nerf 快速战斗。杀怪之后恢复hp mp 20% 而非完全加满。</li>
+              <li>战斗背景音乐有一个特别短，修改加长</li>
+              <li>桌面端 dialog 的弹出动画时间太长，导致显示效果不好，要调整速度。</li>
+              <li>桌面端 dialog 需要设置最大长度80vh。超出屏幕的时候滚动目前是整个gui的scroll，不对，应该在dialog内滚动</li>
+              <li>游戏logo 比较胖，1024分辨率下，左右50像素的六百还是不够，考虑64 或者72 甚至96</li>
+              <li><del>丐帮一袋弟子改名 小叫花 二代弟子改名 小乞丐 三袋</del></li>
+              <li>要不要，轻功100以后可以踏浪，普通格子的水也可以越过？</li>
+              <li>[tobeV] 快速战斗中了减速debuff，在大地图，debuff消失之后，C 对话框，角色的减速效果没有消失 例如，速度还是减速后的速度。-- debuff fade 的时候要刷playerState</li>
+              <li>裴旻需要buff - 必出 霸王+金刚 应该就可以</li>
+              <li>装备等级加晋升关系 描述，加到 tip 里面</li>
+            </ol></td></tr>
+          <tr><td>20230814</td><td>
+            <ol>
+              <li>在electron实现屏幕分辨率的处理</li>
+              <li>增加中期50-70 级别 任务和武学奖励 ，在长沙、汉阳、洪州一带。<ol>
+                <li>洪州=九江 归田园居-洪州-庐山-陶渊明居</li>
+                <li>长沙 桃花源记-长沙 惟楚有材-长沙 古战场 - 孙武</li>
+                <li>汉阳=武汉 年饭一般要用&quot;三全&quot;（全鸡、全鱼、全鸭）、&quot;三糕&quot;（鱼糕、肉糕、羊糕）、&quot;三丸&quot;（鱼丸、肉丸、藕丸）等</li>
+                <li>河内=云南 吃菌子 - 中毒 - 广州寻医 - 解毒</li>
+              </ol>
+              </li>
+              <li>增加熊掌掉率，虎牙，虎骨也调整。</li>
+              <li>睢阳的任务，需要连弩，改为扬州平原也出产，任务描述文字也要改。</li>
+              <li>bug 快速战斗的内容展示玩家当前hp的文字，出现了小数，查看具体什么原因导致-进入战斗补20%导致，应该都是整数。</li>
+              <li>桃花源 任务，等级和难度需要降低。奖励的轻功4级意义不大，也许改为内功？</li>
+              <li>无辣不欢的奖励要nerf</li>
+              <li>所有的lv6 的内功，阳刚的，都不加hp 而是加的另外一个其他属性。是否有问题 - 天罡真气</li>
+              <li>[已确认，无需处理] 检查，港口发展度超过9999 之后投资的逻辑</li>
+              <li>bug DynamicScene，死亡的时候在放加血（死亡动画播放时释放加血），卡在放加血动画的时候GameOver。载入进度之后，无法移动。</li>
+            </ol></td></tr>
+          <tr><td>2023.08.18</td><td>
+            <ol>
+              <li>重做大地图，调整：长江黄河、海洋的部分可踏浪区域；王二新手出生区域用树木等隔离出高等级地城。</li>
+              <li>fist 的尺寸调整，目前太小了，变大一些。现在是球体，改成比较高</li>
+              <li>李归仁 始皇帝雕像 等几个略微nerf</li>
+              <li>增加 dynamicScene 掉包子的概率。</li>
+              <li>[ ? ]排查 - 随机出完全相同物品的问题 - 没想明白问题所在。。。。加了console功能，方便后面遇到排查</li>
+              <li>调整 - 随机出的多个属性导致武学属性，特别是内功，整体正态分布的问题。是否有一个单独的过程，确定Tier之后，再决定小的台阶，然后应用随机数<ol>
+                <li>现在的逻辑：确定武学类型，确定武学Tier，确定真气类型，确定随机数序列，应用范围内的随机数，生成物品</li>
+                <li>调整后逻辑：确定武学类型，确定武学Tier，确定真气类型，确定随机数序列，确定小级别，先在随机范围内应用小级别，再应用随机数，生成物品</li>
+              </ol>
+              </li>
+              <li>nerf 现在的大治疗？太强力了。</li>
+              <li>是否，适当buff 后期boss的攻击力？特别是安禄山 史思明的？ - 九阳真气最后靠治疗和恢复硬磨死</li>
+              <li>泉州附近海面，地图错乱？</li>
+            </ol></td></tr>
+          <tr><td>2023.08.21</td><td>
+            <ol>
+              <li>开始增加游戏难度选择，简单/普通。 困难暂不实装。</li>
+            </ol>
+          </td> </tr><td><h3>2023.08.23</td><td>
+            <ol>
+              <li>覆盖存档是否提示？--- FUCK！！！ 必须加。神兽，把自己打了一个多礼拜的顶级存档覆盖了，妈的后面调试还要重新弄。</li>
+              <li>sell buy 之后没有更新city的money panel</li>
+              <li>[not a bug] 快速战斗，低级治疗也会提示解毒，查看什么问题。</li>
+              <li>载入/存档 的时候，目前标记了最新存档(building-active)，是否要在界面展示目前游戏对应的哪个存档(用building-active，那么最新存档换标记)？</li>
+              <li>注意：iOS 和 pack 的html 还没有更新，包括css。</li>
+              <li>[todo] 存在保存还是另存为的问题，主要影响困难/骨灰模式，说明如下：例如：当前存档2，保存到0<ol>
+                <li>方案1：当前=2 最新=0 (另存为到了0) =&gt; 骨灰模式玩家死亡，存档2的玩家不可用，存档0可用？</li>
+                <li>方案2：当前=0 最新=0 (切换了保存位置) =&gt; 骨灰模式玩家死亡，存档0的玩家不可用，存档2可用？</li>
+                <li>方案3：0 2 都不能用</li>
+                <li>方案4：困难模式开始游戏的时候就锁死存档位置，不允许另存为。</li>
+              </ol>
+              </li>
+              <li>针对被覆盖存档问题，还有联系到可能要做的存档云端备份和还原问题，考虑增加存档的dump 和 restore 功能。</li>
+              <li>为角色加入特长：<ol>
+                <li>小秋=亡语者 = 不会被墓穴怪物主动攻击. 其他人的特长呢？ - 已实装，已提示</li>
+                <li>王二=商人（投资港口可以获得收益，其他两人不行，解决其他人解锁后资金太多的问题）。 - 已实装，已提示</li>
+                <li>王大=武学奇才 经验积累速度1.2倍。 - 已实装，已提示</li>
+              </ol>
+              </li>
+            </ol></td></tr>
+          <tr><td>20230901</td><td>
+            <ol>
+              <li>BETA<ol>
+                <li>鹏鹏<ul>
+                  <li>默认按键控制，加入新手指引</li>
+                  <li>武学修习是什么意思</li>
+                  <li>银戒指无法出售，但是价格还显示51200</li>
+                  <li>力道 悟性 的具体作用是什么</li>
+                  <li>是否加入自动保存</li>
+                  <li>连击是否太过强力？</li>
+                  <li>武学学习的进度在哪里可以看到</li>
+                  <li>战斗场景无法看到行囊，导致无法知道还要打多少材料</li>
+                  <li>强盗 的 技能是否改弱一些</li>
+                  <li>游戏难度的表述容易误导人，是否简单成为普通难度，普通难度改为极难/困难难度</li>
+                  <li>是否需要提供缩略地图功能</li>
+                  <li>如果没有autoSave，也需要有个quickSave，目前保存游戏的交互不友好</li>
+                  <li>修习的技能要求，只有数字，没有给出具体对应的技能名称，例如，医书 需要 50，应该是需要 医疗 50</li>
+                  <li>不知道内功、轻功需要激活。 目前在开始给任务，进行说明的方式不成功。因为没看直接点的完成任务。</li>
+                  <li>出了灵州迷路了，找不到郭子仪。需要地图。</li>
+                  <li>问题：游戏内容评分：0非常无聊 10很有趣 =&gt; 5分</li>
+                  <li>问题：游戏售价：low magic age =&gt; 48</li>
+                  <li>以上反馈来自 王海鹏，加入 致谢名单</li>
+                </ul>
+                </li>
+                <li>信歌<ul>
+                  <li>提示仍然不友善，不知道头像旁边的条条表示什么意思。</li>
+                </ul>
+                </li>
+                <li>小安<ul>
+                  <li>在DynamicScene切换装备，角色造型没有切换</li>
+                  <li>界面说明还是不够清楚，第一个页面不知道分别那些条条表示什么意思。</li>
+                  <li>不知道可以切换和设置快速战斗</li>
+                  <li>点了玩家头像，但是什么都没发生</li>
+                  <li>大部分时间实在跑地图和砍不同的怪，船只太靠后，任务也不乐意仔细看的，文字太多</li>
+                  <li>不知道诗词魔方是什么意思，怎么触发</li>
+                  <li>黄河石人的造型不太对</li>
+                </ul>
+                </li>
+              </ol>
+              </li>
+              <li>DECISIONS：<ul>
+                <li>加入小地图，小地图进行兴趣点提示 - 红色=关卡 - 绿色=城市/港口 - 金色圈圈=任务相关 箭头=玩家，箭头朝向随角色朝向调整。<ul>
+                  <li>切换屏幕分辨率之后，小地图是否出现位移偏差</li>
+                </ul>
+                </li>
+                <li>加入新入游戏的按键指引页面 （控制 help） - 注意 区分桌面版和<ul>
+                  <li><del>移动版 适配</del></li>
+                </ul>
+                </li>
+                <li>加入武学激活的介绍 - 而且必须强迫玩家点 （武学）） - 默认会修习，提前给武学秘笈？<ul>
+                  <li>注意 区分桌面版和移动版 适配</li>
+                </ul>
+                </li>
+                <li>加入武学修习的介绍 - 而且强迫玩家点 （行囊））<ul>
+                  <li>注意 区分桌面版和移动版 适配</li>
+                </ul>
+                </li>
+                <li>修改难度表述 - 也许需要解锁困难难度 ？</li>
+                <li>存档/读档要重新设计，也许绑定存储位置？ - 加入额外存档条，快速存档全局唯一，自动覆盖，自动存档</li>
+                <li>战斗中可以打开行囊，<del>但是不允许使用即可</del> 好像使用也没问题.charming...但是总觉不太对，需要复查<ul>
+                  <li>卸下 装备的时候，需要更新bubble</li>
+                  <li>装备刀，新学会了刀法</li>
+                </ul>
+                </li>
+                <li>修习技能要求的表述进行优化</li>
+                <li>在游戏初期加入任务，奖励随机内功 - 鸟鸣涧 白衣山人</li>
+                <li>在灵州城，加入鉴定NPC</li>
+                <li>加入选项，可以跳过新手区任务，直接到平原城有马，有船，<del>而且接了远方的讯息任务</del></li>
+                <li>EXP条条 不明显，样式改进</li>
+                <li>bug : 大地图，饿死，同时在移动，撞到city或者zone，会进入，然后UI就乱了。-- 解决方案，大地图死亡的同时停止一切移动，大地图碰撞逻辑也要判断是否或者。</li>
+                <li>加入UI介绍的首屏幕介绍说明，在控制说明之前</li>
+                <li>进一步完善和优化控制说明帮助的效果</li>
+                <li>在DynamicScene装备不同武器，造型要更新</li>
+                <li>界面说明，第一个页面，需要分区块介绍，点击了到下一个区块，最后才是下一页按钮</li>
+                <li>界面说明，修习武学，也提示装备武器</li>
+                <li>helpWizard单独拉出去，成为一个manager</li>
+                <li>快速战斗 / 手动战斗 在进入关卡时跳出选择提示，包括记住选择，类似全战三国</li>
+                <li>点击Hud的头像，可以打开C<ul>
+                  <li>[todo] 与ios部分的逻辑冲突，ios里面点击了是切换三个环</li>
+                </ul>
+                </li>
+                <li>考虑是否在游戏开始，在王庄加入船只相关NPC，开始就可以直接给船出发，同时调整平原船只任务奖励（更好的船？）或者 如果没有船就给船<ul>
+                  <li>验证：开头给了船，完成了平原任务又给船，情况如何</li>
+                </ul>
+                </li>
+                <li>诗词魔方的游戏说明，进一步描述清楚</li>
+                <li>黄河石人的造型不对，需要改正</li>
+                <li><del>DynamicScene 生成缩略小地图 camera</del></li>
+                <li>任务描述，加前置任务和<del>后续任务</del>名字。</li>
+                <li>超过1200px 宽度的适配</li>
+                <li>无法出售 出售的物品不显示价格？</li>
+                <li>力量 悟性 的说明</li>
+                <li>开始介绍页面，描述 红色条，生命 内力等计算由来</li>
+                <li>修习武学每个等级增加的技能，还有最大值，加入物品 / 武学 的描述文字</li>
+                <li>平原城将部分任务改为不需要前置条件</li>
+                <li><del>平原加入低等级任务，加入武器防具等，方便商人新手开局</del></li>
+              </ul>
+              </li>
+            </ol></td></tr>
+          <tr><td>20230910</td><td>
+            <ol>
+              <li>wiki continues - done</li>
+            </ol></td></tr>
+          <tr><td>20230912</td><td>
+            <ol>
+              <li>更新 credits.html</li>
+              <li>增加杜甫售卖物品，加强钱与武学精华的转化，便利商人领悟武学</li>
+              <li>Marketing<ul>
+                <li>Steam - 已注册，已购买</li>
+                <li>itch.io - 已注册</li>
+                <li>网站 - windust.anpena.com</li>
+                <li>Materials: cover images screenshots</li>
+              </ul>
+              </li>
+            </ol></td></tr>
+          <tr><td>V1.1.20240327</td><td>
+            <ol>
+              <li>新增游戏内启用控制台功能，可在主菜单页面快速点击(1.5秒内5次及以上)版本信息以启用。</li>
+              <li>更新所有战斗地图，地下城、旷野、城郊、庙宇各类型地图高清版本重置。</li>
+              <li>更新大地图山川效果。</li>
+              <li>小地图现在有了边框，以与游戏世界明确区分。</li>
+              <li>修正加载网络字体导致启动速度受限问题。</li>
+              <li>移除用户界面样式切换功能，现在只能使用原红色主题样式。</li>
+              <li>调整刀法效果及伤害范围。</li>
+              <li>降低战斗地图中，包子掉落几率。</li>
+              <li>降低战斗地图中，身法对跳跃高度的影响。</li>
+            </ol></td></tr>
+          <tr><td>V1.2.20240515</td><td>
+            <ol>
+              <li>增加多国语言支持，可在游戏内菜单切换语言。</li>
+              <li>增加英语支持，所有界面及游戏内容本地化完毕。</li>
+              <li>增加大地图骑马音效</li>
+              <li>重做大地图角色动画、骑马动画。</li>
+              <li>增加木人桩，前往王村测试DPS。</li>
+              <li>调整地图图标及城市名称样式，以方便英文展示。</li>
+              <li>优化任务完成条件描述，列出怪物所属位置。</li>
+              <li>修正骑马进入战斗弹窗并离开后导致的摄像头跟随问题。</li>
+              <li>修正战斗地图使用缰绳问题。</li>
+            </ol></td></tr>
+
+
+
+      </tbody>
+    </table>
+  </div>
+  <!-- # end of timeline -->
+
+  <!-- THANKS -->
+  <div class="chapter">
+    <div class="title-center tall">THANKS FOR PLAYING</div>
+  </div>
+  <!-- # end of THANKS -->
+
+
+</body>
+<script type="text/javascript">
+  // document.querySelector("#thanksDiv1").scrollIntoView({behavior:"smooth"});
+</script>
+</html>
+

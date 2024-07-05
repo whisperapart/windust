@@ -1,0 +1,838 @@
+{
+	"textures": [
+		{
+			"image": "texture",
+			"format": "RGBA8888",
+			"size": {
+				"w": 689,
+				"h": 659
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "attack-08.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 37,
+						"y": 29,
+						"w": 112,
+						"h": 130
+					},
+					"frame": {
+						"x": 2,
+						"y": 2,
+						"w": 112,
+						"h": 130
+					}
+				},
+				{
+					"filename": "jump-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 25,
+						"w": 106,
+						"h": 135
+					},
+					"frame": {
+						"x": 118,
+						"y": 2,
+						"w": 106,
+						"h": 135
+					}
+				},
+				{
+					"filename": "jump-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 30,
+						"w": 109,
+						"h": 130
+					},
+					"frame": {
+						"x": 2,
+						"y": 136,
+						"w": 109,
+						"h": 130
+					}
+				},
+				{
+					"filename": "attack-06.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 33,
+						"y": 10,
+						"w": 93,
+						"h": 149
+					},
+					"frame": {
+						"x": 228,
+						"y": 2,
+						"w": 93,
+						"h": 149
+					}
+				},
+				{
+					"filename": "jump-04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 35,
+						"w": 109,
+						"h": 125
+					},
+					"frame": {
+						"x": 115,
+						"y": 141,
+						"w": 109,
+						"h": 125
+					}
+				},
+				{
+					"filename": "attack-07.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 37,
+						"y": 11,
+						"w": 86,
+						"h": 148
+					},
+					"frame": {
+						"x": 228,
+						"y": 155,
+						"w": 86,
+						"h": 148
+					}
+				},
+				{
+					"filename": "jump-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 19,
+						"w": 90,
+						"h": 141
+					},
+					"frame": {
+						"x": 2,
+						"y": 270,
+						"w": 90,
+						"h": 141
+					}
+				},
+				{
+					"filename": "hurt-05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 27,
+						"y": 20,
+						"w": 87,
+						"h": 139
+					},
+					"frame": {
+						"x": 96,
+						"y": 270,
+						"w": 87,
+						"h": 139
+					}
+				},
+				{
+					"filename": "hurt-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 30,
+						"y": 17,
+						"w": 85,
+						"h": 142
+					},
+					"frame": {
+						"x": 318,
+						"y": 155,
+						"w": 85,
+						"h": 142
+					}
+				},
+				{
+					"filename": "hurt-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 27,
+						"w": 90,
+						"h": 132
+					},
+					"frame": {
+						"x": 325,
+						"y": 2,
+						"w": 90,
+						"h": 132
+					}
+				},
+				{
+					"filename": "attack-09.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 36,
+						"y": 72,
+						"w": 124,
+						"h": 88
+					},
+					"frame": {
+						"x": 318,
+						"y": 301,
+						"w": 124,
+						"h": 88
+					}
+				},
+				{
+					"filename": "hurt-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 38,
+						"y": 17,
+						"w": 75,
+						"h": 142
+					},
+					"frame": {
+						"x": 407,
+						"y": 138,
+						"w": 75,
+						"h": 142
+					}
+				},
+				{
+					"filename": "melee-04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 49,
+						"y": 61,
+						"w": 106,
+						"h": 98
+					},
+					"frame": {
+						"x": 187,
+						"y": 307,
+						"w": 106,
+						"h": 98
+					}
+				},
+				{
+					"filename": "attack-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 50,
+						"w": 95,
+						"h": 109
+					},
+					"frame": {
+						"x": 297,
+						"y": 393,
+						"w": 95,
+						"h": 109
+					}
+				},
+				{
+					"filename": "attack-05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 34,
+						"y": 48,
+						"w": 92,
+						"h": 111
+					},
+					"frame": {
+						"x": 187,
+						"y": 409,
+						"w": 92,
+						"h": 111
+					}
+				},
+				{
+					"filename": "run-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 69,
+						"w": 109,
+						"h": 91
+					},
+					"frame": {
+						"x": 2,
+						"y": 415,
+						"w": 109,
+						"h": 91
+					}
+				},
+				{
+					"filename": "melee-05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 49,
+						"y": 56,
+						"w": 92,
+						"h": 103
+					},
+					"frame": {
+						"x": 396,
+						"y": 393,
+						"w": 92,
+						"h": 103
+					}
+				},
+				{
+					"filename": "run-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 75,
+						"w": 107,
+						"h": 85
+					},
+					"frame": {
+						"x": 446,
+						"y": 284,
+						"w": 107,
+						"h": 85
+					}
+				},
+				{
+					"filename": "melee-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 49,
+						"y": 55,
+						"w": 87,
+						"h": 104
+					},
+					"frame": {
+						"x": 492,
+						"y": 373,
+						"w": 87,
+						"h": 104
+					}
+				},
+				{
+					"filename": "run-06.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 74,
+						"w": 104,
+						"h": 86
+					},
+					"frame": {
+						"x": 419,
+						"y": 2,
+						"w": 104,
+						"h": 86
+					}
+				},
+				{
+					"filename": "dead-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 40,
+						"y": 50,
+						"w": 80,
+						"h": 110
+					},
+					"frame": {
+						"x": 486,
+						"y": 92,
+						"w": 80,
+						"h": 110
+					}
+				},
+				{
+					"filename": "attack-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 31,
+						"y": 56,
+						"w": 83,
+						"h": 104
+					},
+					"frame": {
+						"x": 492,
+						"y": 481,
+						"w": 83,
+						"h": 104
+					}
+				},
+				{
+					"filename": "run-05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 68,
+						"w": 93,
+						"h": 92
+					},
+					"frame": {
+						"x": 2,
+						"y": 510,
+						"w": 93,
+						"h": 92
+					}
+				},
+				{
+					"filename": "melee-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 50,
+						"y": 59,
+						"w": 81,
+						"h": 100
+					},
+					"frame": {
+						"x": 99,
+						"y": 510,
+						"w": 81,
+						"h": 100
+					}
+				},
+				{
+					"filename": "melee-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 50,
+						"y": 58,
+						"w": 80,
+						"h": 101
+					},
+					"frame": {
+						"x": 396,
+						"y": 500,
+						"w": 80,
+						"h": 101
+					}
+				},
+				{
+					"filename": "run-04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 70,
+						"w": 88,
+						"h": 90
+					},
+					"frame": {
+						"x": 283,
+						"y": 506,
+						"w": 88,
+						"h": 90
+					}
+				},
+				{
+					"filename": "attack-04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 52,
+						"y": 18,
+						"w": 55,
+						"h": 142
+					},
+					"frame": {
+						"x": 557,
+						"y": 206,
+						"w": 55,
+						"h": 142
+					}
+				},
+				{
+					"filename": "run-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 71,
+						"w": 88,
+						"h": 89
+					},
+					"frame": {
+						"x": 184,
+						"y": 524,
+						"w": 88,
+						"h": 89
+					}
+				},
+				{
+					"filename": "attack-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 49,
+						"y": 48,
+						"w": 68,
+						"h": 112
+					},
+					"frame": {
+						"x": 579,
+						"y": 481,
+						"w": 68,
+						"h": 112
+					}
+				},
+				{
+					"filename": "idle-04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 56,
+						"w": 71,
+						"h": 104
+					},
+					"frame": {
+						"x": 583,
+						"y": 352,
+						"w": 71,
+						"h": 104
+					}
+				},
+				{
+					"filename": "idle-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 56,
+						"w": 71,
+						"h": 104
+					},
+					"frame": {
+						"x": 570,
+						"y": 2,
+						"w": 71,
+						"h": 104
+					}
+				},
+				{
+					"filename": "idle-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 57,
+						"w": 71,
+						"h": 103
+					},
+					"frame": {
+						"x": 616,
+						"y": 110,
+						"w": 71,
+						"h": 103
+					}
+				},
+				{
+					"filename": "idle-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 58,
+						"w": 70,
+						"h": 102
+					},
+					"frame": {
+						"x": 616,
+						"y": 217,
+						"w": 70,
+						"h": 102
+					}
+				},
+				{
+					"filename": "dead-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 85,
+						"w": 110,
+						"h": 55
+					},
+					"frame": {
+						"x": 276,
+						"y": 600,
+						"w": 110,
+						"h": 55
+					}
+				},
+				{
+					"filename": "jump-05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 42,
+						"y": 70,
+						"w": 67,
+						"h": 90
+					},
+					"frame": {
+						"x": 115,
+						"y": 413,
+						"w": 67,
+						"h": 90
+					}
+				},
+				{
+					"filename": "dead-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 116,
+						"w": 110,
+						"h": 43
+					},
+					"frame": {
+						"x": 2,
+						"y": 614,
+						"w": 110,
+						"h": 43
+					}
+				},
+				{
+					"filename": "dead-04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 122,
+						"w": 110,
+						"h": 37
+					},
+					"frame": {
+						"x": 116,
+						"y": 617,
+						"w": 110,
+						"h": 37
+					}
+				},
+				{
+					"filename": "dead-05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 116,
+						"w": 110,
+						"h": 43
+					},
+					"frame": {
+						"x": 2,
+						"y": 614,
+						"w": 110,
+						"h": 43
+					}
+				},
+				{
+					"filename": "hurt-04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 160,
+						"h": 160
+					},
+					"spriteSourceSize": {
+						"x": 30,
+						"y": 17,
+						"w": 85,
+						"h": 142
+					},
+					"frame": {
+						"x": 318,
+						"y": 155,
+						"w": 85,
+						"h": 142
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7"
+	}
+}

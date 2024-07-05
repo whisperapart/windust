@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.console-div{
+    width:100%;
+    height:10vh;
+    line-height: 14px;
+    vertical-align: middle;
+    font-size: 12px;
+    padding:0px;
+    margin: 0px;
+    color: limegreen;
+    border: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10001;
+    display: inline-block;
+    user-select:none;
+    background-color: rgba(0,0,0,0.618);
+}
+.console-div .input .left{padding:0.1vmax; margin-right:0.1vmax;}
+.console-div .input .right{
+    display: inline-block;
+    border-right: 1vmin solid rgba(51, 255, 51, 1.0);
+    animation: beam-blink 1s infinite;
+}
+.console-div > div.input >span.right:after{
+    content: "​";
+}
+.console-div .input{
+    display: inline-block;
+    width: 100%;
+    height: 14px;
+    margin-top:4px;
+}
+.console-div .output {
+    display: inline-block;
+    width: 100%;
+    height: 8vh;
+    margin-top:2px;
+    text-wrap: normal;
+    word-wrap: break-word;
+}
+.output pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+@keyframes beam-blink {  75% {    border-color: transparent;  }}
+body{
+    user-select: none !important;
+}

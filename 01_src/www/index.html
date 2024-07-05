@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title data-i18n="GAME_NAME">风尘三侠传</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.Journal.min.css">
+    <link rel="stylesheet" href="assets/css/iconfont.css">
+    <link rel="stylesheet" href="assets/css/animateCss.css">
+    <link rel="stylesheet" href="assets/css/gConsole.css">
+    <link rel="stylesheet" href="assets/css/gGui.css">
+    <link rel="stylesheet" href="assets/css/movie.css">
+    <script type="text/javascript" src="./libs/localforage.min.js"></script>
+    <script src="./js/db/i18n/cn.js" type="text/javascript"></script>
+    <script src="./js/db/i18n/en.js" type="text/javascript"></script>
+    <script src="./js/db/i18n/locale.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="game_div"></div>
+
+<!-- console begins -->
+<div id="consoleDiv" class="console-div" style="display:none;">
+    <div class="input">
+        <span class="left">></span>
+        <span class="right"></span>
+    </div>
+    <div class="output"></div>
+</div>
+<div class="divMain"></div>
+<!-- # end of console -->
+
+<!-- credit back button  -->
+<div id="creditDiv" class="credit-div" style="display:none;">
+    <button type="button" class="btn btn-primary" data-i18n="MENU_BACK_TO_MAIN">Back To Main</button>
+</div>
+<button id="btnCreditsBackButton" class="btn btn-primary" data-i18n="MENU_BACK_TO_MAIN">Back To Main</button>
+<!-- # end of credit back button  -->
+
+<!-- gui begins -->
+<div id="guiDiv" class="gui-div">
+    <div id="mapDiv" class="">
+        <div class="menu_logo_class">
+            <div class="btn btn-outline-primary btn-lg" style="border-width: 0.75vmin;margin-top:5vmin; " data-i18n="DEMO">DEMO</div>
+        </div>
+        <div id="bubble-wrap"></div>
+        <div id="bird_wrap"></div>
+    </div>
+    <div id="stage_1_rain"></div>
+    <div id="stage_1_scroll_wrap">
+        <div id="stage_1_scroll"></div>
+    </div>
+    <div id="gameOverDiv" class="" data-i18n="GAME_OVER">
+        GAME OVER
+    </div>
+    <div id="maskDiv" class="maskClass" style="display: none;"></div>
+    <!-- menuDiv begins -->
+    <div id="menuDiv" class="">
+        <div id="menuBtnMain" class="menuBtnClass">
+            <button id="menuBtnNewGame" type="button" class="btn btn-primary btn-lg btn-block" data-i18n="MENU_NEW_GAME">新的冒险</button>
+            <button type="button" class="btn btn-primary btn-lg btn-block disabled" disabled data-i18n="MENU_LOAD_GAME">载入 试玩不支持</button>
+            <a class="btn btn-info btn-lg btn-block" href="https://steamcommunity.com/app/2640630" target="_blank">Steam</a>
+            <button id="menuBtnLoadGame" type="button" class="btn btn-success btn-lg btn-block" data-i18n="DONATION">帮助支持</button>
+            <button id="menuBtnSettings" type="button" class="btn btn-primary btn-lg btn-block" data-i18n="MENU_SETTINGS">选项设置</button>
+
+            <button id="menuBtnExitGame" type="button" class="btn btn-outline-primary btn-lg btn-block" data-i18n="MENU_QUIT">退出游戏</button>
+            <div class="menu-language-version">
+                <div class="btn-group" role="group">
+                    <input type="radio" class="btn-check btn-sm" name="btnLocaleRadio" id="btnLocaleRadioCn" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnLocaleRadioCn" onclick="setLocale('cn')">中文</label>
+                    <input type="radio" class="btn-check btn-sm" name="btnLocaleRadio" id="btnLocaleRadioEn" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnLocaleRadioEn" onclick="setLocale('en')">English</label>
+                </div>
+                <p class="text-primary-emphasis" id="pVersion" onclick="gGui.version_click_handler()"></p>
+            </div>
+        </div>
+        <div id="menuBtnInGame" class="menuBtnClass" style="display: none;">
+            <a class="btn btn-info btn-lg btn-block" href="https://steamcommunity.com/app/2640630" target="_blank">Steam</a>
+            <button id="menuBtnSaveGame" type="button" class="btn btn-success btn-lg btn-block" data-i18n="DONATION">帮助支持</button>
+            <button id="menuBtnSettings1" type="button" class="btn btn-primary btn-lg btn-block" data-i18n="MENU_SETTINGS">选项设置</button>
+            <button id="menuBtnBackToGame" type="button" class="btn btn-danger btn-lg btn-block" data-i18n="MENU_RESUME_GAME">继续游戏</button>
+            <button id="menuBtnBackToMenu" type="button" class="btn btn-outline-primary btn-lg btn-block" data-i18n="MENU_BACK_TO_MAIN">返回主菜单</button>
+        </div>
+        <div id="menuBtnPlayer" class="menuBtnClass" style="display: none;">
+            <button id="menuBtnPlayer0" type="button" class="btn btn-primary btn-lg btn-block" data-i18n="NAME_0">王二</button>
+            <button id="menuBtnPlayer1" type="button" class="btn btn-primary btn-lg btn-block" data-i18n="NAME_1">小月</button>
+            <button id="menuBtnPlayer2" type="button" class="btn btn-primary btn-lg btn-block" data-i18n="NAME_2">王大</button>
+            <button id="menuBtnPlayerBack" type="button" class="btn btn-outline-primary btn-lg btn-block" data-i18n="BACK">返回</button>
+        </div>
+        <div id="menuBtnOptions" class="menuBtnClass" style="display: none;">
+            <button id="menuBtnGraphics" type="button" class="btn btn-primary btn-lg btn-block" data-i18n="MENU_RESOLUTION">分辨率设置</button>
+            <button id="menuBtnSound" type="button" class="btn btn-primary btn-lg btn-block" data-i18n="MENU_SOUND">声音设置</button>
+            <button id="menuBtnGame" type="button" class="btn btn-primary btn-lg btn-block" data-i18n="MENU_GAME_OPTIONS">游戏设置</button>
+            <button id="menuBtnControls" type="button" class="btn btn-primary btn-lg btn-block" data-i18n="MENU_CONTROL">控制说明</button>
+            <button id="menuBtnOptionsBack" type="button" class="btn btn-outline-primary btn-lg btn-block" data-i18n="BACK">返回</button>
+        </div>
+        <div id="menuDivDifficulty" class="menuBtnClass" style="display: none;">
+            <div id="menuDifficultyDetailWrap">
+                <div class="alert alert-secondary" id="difficultyDetail">
+                    <p class="diffDetailHeader"><strong data-i18n="DIFFICULTY_TITLE">少侠请留步！</strong></p>
+                    <ul class="diffDetailBody">
+                        <li data-i18n="DIFFICULTY_DESCRIPTION">少侠请留步，等一等你的难度。</li>
+                        <li data-i18n="DIFFICULTY_1_1">长路漫漫，抱一腔热血。</li>
+                        <li data-i18n="DIFFICULTY_1_2">脚步缓缓，选一下难度。</li>
+                        <li data-i18n="DIFFICULTY_1_3">看准了，再闯万丈红尘。</li>
+                    </ul>
+                    <p class="diffDetailHeader" data-i18n="DIFFICULTY_1_4">愿你我人生，都简单如此。</p>
+                </div>
+                <div class="alert alert-success" id="difficultyDetail-1" style="display: none;">
+                    <p class="diffDetailHeader"><strong data-i18n="DIFFICULTY_NORMAL">超群绝伦</strong></p>
+                    <ul class="diffDetailBody">
+                        <li data-i18n="DIFFICULTY_2_1">难度：普通。大部分情况下的首选。</li>
+                        <li data-i18n="DIFFICULTY_2_2">内功提供大量的收益。</li>
+                        <li data-i18n="DIFFICULTY_2_3">轻功提供大量的收益。</li>
+                        <li data-i18n="DIFFICULTY_2_4">只能激活一种内力。</li>
+                        <li data-i18n="DIFFICULTY_2_5">只能激活一种轻功。</li>
+                    </ul>
+                </div>
+                <div class="alert alert-info" id="difficultyDetail-3" style="display: none;">
+                    <p class="diffDetailHeader"><strong data-i18n="DIFFICULTY_HARD">盖世无双</strong><span class="badge bg-secondary rounded-pill" data-i18n="DIFFICULTY_UNLOCK">尚未解锁</span></p>
+                    <ul class="diffDetailBody">
+                        <li data-i18n="DIFFICULTY_3_1">难度：硬核。对游戏机制了解后的选择。</li>
+                        <li data-i18n="DIFFICULTY_3_2">内功提供的收益为普通难度的25%。</li>
+                        <li data-i18n="DIFFICULTY_3_3">轻功提供的收益为普通难度的50%。</li>
+                        <li data-i18n="DIFFICULTY_3_4">内功习得之后常驻，无需激活。</li>
+                        <li data-i18n="DIFFICULTY_3_5">轻功习得之后常驻，无需激活。</li>
+                    </ul>
+                </div>
+                <div class="alert alert-primary" id="difficultyDetail-8" style="display: none;">
+                    <p class="diffDetailHeader"><strong data-i18n="DIFFICULTY_ASH">立派宗师</strong><span class="badge bg-secondary rounded-pill" data-i18n="DIFFICULTY_NOT_AVAILABLE">暂未开放</span></p>
+                    <ul class="diffDetailBody">
+                        <li data-i18n="DIFFICULTY_4_1">难度：骨灰。真想挑急难险重的担子。</li>
+                        <li data-i18n="DIFFICULTY_4_2">武学提供的收益与硬核难度相同。</li>
+                        <li data-i18n="DIFFICULTY_4_3">武学的激活机制与硬核难度相同。</li>
+                        <li data-i18n="DIFFICULTY_4_4">角色死亡后不可再用。</li>
+                        <li data-i18n="DIFFICULTY_4_5">可用其他角色继续（如已解锁）。</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="menuDifficultyBtnWrap">
+                <button type="button" class="btn btn-outline-success menuBtnDifficulty" id="menuBtnDifficulty-1" data-diff="1" data-i18n="DIFFICULTY_NORMAL">超群绝伦</button>
+                <button type="button" class="btn btn-outline-info menuBtnDifficulty" id="menuBtnDifficulty-3"  data-diff="3" data-i18n="DIFFICULTY_HARD">盖世无双</button>
+                <button type="button" class="btn btn-outline-danger menuBtnDifficulty" id="menuBtnDifficulty-8"  data-diff="8" data-i18n="DIFFICULTY_ASH">立派宗师</button>
+            </div>
+            <button id="menuBtnNewGameGo" type="button" class="btn btn-primary btn-lg btn-block disabled" data-i18n="LETS_GO">走起</button>
+            <button id="menuBtnNewGameBack" type="button" class="btn btn-outline-primary btn-lg btn-block" data-i18n="BACK">返回</button>
+        </div>
+        <div id="menuBtnOptionsGame" class="menuBtnClass" style="display: none;">
+            <div class="form-switch btn btn-primary btn-lg btn-block">
+                <label class="form-check-label" for="chkOptionsGameHelp" data-i18n="NEWBIE_HELP">新手帮助</label>
+                <input class="form-check-input" type="checkbox" id="chkOptionsGameHelp">
+            </div>
+            <div class="form-switch btn btn-primary btn-lg btn-block">
+                <label class="form-check-label" for="chkOptionsSkipNewbie" data-i18n="SKIP_NEWBIE">跳过新手区</label>
+                <input class="form-check-input" type="checkbox" id="chkOptionsSkipNewbie">
+            </div>
+            <div class="form-switch btn btn-primary btn-lg btn-block">
+                <label class="form-check-label" for="chkDoNotAskBattleMode" data-i18n="DO_NOT_ASK">不询问战斗模式</label>
+                <input class="form-check-input" type="checkbox" id="chkDoNotAskBattleMode">
+            </div>
+            <div class="form-switch btn btn-primary btn-lg btn-block">
+                <label class="form-check-label" for="chkOptionsGameQuickBattle" data-i18n="QUICK_BATTLE">快速战斗</label>
+                <input class="form-check-input" type="checkbox" id="chkOptionsGameQuickBattle">
+            </div>
+            <button id="menuBtnOptionsGameBack" type="button" class="btn btn-outline-primary btn-lg btn-block" data-i18n="BACK">返回</button>
+        </div>
+        <div id="menuBtnOptionsGraphic" class="menuBtnClass" style="display: none;">
+            <div class="btn btn-primary btn-lg btn-block" id="menuBtnGraphicsFullScreen" data-i18n="FULL_SCREEN">全屏</div>
+            <div class="btn btn-primary btn-lg btn-block" id="menuBtnGraphicsWindowF" data-i18n="WINDOW_MAX">窗口 最大化</div>
+            <div class="btn btn-primary btn-lg btn-block" id="menuBtnGraphicsWindowS" data-i18n="WINDOW_800">窗口 800x600</div>
+            <div class="btn btn-primary btn-lg btn-block" id="menuBtnGraphicsWindowM" data-i18n="WINDOW_1200">窗口 1200x750</div>
+            <div class="btn btn-primary btn-lg btn-block" id="menuBtnGraphicsWindowL" data-i18n="WINDOW_1600">窗口 1600x1000</div>
+            <button id="menuBtnOptionsGraphicBack" type="button" class="btn btn-outline-primary btn-lg btn-block" data-i18n="BACK">返回</button>
+        </div>
+        <div id="game_control_help_wrap" class="menuBtnClass" style="display: none;">
+            <div id="game_control_help">
+                <div class="mobile-help-div"> <div class="help-area-top"> <span data-i18n="AREA_CHAR">角色信息区</span> <span data-i18n="AREA_BUFF">Buff/DeBuff区</span> <span data-i18n="AREA_MENU">菜单区</span> </div><div class="help-area-main"> <div class="help-area-left"> <span data-i18n="AREA_MOVE">移动控制</span> </div><div class="mobile-device-wrap"> <div class="mobile-hud-div"> <div class="mobile-player-hud"></div><div class="mobile-player-buff"></div><div class="mobile-menu"></div></div><div class="mobile-screen-div"> <div class="mobile-tap-div"> <div class="mobile-tap-big-circle"></div><div class="mobile-tap-inner-circle" data-i18n="AREA_HORSE">马/跳</div></div><div class="mobile-skill-div"> <div class="mobile-tap-sm-circle" id="mobile_tap_inner_c1">1</div><div class="mobile-tap-sm-circle" id="mobile_tap_inner_c2">2</div><div class="mobile-tap-sm-circle" id="mobile_tap_inner_c3">3</div><div class="mobile-tap-sm-circle" id="mobile_tap_inner_c4">4</div><div class="mobile-tap-sm-circle" id="mobile_tap_inner_c5">5</div></div></div></div><div class="help-area-right"> <span data-i18n="AREA_SKILL">角色技能</span> </div></div></div>
+                <div id="electron_game_control_help" class="alert alert-warning"><div class="keyboard_tip_wrap"><div class="keyboard"><ul class="keys"><li class="esc active"><label data-i18n="CTRL_MENU">菜单</label><span>Esc</span></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><ul class="keys"><li></li><li class="active"><label data-i18n="CTRL_ATK">攻击</label><span>1</span></li><li class="active"><label data-i18n="CTRL_ATK">攻击</label><span>2</span></li><li class="active"><label data-i18n="CTRL_ATK">攻击</label><span>3</span></li><li class="active"><label data-i18n="CTRL_ATK">攻击</label><span>4</span></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li class="back"></li></ul><ul class="keys"><li class="tab"></li><li></li><li class="active"><label data-i18n="CTRL_UP">上</label><span>W</span></li><li></li><li></li><li></li><li></li><li></li><li class="active"><label data-i18n="CTRL_INVENTORY">行囊</label><span>I</span></li><li class="active"><label data-i18n="CTRL_SHIP">船只</label><span>O</span></li><li></li><li></li><li></li><li></li></ul><ul class="keys"><li class="caps"></li><li class="active"><label data-i18n="CTRL_LEFT">左</label><span>A</span></li><li class="active"><label data-i18n="CTRL_DOWN">下</label><span>S</span></li><li class="active"><label data-i18n="CTRL_RIGHT">右</label><span>D</span></li><li></li><li></li><li></li><li class="active"><label data-i18n="CTRL_QUEST">任务</label><span>J</span></li><li class="active"><label data-i18n="CTRL_KONGFU">武学</label><span>K</span></li><li></li><li></li><li></li><li class="enter"></li></ul><ul class="keys"><li class="shift"></li><li></li><li></li><li class="active"><label data-i18n="CHARACTER">角色</label><span>C</span></li><li></li><li></li><li></li><li></li><li class="active"><label data-i18n="MAP">地图</label><span>M</span></li><li class="active"><label data-i18n="CTRL_ZOOM_OUT">图小</label><span>,</span></li><li class="active"><label data-i18n="CTRL_ZOOM_IN">图大</label><span>.</span></li><li class="shift"></li></ul><ul class="keys"><li class="ctrl"></li><li class="fn"></li><li class="win"></li><li class="alt"></li><li class="space active" data-i18n="CTRL_JUMP">跳 Space</li><li class="alt"></li><li class="menu"></li><li class="ctrl"></li></ul></div></div><div class="mouse_tip_wrap"><div class="bottomBox"><div class="leftBox"><div class="mouseBrief"><label data-i18n="CTRL_INTERACTIVE">交互 / 拾取</label><br><span data-i18n="MOUSE_LEFT">鼠标左键</span></div></div><div class="midBox"><div class="mouse"><div class="leftMouse"></div><div class="midMouse"></div><div class="rightMouse"></div></div></div><div class="rightBox"><div class="mouseBrief"><label data-i18n="HEAL">治疗</label><br><span data-i18n="MOUSE_RIGHT">鼠标右键</span></div></div></div><div class="topBox"><div class="mouseBrief"><label data-i18n="ZOOM_IN_OUT">镜头放大 / 缩小</label><br><span data-i18n="MOUSE_WHEEL">鼠标滚轮</span></div></div></div>
+                    <button id="menuBtnOptionsCtrlHelpOK" type="button" class="btn btn-primary" style="display: none" data-i18n="NEXT_ITEM_KONGFU">下一步：物品与武学</button>
+                </div>
+            </div>
+            <button id="menuBtnOptionsCtrlHelpBack" type="button" class="btn btn-outline-primary btn-lg btn-block" data-i18n="BACK">返回</button>
+        </div>
+        <div id="menuBtnOptionsSound" class="menuBtnClass" style="display: none;">
+            <div class="btn btn-primary btn-lg btn-block">
+                <label class="form-label" for="chkOptionsBackgroundMusic" data-i18n="SOUND_BG">背景音乐</label>
+                <input class="form-range" type="range" min="0" max="100" step="1" id="chkOptionsBackgroundMusic">
+            </div>
+            <div class="btn btn-primary btn-lg btn-block">
+                <label class="form-label" for="chkOptionsSoundEffect" data-i18n="SOUND_EFFECT">音效</label>
+                <input class="form-range" type="range" min="0" max="100" step="1" id="chkOptionsSoundEffect">
+            </div>
+            <button id="menuBtnOptionsSoundBack" type="button" class="btn btn-outline-primary btn-lg btn-block" data-i18n="BACK">返回</button>
+        </div>
+        <div id="menuDonationSlot" class="menuBtnClass" style="display: none;">
+            <button id="menuDonationAlipay" type="button" class="btn btn-dark btn-lg btn-block" style="padding:0;">
+                <img src="assets/images/main/alipay.png" style="width:24vw;"/>
+                <img src="assets/images/main/wx.png" style="width:24vw;"/>
+            </button>
+            <a id="menuDonationPaypal" type="button" class="btn btn-primary btn-lg btn-block" href="https://paypal.me/whisperapart" target="_blank">PayPal</a>
+            <button id="menuLoadSlotBack" type="button" class="btn btn-outline-primary btn-lg btn-block" data-i18n="BACK">返回</button>
+        </div>
+        <div id="menuDivConfirm" class="menuBtnClass toast">
+            <div id="menuConfirm" class="toast-body" data-i18n="CONFIRM_QUIT_DETAIL">所有未保存的内容将会丢失。<br>您是否确定退出？</div>
+            <div class="modal-footer">
+                <button id="menuConfirmOK" type="button" class="btn btn-secondary btn-sm" data-i18n="CONFIRM_QUIT">确定退出</button>
+                <button id="menuConfirmCancel" type="button" class="btn btn-primary btn-sm" data-i18n="CANCEL">取消</button>
+            </div>
+        </div>
+        <div id="menuDivPrompt" class="menuBtnClass toast">
+            <div id="menuPrompt" class="toast-body" data-i18n="GAME_SAVED">游戏已经保存。</div>
+            <div class="modal-footer">
+                <button id="menuPromptOK" type="button" class="btn btn-primary btn-sm" data-i18n="BACK">返回</button>
+            </div>
+        </div>
+    </div>
+    <!-- end of menuDiv -->
+
+    <!-- hud begins -->
+    <div id="hudDiv" class="hud-div" style="display: none;">
+        <div class="hud-left">
+            <div class="avatar-div"><img src="assets/images/npc/70.png"></div>
+            <div class="name-div"></div>
+        </div>
+        <div class="hud-right">
+            <div id="hpDiv" class="progress">
+                <div class="progress-bar progress-bar-animated bg-primary" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div id="mpDiv" class="progress">
+                <div id="mpDivProgressBar" class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div id="foodDiv" class="progress">
+                <div class="progress-bar progress-bar-animated bg-success" role="progressbar" style="width: 75%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div id="expDiv" class="progress">
+                <div class="progress-bar progress-bar-animated bg-info" role="progressbar" style="width: 66%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                    <span></span>
+                </div>
+            </div>
+            <div id="tipDiv">
+                <div id="dateDiv" title="">-</div>
+                <div id="coordinateDiv"> - </div>
+            </div>
+        </div>
+    </div>
+    <!-- # end of hud -->
+    <div id="comboDiv" class="" style="display: none;">
+        <span></span>
+    </div>
+
+    <!-- buff area begins -->
+    <div id="buffWidget" class="gui-hover-div" style="display: none;"></div>
+    <!-- # end of buff area -->
+    <!-- gui-menus begin -->
+    <div class="row gui-btn-menu-wrap" id="bubbleWidget" style="display: none;">
+        <div class="gui-btn-menu" id="guiBtnMenu">
+            <div id="hpCircleDiv" class="hp-circle-div">
+                <div></div>
+            </div>
+            <div id="mpCircleDiv" class="mp-circle-div">
+                <div class="mp-circle-div-yang"></div>
+            </div>
+            <div id="expBigDiv" class="exp-big-div"></div>
+            <div id="expLearnBigDiv" class="exp-big-div"></div>
+            <div id="hotkeyDiv" class="hot-key-div">
+                <div class="hot-key-item-div">
+                    <a class="btn btn-sm btn-secondary" id="btnInputKey1"><i class="iconfont icon-swords"></i></a><span>1</span>
+<!--                    <div class="hot-key-cool-down"><div class="cooldown-half"><div class="cooldown-half-rotator cooldown-half-rotator-left"></div></div><div class="cooldown-half"><div class="cooldown-half-rotator cooldown-half-rotator-right"></div></div></div>-->
+                </div>
+                <div class="hot-key-item-div">
+                    <a class="btn btn-sm btn-secondary" id="btnInputKey2"><i class="iconfont icon-swords"></i></a><span>2</span>
+<!--                    <div class="hot-key-cool-down"><div class="cooldown-half"><div class="cooldown-half-rotator cooldown-half-rotator-left"></div></div><div class="cooldown-half"><div class="cooldown-half-rotator cooldown-half-rotator-right"></div></div></div>-->
+                </div>
+                <div class="hot-key-item-div">
+                    <a class="btn btn-sm btn-secondary" id="btnInputKey3"><i class="iconfont icon-swords"></i></a><span>3</span>
+<!--                    <div class="hot-key-cool-down"><div class="cooldown-half"><div class="cooldown-half-rotator cooldown-half-rotator-left"></div></div><div class="cooldown-half"><div class="cooldown-half-rotator cooldown-half-rotator-right"></div></div></div>-->
+                </div>
+                <div class="hot-key-item-div">
+                    <a class="btn btn-sm btn-secondary" id="btnInputKey4"><i class="iconfont icon-swords"></i></a><span>4</span>
+<!--                    <div class="hot-key-cool-down"><div class="cooldown-half"><div class="cooldown-half-rotator cooldown-half-rotator-left"></div></div><div class="cooldown-half"><div class="cooldown-half-rotator cooldown-half-rotator-right"></div></div></div>-->
+                </div>
+                <div class="hot-key-item-div">
+                    <a class="btn btn-sm btn-secondary" id="btnInputKeyRM"><i class="iconfont icon-health2"></i></a><span>R-M</span>
+<!--                    <div class="hot-key-cool-down"><div class="cooldown-half"><div class="cooldown-half-rotator cooldown-half-rotator-left"></div></div><div class="cooldown-half"><div class="cooldown-half-rotator cooldown-half-rotator-right"></div></div></div>-->
+                </div>
+            </div>
+            <div id="menuKeyDiv" class="menu-key-div">
+                <div class="menu-key-item-div"><button class="btn btn-sm btn-secondary" id="btnInputKeyC"><i class="iconfont icon-shadow"></i></button><span>C</span></div>
+                <div class="menu-key-item-div"><button class="btn btn-sm btn-secondary" id="btnInputKeyI"><i class="iconfont icon-jifen"></i></button><span>I</span></div>
+                <div class="menu-key-item-div"><button class="btn btn-sm btn-secondary" id="btnInputKeyO"><i class="iconfont icon-ship"></i></button><span>O</span></div>
+                <div class="menu-key-item-div"><button class="btn btn-sm btn-secondary" id="btnInputKeyJ"><i class="iconfont icon-gantanhao"></i></button><span>J</span></div>
+                <div class="menu-key-item-div"><button class="btn btn-sm btn-secondary" id="btnInputKeyK"><i class="iconfont icon-gongfu"></i></button><span>K</span></div>
+                <div class="menu-key-item-div"><button class="btn btn-sm btn-secondary" id="btnInputKeyM"><i class="iconfont icon-point1"></i></button><span>M</span></div>
+                <div class="menu-key-item-div"><button class="btn btn-sm btn-secondary" id="btnInputKeyEsc"><i class="iconfont icon-Ioniconsmdinformationcircle"></i></button><span>Esc</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- # end of gui-menus -->
+
+    <!-- city begins -->
+    <div id="cityDiv" class="scene-div" style="display: none;">
+        <div id="cityBgDiv">
+            <img src="./assets/images/main/city.png" id="cityBgImg" class=""/>
+        </div>
+        <div id="cityInfoDiv" class="city-info-div">
+            <div class="card">
+<!--            <div class="card-header btn btn-primary bg-primary" id="cityInfoName">City Name</div>-->
+                <div class="card-header btn btn-primary bg-primary d-flex  justify-content-between align-items-center">
+                    <span id="cityInfoType" data-i18n="PORT">港口</span>
+                    <span id="cityInfoName" data-i18n="CITY_NAME">City Name</span>
+                </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+<!--                    <li class="list-group-item d-flex  justify-content-between align-items-center"><span>类型</span></li>-->
+                    <li class="list-group-item d-flex  justify-content-between align-items-center"><span data-i18n="CITY_DEV">发展度</span><span id="cityInfoDevLevel">1000</span></li>
+                    <li class="list-group-item d-flex  justify-content-between align-items-center"><span data-i18n="CITY_INVEST">投资额</span><span id="cityInfoInvest">3000</span></li>
+                    <li class="list-group-item d-flex  justify-content-between align-items-center"><span data-i18n="CITY_FAC_TS">太上声望</span><span id="cityInfoFacTS">0%</span></li>
+                    <li class="list-group-item d-flex  justify-content-between align-items-center"><span data-i18n="CITY_FAC_EMP">皇帝声望</span><span id="cityInfoFacHD">0%</span></li>
+                    <li class="list-group-item d-flex  justify-content-between align-items-center"><span data-i18n="CITY_FAC_YW">永王声望</span><span id="cityInfoFacYW">0%</span></li>
+                    <li class="list-group-item d-flex  justify-content-between align-items-center"><span data-i18n="CITY_FAC_WD">风尘声望</span><span id="cityInfoFacFC">0%</span></li>
+                </ul>
+            </div>
+            <div class="card city-info-flag">
+                <div class="card-header btn btn-primary bg-primary" data-i18n="CITY_FACILITY">特殊设施</div>
+                <div class="card-body">
+                    <div class="row">
+                    <div class="col-4"><div id="cityInfoIconHorse" class="cityInfoIcon"><i class="iconfont icon--horse"></i></div><div class="building-flag-text" data-i18n="CITY_HORSE_MERCHANT">马商</div></div>
+                    <div class="col-4"><div id="cityInfoIconShip" class="cityInfoIcon"><i class="iconfont icon-Cargo-Ship"></i></div><div class="building-flag-text" data-i18n="CITY_SHIP_YARD"> 船厂</div></div>
+                    <div class="col-4"><div id="cityInfoIconFit" class="cityInfoIcon"><i class="iconfont icon-lucky1"></i></div><div class="building-flag-text" data-i18n="CITY_SHIP_WORKSHOP">改船</div></div>
+                    <div class="col-4"><div id="cityInfoIconHeal" class="cityInfoIcon"><i class="iconfont icon-health1"></i></div><div class="building-flag-text" data-i18n="CITY_CLINIC">医舍</div></div>
+                    <div class="col-4"><div id="cityInfoIconSmith" class="cityInfoIcon"><i class="iconfont icon-swords"></i></div><div class="building-flag-text" data-i18n="CITY_SMITH">工匠</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header btn btn-primary bg-primary" data-i18n="CITY_CARGO_LIST">特产列表</div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center cityInfoCargo" id="cityInfoCargo1"><i class="iconfont icon-blockbannedstopdisabledban"></i><span class="badge" data-i18n="CITY_CARGO_NONE">无特产</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center cityInfoCargo" id="cityInfoCargo2"><i class="iconfont icon-blockbannedstopdisabledban"></i><span class="badge" data-i18n="CITY_CARGO_NONE">无特产</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center cityInfoCargo" id="cityInfoCargo3"><i class="iconfont icon-blockbannedstopdisabledban"></i><span class="badge" data-i18n="CITY_CARGO_NONE">无特产</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center cityInfoCargo" id="cityInfoCargo4"><i class="iconfont icon-blockbannedstopdisabledban"></i><span class="badge" data-i18n="CITY_CARGO_NONE">无特产</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center cityInfoCargo" id="cityInfoCargo5"><i class="iconfont icon-blockbannedstopdisabledban"></i><span class="badge" data-i18n="CITY_CARGO_NONE">无特产</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center cityInfoCargo" id="cityInfoCargo6"><i class="iconfont icon-blockbannedstopdisabledban"></i><span class="badge" data-i18n="CITY_CARGO_NONE">无特产</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center cityInfoCargo" id="cityInfoCargo7"><i class="iconfont icon-blockbannedstopdisabledban"></i><span class="badge" data-i18n="CITY_CARGO_NONE">无特产</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-footer text-muted city-info-footer">
+                <li class="d-flex  justify-content-between align-items-center"><i class="iconfont icon-jifen"></i><span class="modalSpanMoney" id="citySpanMoney">12345678</span></li>
+            </div>
+            </div>
+        </div>
+        <div id="buildingsDiv" class="buildings-div"></div>
+        <div id="npcDiv" class="npc-div">
+            <div class="npc-list"></div>
+            <div class="cover">
+                <img id="" src="">
+            </div>
+        </div>
+        <div class="action-div btn-group-vertical" id="actionDiv"></div>
+        <div class="npc-welcome row" id="npcWelcome">
+            <div class="avatar">
+                <img src="assets/images/npc/1.png" id="npcWelcomeAvatar">
+            </div>
+            <div class="toast show" role="alert">
+                <div class="toast-header">
+                    <strong class="mr-auto" id="npcWelcomeName">name</strong>
+                    <small id="npcWelcomeTitle"></small>
+                </div>
+                <div class="toast-body" id="npcHail">hello world!</div>
+            </div>
+        </div>
+    </div>
+    <!-- # end of city -->
+
+    <div id="sysToast" class="modal">
+        <div class="npc-welcome row">
+            <div class="avatar">
+                <img src="assets/images/npc/98.png">
+            </div>
+            <div class="toast show" role="alert">
+                <div class="toast-header">
+                    <strong class="mr-auto" data-i18n="SYSTEM">系统</strong>
+                    <small data-i18n="PROMPT"> - 提示</small>
+                </div>
+                <div class="toast-body" id="toastBody" data-i18n="xxxx">hello world!</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- new Toast from bootstrap -->
+    <div aria-live="polite" aria-atomic="true" id="bootToast" class="d-flex justify-content-center align-items-center flex-column-reverse">
+    </div>
+    <!-- # end of new Toast from bootstrap -->
+
+    <!-- mini map -->
+    <div id="miniMapDiv" style="display: none;">
+        <div id="miniMapArea">
+            <div id="miniMap">
+                <img src="assets/images/gui/world_20230819_010_8bit.png" />
+                <div id="miniMapCity"></div>
+            </div>
+            <div id="miniMapArrow"><img src="assets/images/gui/map-arrow.png"/></div>
+        </div>
+        <div id="miniMapCtrl">
+<!--            <button id="miniMapCenter" class="btn btn-sm btn-primary"> <i class="iconfont icon-point2"></i> </button>-->
+            <button id="miniMapZoomIn" class="btn btn-sm btn-primary"> + </button>
+            <button id="miniMapZoomOut" class="btn btn-sm btn-primary"> - </button>
+            <button id="miniMapCollapse" class="btn btn-sm btn-primary"> M </button>
+            <button id="miniMapFilterPort" class="btn btn-sm btn-primary zoneFilter"><i class="iconfont icon-ship1"></i> </button>
+            <button id="miniMapFilterCity" class="btn btn-sm btn-primary zoneFilter"><i class="iconfont icon-icons-pagoda"></i></button>
+            <button id="miniMapFilterHill" class="btn btn-sm btn-primary zoneFilter"><i class="iconfont icon-Ioniconsioscloudoutline"></i></button>
+            <button id="miniMapFilterDungeon" class="btn btn-sm btn-primary zoneFilter"><i class="iconfont icon-shadow"></i></button>
+
+        </div>
+    </div>
+    <!-- # end of mini map -->
+
+    <!-- horse Travel map -->
+    <div class="modal" id="horseTravelModal" data-backdrop='static'>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="horseTravelMapArea">
+                    <div id="horseTravelMapMask"></div>
+                    <div id="horseTravelMapCity"></div>
+                </div>
+                <div id="horseTravelMapCtrl">
+                    <div class="modal-header">
+                        <h5 class="modal-title" data-i18n="POSTAL">驿传</h5>
+                    </div>
+                    <div class="modal-body-thin">
+                        <div class="form-group">
+                            <fieldset disabled="">
+                                <label class="form-label" for="horseTravelDeparture" data-i18n="DEPARTURE">出发</label>
+                                <input class="form-control form-control-sm" id="horseTravelDeparture" type="text" placeholder="始发地/DEP" disabled="">
+                            </fieldset>
+                            <fieldset>
+                                <label class="form-label mt-4" for="horseTravelArrival" data-i18n="ARRIVAL">到达</label>
+                                <input class="form-control form-control-sm" id="horseTravelArrival" type="text" placeholder="目的地/ARR" disabled="">
+                            </fieldset>
+                            <fieldset>
+                                <label class="form-label mt-4" for="horseTravelCharge" data-i18n="CHARGE">费用</label>
+                                <input class="form-control form-control-sm" id="horseTravelCharge" type="text" placeholder="费用/CHG" disabled="">
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-primary" id="horseTravelMapOK" data-i18n="POSTAL_START">启程</button>
+                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- # end of horse Travel map -->
+
+    <!-- ui help -->
+    <div id="uiHelpDiv" style="display: none;">
+        <div class="ui-help-hud">
+            <div class="help-rect"></div>
+            <div class="ui-help-info">
+                <div data-i18n="UI_HELP_HP">红色：生命</div>
+                <div data-i18n="UI_HELP_MP">黄色：内力</div>
+                <div data-i18n="UI_HELP_FOOD">绿色：食物</div>
+                <div data-i18n="UI_HELP_EXP">蓝色：经验</div>
+                <div data-i18n="UI_HELP_DATE_CORD">日期 / 坐标</div>
+            </div>
+        </div>
+        <div class="ui-help-effect">
+            <div class="ui-help-info">
+                <div data-i18n="BUFF">增益</div>
+                <div data-i18n="DEBUFF">减益</div>
+            </div>
+            <div class="help-rect"></div>
+        </div>
+        <div class="ui-help-main alert alert-warning">
+            <div class="help-main-header">
+                <h1 data-i18n="UI_HELP_WELCOME">欢迎来到风尘武侠世界</h1>
+            </div>
+            <div class="help-main-body">
+                <p data-i18n="UI_HELP_1">在正式开始您的武侠传奇之前，敬请留意界面介绍。</p>
+                <br/>
+                <p id="hw-hud-1" class="hw-hud"><span data-i18n="UI_HELP_2">游戏界面的左上方列出了角色的信息，包括生命、内力、食物以及经验值等。</span><br/>
+                    <span class="badge-primary" data-i18n="HP">生命</span><span data-i18n="UI_HELP_3">：每等级+30，修习内功并激活真气，可大幅提高。</span><br/>
+                    <span class="badge-warning" data-i18n="MP">内力</span><span data-i18n="UI_HELP_4">：每等级+20，修习内功并激活真气，可大幅提高。</span><br/>
+                    <span class="badge-success" data-i18n="FOOD">食物</span><span data-i18n="UI_HELP_5">：记得吃饭，不吃会饿死哦。</span><br/>
+                    <span class="badge-info" data-i18n="EXP">经验</span><span data-i18n="UI_HELP_6">：满了可以升级，升级可以加属性点，提高攻、防、闪避或者武学修炼速度等。</span><br/>
+                    <span class="badge-secondary" data-i18n="DATE">日期</span><span data-i18n="UI_HELP_7">：触发游戏内事件，例如货物价格的波动。</span><br/>
+                </p>
+                <p id="hw-hud-2" class="hw-hud"><span data-i18n="UI_HELP_8">右上方列出了角色的增益和减益效果，骑马、饥饿等状态会在此展示。</span><br/>
+                    <span class="badge-primary" data-i18n="ACTIVATE">激活</span><span data-i18n="UI_HELP_9">的轻功、内功真气，会提供增益效果。</span><br/>
+                    <span class="badge-primary" data-i18n="RIDE">骑马</span><span data-i18n="UI_HELP_10">可以提高移动速度。</span><br/>
+                </p>
+                <p id="hw-hud-3" class="hw-hud" data-i18n="UI_HELP_11">右方是游戏的小地图，可以开关地图，或者放大缩小。</p>
+                <p id="hw-hud-4" class="hw-hud" data-i18n="UI_HELP_12">下方是主要的控制界面，包括了生命、技能区，控制按键、内力等。</p>
+                <p id="hw-hud-5" class="hw-hud" data-i18n="UI_HELP_13"></p>
+            </div>
+            <div class="help-main-footer">
+                <p id="hw-hud-info"></p>
+                <button class="btn btn-primary" id="uiHelpWizardNext" data-i18n="UI_HELP_14">下一步：按键介绍</button>
+            </div>
+        </div>
+        <div class="ui-help-map">
+            <div class="ui-help-info">
+                <div data-i18n="UI_HELP_MINI_MAP">缩略地图</div>
+                <div><span data-i18n="UI_HELP_MINI_MAP_SWITCH">开关</span><span data-i18n="ZOOM_OUT">缩小</span><span data-i18n="ZOOM_IN">放大</span></div>
+            </div>
+            <div class="help-rect"></div>
+        </div>
+        <div class="ui-help-ctrl">
+            <div class="ui-help-info">
+                <div class="hp-bubble" data-i18n="HP_BALL">生命球</div>
+                <div class="skill-area">
+                    <div class="line-wide">
+                        <span data-i18n="LINE_1">第一道蓝色：人物经验条</span>
+                        <span data-i18n="LINE_2">第二道橙色：武学经验条</span>
+                    </div>
+                    <div class="line-split">
+                        <span data-i18n="OUTER_1">外功1</span><span data-i18n="OUTER_2">外功2</span><span data-i18n="OUTER_3">外功3</span><span data-i18n="OUTER_4">外功4</span><span data-i18n="HEAL">治疗</span>
+                    </div>
+                </div>
+                <div class="key-area">
+                    <div class="line-wide">
+                        <span data-i18n="LINE_1">第一道蓝色：人物经验条</span>
+                        <span data-i18n="LINE_2">第二道橙色：武学经验条</span>
+                    </div>
+                    <div class="line-split">
+                        <span data-i18n="CHARACTER">角色</span><span data-i18n="CTRL_INVENTORY">行囊</span><span data-i18n="CTRL_SHIP">船只</span><span data-i18n="CTRL_QUEST">任务</span><span data-i18n="CTRL_KONGFU">武学</span><span data-i18n="MAP">地图</span><span data-i18n="CTRL_MENU">菜单</span>
+                    </div>
+                </div>
+                <div class="mp-bubble" data-i18n="MP_BALL">内力球</div>
+            </div>
+            <div class="help-rect"></div>
+        </div>
+    </div>
+    <!-- # end of ui help -->
+
+</div>
+<!-- # end of gui -->
+
+<!-- invest-modal begins -->
+<div class="modal" id="investModal" data-backdrop='static' role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="INVEST">投资</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="invest-wrap col-7"></div>
+                    <div class="invest-display col-5">
+                        <div class="row">
+                            <div class="alert alert-primary display-Number col-12" id="investAmountDisplay">0</div>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-sm btn-secondary offset-6 col-6" id="investBtnMax" data-i18n="MAX">最大</button>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-sm btn-secondary offset-6 col-6" id="investBtnMin" data-i18n="MIN">最小</button>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-sm btn-secondary offset-6 col-6" id="investBtnClear" data-i18n="CLEAR">清除</button>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-sm btn-primary offset-6 col-6" id="investBtnOK" data-i18n="INVEST">投资</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="left-info">
+                        <i class="iconfont icon-jifen"></i><span class="modalSpanMoney" id="investSpanMoney"></span>
+                        <span class="modalSpanMoneyDelta" id="investSpanMoneyDelta"></span>
+                </div>
+                <input type="hidden" id="investModalCityId" value="0"/>
+                <input type="hidden" id="investModalSlotMoney" value="0"/>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of invest-modal -->
+
+<!-- heal-modal begins -->
+<div class="modal" id="healModal" data-backdrop='static' role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">heal modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="alert alert-dismissible alert-primary inventory">
+                    </div>
+                    <div class="alert alert-dismissible alert-light inventoryRight">
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of heal-modal -->
+
+<!-- buy-modal begins -->
+<div class="modal"  id="buyModal" data-backdrop='static'>
+    <input type="hidden" id="bmCurrentItemId" />
+    <input type="hidden" id="bmCurrentItemPrice" />
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="BUY">购买</h5>
+            </div>
+            <div class="modal-body-thin">
+                <div class="item-wrap"></div>
+                <div class="item-desc card">
+                    <div class="card-header">
+                        <li class="list-group-item no-border no-bg-color">
+                            <button class="btn btn-ms btn-primary" id="bmBuy" data-i18n="BUY"> 购买 </button>
+                            <button class="btn btn-ms btn-outline-primary" id="bmBuyPack" style="display: none;margin-left:0.5vw;" data-i18n="BUY_PACK"> 打包购买 </button>
+                        </li>
+                    </div>
+                    <div class="card-body"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="left-info"><i class="iconfont icon-jifen"></i><span class="" id="bmSpanMoney"></span></div>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of buy-modal -->
+
+<!-- sell-modal begins -->
+<div class="modal" id="sellModal" data-backdrop='static'>
+    <input type="hidden" id="smItemId" value="" />
+    <input type="hidden" id="smInventoryIdx" value="" />
+    <input type="hidden" id="sellModalNpcId" value="" />
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sellModalTitle" data-i18n="SELL">出售</h5>
+            </div>
+            <div class="modal-body-thin">
+                <div class="item-wrap"></div>
+                <div class="item-desc card">
+                    <div class="card-header">
+                        <li class="list-group-item no-border no-bg-color">
+                            <button class="btn btn-ms btn-primary im-btn-action" id="smSell" data-i18n="SELL_ONE"> 单个出售 </button>
+                            <button class="btn btn-ms btn-primary im-btn-action" id="smSellStack" data-i18n="SELL_ALL"> 全部出售 </button>
+                            <button class="btn btn-ms btn-dark disabled" id="smSellUnsellable" data-i18n="NOT_SALE"> 不可出售 </button>
+                        </li>
+                    </div>
+                    <div class="card-body"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="left-info row" style="width:80%">
+                    <div class="col-12" style="padding-left:0px;">
+                        <i class="iconfont icon-jifen"></i><span class="modalSpanMoney" id="sellModalSpanMoney" style="display: inline-block;"></span>
+                        <span class="modalSpanMoneyDelta" id="sellModalSpanMoneyDelta" style="color:#1c923e;"></span>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of sell-modal -->
+
+<!-- puzzle-modal begins -->
+<div class="modal" id="puzzleModal" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="PUZZLE">puzzle</h5>
+            </div>
+            <div class="modal-body" id="puzzleModalBody"></div>
+            <input type="text" class="form-control-plaintext" id="puzzleContentOriginal" value="" readonly disabled>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="puzzleOK" disabled data-i18n="COMPLETE">完成</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of puzzle-modal -->
+
+<!-- meditation-modal begins -->
+<div class="modal" id="meditationModal" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="MEDITATION"> 领悟 </h5>
+            </div>
+            <div class="modal-body" id="hill_view">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <span data-i18n="NOT_AVA_FOR_DEMO"></span>
+                        </div>
+                        <div class="row" id="mmInventory">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" id="mmDo" data-i18n="MEDITATION">领悟</button>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of meditation-modal -->
+
+<!-- compose-modal begins -->
+<div class="modal" id="composeModal" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="COMPOSE"> 合成 </h5>
+            </div>
+            <div class="modal-body" id="compose_view" class="compose_view">
+                <div class="row">
+                    <span data-i18n="NOT_AVA_FOR_DEMO"></span>
+                </div>
+                <div id="composeInventory" class="composeInventory"></div>
+                <div class="row composeRecipe" id="composeRecipe"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary composeDo" id="composeDo" data-i18n="COMPOSE">合成</button>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of compose-modal -->
+
+<!-- decompose-modal begins -->
+<div class="modal" id="decomposeModal" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="DECOMPOSE"> 分解 </h5>
+            </div>
+            <div class="modal-body" id="decompose_view" class="compose_view">
+                <div class="row">
+                    <span data-i18n="NOT_AVA_FOR_DEMO"></span>
+                </div>
+                <div id="decomposeInventory" class="composeInventory"></div>
+<!--                <div class="row composeRecipe" id="decomposeRecipe"></div>-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary composeDo" id="decomposeDo" data-i18n="DECOMPOSE">分解</button>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of decompose-modal -->
+
+<!-- gambling-modal begins -->
+<div class="modal"  id="gamblingModal" data-backdrop='static'>
+    <input type="hidden" id="gmCurrentItemId" />
+    <input type="hidden" id="gmCurrentItemPrice" />
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="GAMBLING">赌博</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <span data-i18n="NOT_AVA_FOR_DEMO"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="left-info"><i class="iconfont icon-jifen"></i><span class="" id="gmSpanMoney"></span></div>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of gambling-modal -->
+
+<!-- purchase-modal begins -->
+<div class="modal" id="purchaseModal" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="PURCHASE">采购</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-7">
+                        <div class="bs-component cargo-list">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col"  data-i18n="CARGO">货物</th>
+                                    <th scope="col"  data-i18n="STOCK">库存</th>
+                                    <th scope="col"  data-i18n="PRICE">价格</th>
+                                    <th scope="col"  data-i18n="TREND">行情</th>
+                                    <!--<th scope="col" >转售</th>-->
+                                </tr>
+                                </thead>
+                                <tbody id="purchaseTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-5 calculator">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="alert alert-primary display-Number" id="calculatorDisplay">0</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <input type="range" class="custom-range" id="calculatorRange" max="0" min="0">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-secondary col-4 btn-func" id="calculatorBtnMax" data-i18n="MAX">最大</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn7">7</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn8">8</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn9">9</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-secondary col-4 btn-func"  id="calculatorBtnMin" data-i18n="MIN">最小</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn4">4</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn5">5</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn6">6</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-secondary col-4 btn-func" id="calculatorBtnClear" data-i18n="CLEAR">清除</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn1">1</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn2">2</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn3">3</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-primary col-4 btn-func" id="calculatorBtnOK" data-i18n="OK">确定</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn00">00</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn0">0</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="dataPurchaseMax" value="0">
+                <input type="hidden" id="dataPurchaseCargoId" value="0">
+                <input type="hidden" id="dataPurchaseCityId" value="0">
+                <input type="hidden" id="dataPurchaseCityDevLevel" value="0">
+                <div class="left-info row" style="width:80%">
+                    <div class="col-6">
+                        <i class="iconfont icon-jifen"></i><span class="modalSpanMoney" id="pmSpanMoney"></span>
+                    </div>
+                    <div class="col-6">
+                        <i class="iconfont icon-box"></i><span class="" id="pmSpanSlot"></span>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of purchase-modal -->
+
+<!-- sale-modal begins -->
+<div class="modal" id="saleModal" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="SALE">贩卖</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-7">
+                        <div class="bs-component cargo-list">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col"  data-i18n="CARGO">货物</th>
+                                    <th scope="col"  data-i18n="STOCK">库存</th>
+                                    <th scope="col"  data-i18n="PRICE">价格</th>
+                                    <th scope="col"  data-i18n="COST">成本</th>
+                                    <!--<th scope="col" >转售</th>-->
+                                </tr>
+                                </thead>
+                                <tbody id="saleTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-5 calculator">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="alert alert-primary display-Number" id="calculatorDisplayS">0</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <input type="range" class="custom-range" id="calculatorRangeS" max="0" min="0">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-secondary col-4 btn-func" id="calculatorBtnMaxS" data-i18n="MAX">最大</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn7S">7</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn8S">8</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn9S">9</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-secondary col-4 btn-func"  id="calculatorBtnMinS" data-i18n="MIN">最小</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn4S">4</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn5S">5</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn6S">6</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-secondary col-4 btn-func" id="calculatorBtnClearS" data-i18n="CLEAR">清除</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn1S">1</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn2S">2</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn3S">3</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-primary col-4 btn-func" id="calculatorBtnOKS" data-i18n="OK">确定</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn00S">00</button>
+                                <button type="button" class="btn btn-secondary col-2 btn-num" id="calculatorBtn0S">0</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="dataSaleMax" value="0">
+                <input type="hidden" id="dataSaleCargoId" value="-1">
+                <input type="hidden" id="dataSaleCityId" value="0">
+                <div class="left-info row" style="width:80%">
+                    <div class="col-6">
+                        <i class="iconfont icon-jifen"></i><span class="modalSpanMoney" id="smSpanMoney"></span>
+                        <span class="modalSpanMoneyDelta" id="smSpanMoneyDelta" style="color:#1c923e;"></span>
+                    </div>
+                    <div class="col-6">
+                        <i class="iconfont icon-box"></i><span class="" id="smSpanSlot"></span>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of sale-modal -->
+
+<!-- bank-modal begins -->
+<div class="modal" id="bankModal" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="BANK">银号</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <span data-i18n="NOT_AVA_FOR_DEMO"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="left-info row" style="width:80%;">
+                    <div class="col-12">
+                        <i class="iconfont icon-jifen"></i><span class="" id="bkSpanMoney"></span>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of bank-modal -->
+
+<!-- ship-supply-modal begins -->
+<div class="modal" id="shipModal" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="CTRL_SHIP">船只</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6 cm-left">
+                        <div class="cm-info-level row">
+                            <span class="col-6" id="shipModalName" data-i18n="SEA_CUCKOO">海鹃</span>
+                            <span class="col-6 info-right" id="shipModalPort" data-i18n="PINGYUAN">平原</span>
+                        </div>
+                        <div class="ship-wrap row">
+                            <img src="assets/images/main/shipAvatar.png"/>
+                        </div>
+                        <!-- exp bar -->
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center no-border">
+                                <span data-i18n="SHIP_SPEED">航速</span>
+                                <div class="progress col-8">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="350" id="shipModalSpeed">
+                                        <span class=""> 355 + 35</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center no-border">
+                                <span data-i18n="SHIP_SPACE">舱位</span>
+                                <div class="progress col-8">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="1000" id="shipModalCapacity">
+                                        <span class=""> 400 + 40</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center no-border">
+                                <span data-i18n="SHIP_SUPPLY">补给</span>
+                                <div class="progress col-8">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" id="shipModalSupply1">
+                                        <span class=""> 280 </span>
+                                    </div>
+                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 50%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" id="shipModalSupply2">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center no-border" id="shipModalSpeedUpWrap">
+                                <span data-i18n="SHIP_SAIL">加帆</span><span>0</span>
+                                <button class="btn btn-xs btn-primary"  id="shipModalSpeedUp"><i class="iconfont icon-up1"></i></button>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center no-border" id="shipModalCapacityUpWrap">
+                                <span data-i18n="SHIP_CABIN">升舱</span><span>0</span>
+                                <button class="btn btn-xs btn-info" id="shipModalCapacityUp"><i class="iconfont icon-up1"></i></button>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center no-border">
+                                <span data-i18n="SHIP_CONSUMPTION">消耗</span>
+                                <div class="ship-consumption"  id="shipModalConsumption">
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-6 cm-right">
+                        <div class="cm-info-level row">
+                            <div class="col-8"><span id="shipModalSellPrice"></span></div>
+                            <div class="col-4">
+                                <button class="btn btn-primary btn-xs" id="shipModalSell" data-i18n="SELL">出售</button>
+                            </div>
+                        </div>
+
+                        <hr/>
+                        <div class="cm-right-middle card">
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush" id="shipModalCargoList">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="left-info row" style="width:80%">
+                    <div class="col-6">
+                        <i class="iconfont icon-jiutan"></i><span class="" id="shipModalSupplyText"></span>
+                    </div>
+                    <div class="col-6">
+                        <i class="iconfont icon-box"></i><span class="" id="shipModalCapacityText"></span>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of ship-supply-modal -->
+
+<!-- inventory-modal begins -->
+<div class="modal" id="inventoryModal" data-backdrop='static' data-keyboard="false">
+    <input type="hidden" id="imItemId" value="" />
+    <input type="hidden" id="imInventoryIdx" value="" />
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="CTRL_INVENTORY">行囊</h5>
+                <span data-i18n="HELP_STUDY">请点击修习按钮，开始武学修行。</span>
+            </div>
+            <div class="modal-body-thin">
+                <div class="item-wrap"></div>
+                <div class="item-desc card">
+                    <div class="card-header">
+                        <li class="list-group-item no-border no-bg-color">
+                            <button class="btn btn-ms btn-primary im-btn-action" id="imUse" data-i18n="USE"> 使用 </button>
+                            <button class="btn btn-ms btn-primary im-btn-action" id="imEat" data-i18n="EAT"> 开吃 </button>
+                            <button class="btn btn-ms btn-primary im-btn-action" id="imEquip" data-i18n="EQUIP"> 装备 </button>
+                            <button class="btn btn-ms btn-primary im-btn-action" id="imUnEquip" data-i18n="UNEQUIP"> 卸下 </button>
+                            <button class="btn btn-ms btn-primary im-btn-action" id="imStudy" data-i18n="STUDY"> 修习 </button>
+                            <button class="btn btn-ms btn-primary im-btn-action" id="imUnStudy" data-i18n="DROP_OUT"> 辍学 </button>
+                            <button class="btn btn-ms btn-secondary float-right im-btn-action" id="imDrop" data-i18n="DISCARD"> 丢弃 </button>
+                        </li>
+                    </div>
+                    <div class="card-body"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="left-info"><i class="iconfont icon-jifen"></i><span class="" id="imSpanMoney"></span></div>
+                <button type="button" class="btn btn-sm btn-primary" id="imSort" data-i18n="ORGANIZE">整理</button>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" data-i18n="CLOSE">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of inventory-modal -->
+
+<!-- task-modal begins -->
+<div class="modal" id="taskModal" data-backdrop='static' data-taskId="0">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="CTRL_QUEST">任务</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12" id="tmTaskDetail">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="tmBtnAbort" data-i18n="QUEST_ABANDON">放弃任务</button>
+                <button type="button" class="btn btn-primary" id="tmBtnAccept" data-i18n="QUEST_ACCEPT">接受任务</button>
+                <button type="button" class="btn btn-primary" id="tmBtnComplete" data-i18n="QUEST_COMPLETE">完成任务</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of task-modal -->
+
+<!-- journal-modal begins -->
+<div class="modal" id="journalModal" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="QUEST_LOG">任务日志</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-5 list-group" id="jmListTask">
+                    </div>
+                    <div class="col-7" id="jmTxtTaskDesc">task description</div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-primary" id="jmBtnAbort" disabled="disabled" data-i18n="ABANDON">放弃</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-i18n="CLOSE">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of task-modal -->
+
+<!-- battle-modal begins -->
+<div class="modal" id="battleModal" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="QUICK_BATTLE">快速战斗</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12" id="quickCombatInfo">
+                        <div class="fixed-height-40 log-display" id="quickCombatLog">
+                            <div id="msg_end" style="height:0px; overflow:hidden"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="justify-content:space-between;">
+                <div id="battleModalHud" class=""></div>
+                <div>
+                    <button type="button" class="btn btn-dark" id="startFightAllBtn" data-i18n="IN_HURRY">我赶时间</button>
+                    <button type="button" class="btn btn-primary" id="startFightBtn" data-i18n="START_BATTLE">开始战斗</button>
+                    <button type="button" class="btn btn-secondary" id="leaveQuickBattleBtn" data-dismiss="modal" data-i18n="LEAVE">离开</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of battle-modal -->
+
+<!-- battle-Mode-modal begins -->
+<div class="modal" id="battleModeModal" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" data-i18n="ENTER_LEVEL">进入关卡</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-5" id="bmmPlayer"></div>
+                    <div class="col-1 combat-icon"><i class="iconfont icon-swords1"></i></div>
+                    <div class="col-6" id="bmmZone"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <button class="btn btn-primary col-5" id="bmmBtnDynamicBattle" data-i18n="MANUAL_BATTLE"> 手动战斗 </button>
+                    <button class="btn btn-primary col-5 offset-2" id="bmmBtnQuickBattle" data-i18n="QUICK_BATTLE"> 快速战斗 </button>
+                </div>
+                <div class="row">
+                    <div class="form-check col-5 btn">
+                        <input class="form-check-input" type="checkbox" id="bmmSaveMode">
+                        <label class="form-check-label" for="bmmSaveMode" data-i18n="REMEMBER_NEVER_ASK">
+                            记住了，不要再问
+                        </label>
+                    </div>
+                    <button class="btn btn-secondary col-5 offset-2" id="bmmLeave" data-dismiss="modal" data-i18n="LEAVE_BATTLE">离开关卡</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of battle-modal -->
+
+<!-- character-modal begins -->
+<div class="modal" id="characterModal" data-backdrop='static' data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cmName">Name</h5>
+                <div id="characterModalHud"></div>
+            </div>
+            <div class="modal-body" id="characterModalBody">
+                <div class="row">
+                    <div class="col-6 cm-left">
+                        <div class="cm-info-level row">
+                            <span class="col-6" id="cmLevel"></span>
+                            <span class="col-6 info-right" id="cmParaLevel"></span>
+                        </div>
+                        <div class="row cm-eq">
+                            <div class="cm-eq-left item-wrap" id="cm-eq-1">
+                                <button class="item-slot" id="cmSlot0"><i class="iconfont icon-diaosu"></i></button>
+                                <button class="item-slot" id="cmSlot1"><i class="iconfont icon-xianglian"></i></button>
+                                <button class="item-slot" id="cmSlot2"><i class="iconfont icon-jiezhi-"></i></button>
+                                <button class="item-slot" id="cmSlot3"><i class="iconfont icon-nunchaku"></i></button>
+                            </div>
+                            <div class="cm-eq-middle">
+                                <img src="assets/images/npc/70.png">
+                            </div>
+                            <div class="cm-eq-right item-wrap" id="cm-eq-2">
+                                <button class="item-slot" id="cmSlot4"><i class="iconfont icon-sv"></i> </button>
+                                <button class="item-slot" id="cmSlot5"><i class="iconfont icon-kuzi"></i></button>
+                                <button class="item-slot" id="cmSlot6"><i class="iconfont icon-xuezi"></i></button>
+                                <button class="item-slot" id="cmSlot7"><i class="iconfont icon-zhipin"></i></button>
+                            </div>
+                        </div>
+                        <!-- exp bar -->
+                        <div id="cmExp" class="progress cmExpProgress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
+                            <span></span>
+                        </div>
+                        <div id="cmExpLearn" class="progress cmExpProgress">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
+                            <span></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-3" data-i18n="HP">生命</span><div class="col-9 info-right" id="cmHP"></div>
+                        </div>
+                        <div class="row">
+                            <span class="col-3" data-i18n="MP">内力</span><div class="col-9 info-right" id="cmMP"></div>
+                        </div>
+                        <div class="row">
+                            <span class="col-3" data-i18n="STRENGTH">力道</span>
+                            <div class="col-6 padding-right-none" id="cmStrCtrl">
+                                <button class="btn btn-xs btn-primary" id="cmPoint1Minus">-</button>
+                                <button class="btn btn-xs btn-secondary" disabled id="cmPoint1">0</button>
+                                <button class="btn btn-xs btn-primary" id="cmPoint1Plus">+</button>
+                                <button class="btn btn-xs btn-primary" id="cmPoint1OK">OK</button>
+                            </div>
+                            <div class="col-3 info-right" id="cmStr"></div>
+                        </div>
+                        <div class="row">
+                            <span class="col-3" data-i18n="WISDOM">悟性</span>
+                            <div class="col-6 padding-right-none" id="cmWisCtrl">
+                                <button class="btn btn-xs btn-primary" id="cmPoint2Minus">-</button>
+                                <button class="btn btn-xs btn-secondary" disabled id="cmPoint2">0</button>
+                                <button class="btn btn-xs btn-primary" id="cmPoint2Plus">+</button>
+                                <button class="btn btn-xs btn-primary" id="cmPoint2OK">OK</button>
+                            </div>
+                            <div class="col-3" id="cmWis"></div>
+                        </div>
+                        <div class="row">
+                            <span class="col-3" data-i18n="ATTR_POINTS">属性点</span><div class="col-9 info-right" id="cmPoint"></div>
+                        </div>
+
+                    </div>
+                    <div class="col-6 cm-right">
+                        <div class="cm-info-level row">
+                            <span class="col-3" data-i18n="FOOD">食物</span>
+                            <div class="col-9 info-right" id="cmFood"></div>
+                        </div>
+                        <div class="cm-info-level row">
+                            <span class="col-3" data-i18n="MONEY">银两</span>
+                            <div class="col-9 info-right" id="cmMoney"></div>
+                        </div>
+                        <div class="cm-info-level row">
+                            <span class="col-3" data-i18n="MOVE_SPEED">移动速度</span>
+                            <div class="col-9 info-right" id="moveOnSpeed"></div>
+                        </div>
+                        <hr/>
+                        <div class="cm-right-middle">
+                            <div class="row">
+                                <span class="col-3" data-i18n="HIT">命中</span><div class="col-3" id="cmHit"></div>
+                                <span class="col-3" data-i18n="ATK">攻强</span><div class="col-3" id="cmAtk"></div>
+                            </div>
+                            <div class="row">
+                                <span class="col-3" data-i18n="CRT">暴率</span><div class="col-3" id="cmCrt"></div>
+                                <span class="col-3" data-i18n="DEF">防御</span><div class="col-3" id="cmDef"></div>
+                            </div>
+                            <div class="row">
+                                <span class="col-3" data-i18n="CRM">暴伤</span><div class="col-3" id="cmCrm"></div>
+                                <span class="col-3" data-i18n="HST">急速</span><div class="col-3" id="cmHst"></div>
+                            </div>
+                            <div class="row">
+                                <span class="col-3" data-i18n="DGE">闪避</span><div class="col-3" id="cmDge"></div>
+                                <span class="col-3" data-i18n="PAR">招架</span><div class="col-3" id="cmPar"></div>
+                            </div>
+                            <div class="row">
+                                <span class="col-3" data-i18n="FDB">反伤</span><div class="col-3" id="cmFdb"></div>
+                                <span class="col-3" data-i18n="FDH">吸血</span><div class="col-3" id="cmFdh"></div>
+                            </div>
+                            <div class="row">
+                                <span class="col-3" data-i18n="RIS">抗性</span><div class="col-3" id="cmRis"></div>
+                                <span class="col-3" data-i18n="LUK">精准</span><div class="col-3" id="cmLuk"></div>
+                            </div>
+                            <div class="row">
+                                <span class="col-3" data-i18n="REG">再生</span><div class="col-3" id="cmReg"></div>
+                                <span class="col-3" data-i18n="REM">内息</span><div class="col-3" id="cmRem"></div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="cm-right-foot">
+                            <div class="row">
+                                <span class="col-3" data-i18n="SKILL_FIST">拳掌</span><div class="col-3" id="cmFist"></div>
+                                <span class="col-3" data-i18n="SKILL_SWORD">御剑</span><div class="col-3" id="cmSword"></div>
+                            </div>
+                            <div class="row">
+                                <span class="col-3" data-i18n="SKILL_MACHETE">舞刀</span><div class="col-3" id="cmMachete"></div>
+                                <span class="col-3" data-i18n="SKILL_SPEAR">弄枪</span><div class="col-3" id="cmSpear"></div>
+                            </div>
+                            <div class="row">
+                                <span class="col-3" data-i18n="SKILL_EJECTION">暗器</span><div class="col-3" id="cmEjection"></div>
+                                <span class="col-3" data-i18n="SKILL_HEAL">医疗</span><div class="col-3" id="cmHeal"></div>
+                            </div>
+                            <div class="row">
+                                <span class="col-3" data-i18n="SKILL_ENCHANT">内劲</span><div class="col-3" id="cmEnchant"></div>
+                                <span class="col-3" data-i18n="SKILL_SWIFT">身法</span><div class="col-3" id="cmSwift"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div id="characterModalFootnote"> </div>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" data-i18n="CLOSE">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of character-modal -->
+
+<!-- character-modal begins -->
+<div class="modal" id="kongFuModal" data-backdrop='static' data-keyboard="false">
+    <input type="hidden" id="kfActiveId" value="">
+    <input type="hidden" id="kfActiveType" value="">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="kfName" data-i18n="CTRL_KONGFU">武学</h5>
+                <span data-i18n="HELP_ACTIVE">请点击激活按钮，使内功和轻功生效。</span>
+            </div>
+            <div class="modal-body modal-body-thin" id="kongFuModalBody">
+                <div class="row">
+                    <div class="col-6 cm-left">
+                        <ul class="list-group list-kf">
+                            <li id="kfWg0" data-kfid="-1" data-kflevel="-1" class="kf-kf kf-kf-wg list-group-item d-flex justify-content-between align-items-center">
+                                <i class="iconfont icon-blockbannedstopdisabledban1"></i> 无 N/A
+                                <span class="badge badge-primary badge-pill">0</span>
+                            </li>
+                            <li id="kfWg1" data-kfid="-1" data-kflevel="-1" class="kf-kf kf-kf-wg list-group-item d-flex justify-content-between align-items-center">
+                                <i class="iconfont icon-blockbannedstopdisabledban1"></i> 无 N/A
+                                <span class="badge badge-primary badge-pill">0</span>
+                            </li>
+                            <li id="kfWg2" data-kfid="-1" data-kflevel="-1" class="kf-kf kf-kf-wg list-group-item d-flex justify-content-between align-items-center">
+                                <i class="iconfont icon-blockbannedstopdisabledban1"></i> 无 N/A
+                                <span class="badge badge-primary badge-pill">0</span>
+                            </li>
+                            <li id="kfWg3" data-kfid="-1" data-kflevel="-1" class="kf-kf kf-kf-wg list-group-item d-flex justify-content-between align-items-center">
+                                <i class="iconfont icon-blockbannedstopdisabledban1"></i> 无 N/A
+                                <span class="badge badge-primary badge-pill">0</span>
+                            </li>
+                        </ul>
+                        <hr/>
+                        <ul class="list-group list-kf">
+                            <li id="kfNg0" data-kfid="-1" data-kflevel="-1" class="kf-kf kf-kf-ng list-group-item d-flex justify-content-between align-items-center">
+                                <i class="iconfont icon-blockbannedstopdisabledban1"></i> 无 N/A
+                                <span class="badge badge-primary badge-pill">0</span>
+                            </li>
+                            <li id="kfNg1" data-kfid="-1" data-kflevel="-1" class="kf-kf kf-kf-ng list-group-item d-flex justify-content-between align-items-center">
+                                <i class="iconfont icon-blockbannedstopdisabledban1"></i> 无 N/A
+                                <span class="badge badge-primary badge-pill">0</span>
+                            </li>
+                            <li id="kfNg2" data-kfid="-1" data-kflevel="-1" class="kf-kf kf-kf-ng list-group-item d-flex justify-content-between align-items-center">
+                                <i class="iconfont icon-blockbannedstopdisabledban1"></i> 无 N/A
+                                <span class="badge badge-primary badge-pill">0</span>
+                            </li>
+                            <li id="kfNg3" data-kfid="-1" data-kflevel="-1" class="kf-kf kf-kf-ng list-group-item d-flex justify-content-between align-items-center">
+                                <i class="iconfont icon-blockbannedstopdisabledban1"></i> 无 N/A
+                                <span class="badge badge-primary badge-pill">0</span>
+                            </li>
+                        </ul>
+                        <hr/>
+                        <ul class="list-group list-kf">
+                            <li id="kfQg0" data-kfid="-1" data-kflevel="-1" class="kf-kf kf-kf-qg list-group-item d-flex justify-content-between align-items-center">
+                                <i class="iconfont icon-blockbannedstopdisabledban1"></i> 无 N/A
+                                <span class="badge badge-primary badge-pill">0</span>
+                            </li>
+                            <li id="kfQg1" data-kfid="-1" data-kflevel="-1" class="kf-kf kf-kf-qg list-group-item d-flex justify-content-between align-items-center">
+                                <i class="iconfont icon-blockbannedstopdisabledban1"></i> 无 N/A
+                                <span class="badge badge-primary badge-pill">0</span>
+                            </li>
+                        </ul>
+                        <hr/>
+                        <ul class="list-group list-kf">
+                            <li id="kfZl0" data-kfid="-1" data-kflevel="-1" class="kf-kf kf-kf-zl list-group-item d-flex justify-content-between align-items-center">
+                                <i class="iconfont icon-blockbannedstopdisabledban1"></i> 无 N/A
+                                <span class="badge badge-primary badge-pill">0</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6 cm-right">
+                        <div class="card">
+                            <div class="card-header">
+                                <li class="list-group-item d-flex justify-content-between align-items-center no-border">
+                                    <button class="btn btn-ms btn-secondary" id="kfBtnForget" data-i18n="FORGET">遗忘</button>
+                                    <button class="btn btn-ms btn-primary" id="kfBtnActive" data-i18n="ACTIVATE">激活</button>
+                                    <button class="btn btn-ms btn-primary" id="kfBtnFirstPriority" data-i18n="PRIOR">优先</button>
+                                </li>
+                            </div>
+                            <div class="card-header" id="heal_med_div">
+                                <div id="heal_med_current">
+                                    <button class="item-slot-0 item-slot btn" id="kfHealSlot0"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cross2"></use></svg></button>
+                                    <span id="kfHealMedSpan" data-i18n="MEDICINE_0">无丹药：治疗效果+0%</span>
+                                </div>
+                                <div id="heal_med_selector">
+                                    <button class="item-slot-7 item-slot btn" id="kfHealMed354" data-med="354"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-huaping"></use></svg><span class="badge">20</span></button>
+                                    <button class="item-slot-6 item-slot btn" id="kfHealMed353" data-med="353"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-food-sushi"></use></svg><span class="badge">20</span></button>
+                                    <button class="item-slot-5 item-slot btn" id="kfHealMed352" data-med="352"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-food-avocado"></use></svg><span class="badge">20</span></button>
+                                    <button class="item-slot-4 item-slot btn" id="kfHealMed351" data-med="351"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-food-pecan"></use></svg><span class="badge">20</span></button>
+                                    <button class="item-slot-3 item-slot btn" id="kfHealMed350" data-med="350"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-liangshi"></use></svg><span class="badge">20</span></button>
+                                    <button class="item-slot-2 item-slot btn" id="kfHealMed349" data-med="349"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-food-mochi"></use></svg><span class="badge">20</span></button>
+                                    <button class="item-slot-1 item-slot btn" id="kfHealMed348" data-med="348"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-icon-test1"></use></svg><span class="badge">20</span></button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" data-i18n="CLOSE">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- # end of character-modal -->
+
+<audio id="se_page" src="assets/audio/se/page.mp3" class="game-se-controls"></audio>
+<audio id="se_ding" src="assets/audio/se/ding.mp3" class="game-se-controls"></audio>
+<audio id="se_click" src="assets/audio/se/click.mp3" class="game-se-controls"></audio>
+<audio id="se_drum" src="assets/audio/se/drum.mp3" class="game-se-controls"></audio>
+<audio id="se_melee" src="assets/audio/se/melee.wav" class="game-se-controls"></audio>
+</body>
+
+
+
+<script src="./libs/phaser/phaser.min.3.60.0.js"></script>
+<script type="text/javascript" src="./libs/jquery/jquery.3.4.0.min.js"></script>
+<script type="text/javascript" src="./libs/bootstrap/popper.min.js"></script>
+<script type="text/javascript" src="./libs/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="./libs/iconfont/iconfont.js"></script>
+
+<script type="text/javascript" src="./libs/seedrandom.3.05.min.js"></script>
+<script type="text/javascript" src="./js/cdcFunc.js"></script>
+<script type="text/javascript" src="./js/cdcConfig.js"></script>
+<script type="text/javascript" src="./js/model/cdModel.js"></script>
+
+<script type="text/javascript" src="./js/sprite/MobSprite.js"></script>
+<script type="text/javascript" src="./js/sprite/MobController.js"></script>
+<script type="text/javascript" src="./js/sprite/MobAI.js"></script>
+
+<!-- db js -->
+<script type="text/javascript" src="./js/model/baseStateModel.js"></script>
+<script type="text/javascript" src="./js/model/kfModel.js"></script>
+<script type="text/javascript" src="./js/model/itemModel.js"></script>
+<script type="text/javascript" src="./js/model/characterModel.js"></script>
+<script type="text/javascript" src="./js/model/skillModel.js"></script>
+<script type="text/javascript" src="./js/model/recipeModel.js"></script>
+<script type="text/javascript" src="./js/model/armyModel.js"></script>
+
+
+<script type="text/javascript" src="./js/gDB.js"></script>
+<script type="text/javascript" src="./js/db/dbCity.js"></script>
+<script type="text/javascript" src="./js/db/dbCityCmd.js"></script>
+<script type="text/javascript" src="./js/db/dbCityBuilding.js"></script>
+<script type="text/javascript" src="./js/db/dbCityAction.js"></script>
+<script type="text/javascript" src="./js/db/dbPoem.js"></script>
+<script type="text/javascript" src="./js/db/dbCityCargo.js"></script>
+<script type="text/javascript" src="./js/db/dbNPC.js"></script>
+<script type="text/javascript" src="./js/db/dbHill.js"></script>
+<script type="text/javascript" src="./js/db/dbShip.js"></script>
+<script type="text/javascript" src="./js/db/dbPlayer.js"></script>
+<script type="text/javascript" src="./js/db/dbKf.js"></script>
+<script type="text/javascript" src="./js/db/dbItem.js"></script>
+<script type="text/javascript" src="./js/db/dbCityItem.js"></script>
+<script type="text/javascript" src="./js/db/dbTask.js"></script>
+<script type="text/javascript" src="./js/db/dbMob.js"></script>
+
+<script type="text/javascript" src="./js/model/mobModel.js"></script>
+<script type="text/javascript" src="./js/model/npcModel.js"></script>
+<script type="text/javascript" src="js/model/taskModel.js"></script>
+<script type="text/javascript" src="js/model/medicineModel.js"></script>
+
+<!-- custom js -->
+<script type="text/javascript" src="./js/gConsole.js"></script>
+<script type="text/javascript" src="./js/gGui.js"></script>
+<script type="text/javascript" src="./js/gTrade.js"></script>
+<script type="text/javascript" src="./js/gTime.js"></script>
+<script type="text/javascript" src="./js/gQuickBattle.js"></script>
+<script type="text/javascript" src="./js/gTravelManager.js"></script>
+<script type="text/javascript" src="js/view/baseModal.js"></script>
+<script type="text/javascript" src="js/view/bankModal.js"></script>
+<script type="text/javascript" src="js/view/puzzleModal.js"></script>
+<script type="text/javascript" src="js/view/taskModal.js"></script>
+<script type="text/javascript" src="js/view/journalModal.js"></script>
+<script type="text/javascript" src="js/view/purchaseModal.js"></script>
+<script type="text/javascript" src="js/view/saleModal.js"></script>
+<script type="text/javascript" src="js/view/characterModal.js"></script>
+<script type="text/javascript" src="js/view/buyModal.js"></script>
+<script type="text/javascript" src="js/view/gamblingModal.js"></script>
+<script type="text/javascript" src="js/view/meditationModal.js"></script>
+<script type="text/javascript" src="js/view/composeModal.js"></script>
+<script type="text/javascript" src="js/view/decomposeModal.js"></script>
+<script type="text/javascript" src="js/view/sellModal.js"></script>
+<script type="text/javascript" src="js/view/battleModal.js"></script>
+<script type="text/javascript" src="js/view/shipModal.js"></script>
+<script type="text/javascript" src="js/view/kongFuModal.js"></script>
+<script type="text/javascript" src="js/view/inventoryModal.js"></script>
+<script type="text/javascript" src="js/view/investModal.js"></script>
+<script type="text/javascript" src="js/view/buffWidget.js"></script>
+<script type="text/javascript" src="js/view/deBuffWidget.js"></script>
+<script type="text/javascript" src="js/view/bubbleWidget.js"></script>
+<script type="text/javascript" src="./js/gApp.js"></script>
+<script type="text/javascript" src="./js/wge/wge.js"></script>
+<script src="./scenes/boot.js" type="text/javascript"></script>
+<script src="./scenes/credits.js" type="text/javascript"></script>
+<script src="./scenes/world.js" type="text/javascript"></script>
+<script src="./js/config.js" type="text/javascript"></script>
+<script src="./js/aniConfig.js" type="text/javascript"></script>
+<script src="./js/playerInWorld.js" type="text/javascript"></script>
+<script src="./js/view/miniMapManager.js" type="text/javascript"></script>
+<script src="./js/view/helpWizard.js" type="text/javascript"></script>
+<script src="./js/player.js" type="text/javascript"></script>
+<script src="./scenes/dynamic.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="./js/movie/FlyingBirdManager.js"></script>
+<script type="text/javascript" src="./js/movie/BubbleManager.js"></script>
+<script type="text/javascript" src="./js/movie/CharRainManager.js"></script>
+
+
+<script src="./js/index.js" type="text/javascript"></script>
+
+
+
+<script src="./platform/electron/extra.js" type="text/javascript"></script>
+</html>

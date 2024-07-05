@@ -1,0 +1,465 @@
+{
+  "frames": [
+    {
+      "filename": "back_raid_5.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 54,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 0,
+        "w": 54,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 60,
+        "h": 136
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "back_raid_4.png",
+      "frame": {
+        "x": 54,
+        "y": 0,
+        "w": 54,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 0,
+        "w": 54,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 60,
+        "h": 136
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "back_raid_0.png",
+      "frame": {
+        "x": 108,
+        "y": 0,
+        "w": 54,
+        "h": 129
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 0,
+        "w": 54,
+        "h": 129
+      },
+      "sourceSize": {
+        "w": 60,
+        "h": 136
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "front_raid_0.png",
+      "frame": {
+        "x": 162,
+        "y": 0,
+        "w": 51,
+        "h": 130
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 1,
+        "w": 51,
+        "h": 130
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 136
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "front_raid_1.png",
+      "frame": {
+        "x": 213,
+        "y": 0,
+        "w": 51,
+        "h": 130
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 1,
+        "w": 51,
+        "h": 130
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 136
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "back_raid_1.png",
+      "frame": {
+        "x": 264,
+        "y": 0,
+        "w": 54,
+        "h": 131
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 0,
+        "w": 54,
+        "h": 131
+      },
+      "sourceSize": {
+        "w": 60,
+        "h": 136
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "front_raid_5.png",
+      "frame": {
+        "x": 318,
+        "y": 0,
+        "w": 51,
+        "h": 131
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 1,
+        "w": 51,
+        "h": 131
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 136
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "side_raid_0.png",
+      "frame": {
+        "x": 369,
+        "y": 0,
+        "w": 169,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 1,
+        "w": 169,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 179,
+        "h": 141
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "front_raid_3.png",
+      "frame": {
+        "x": 538,
+        "y": 0,
+        "w": 51,
+        "h": 133
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 0,
+        "w": 51,
+        "h": 133
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 136
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "front_raid_4.png",
+      "frame": {
+        "x": 589,
+        "y": 0,
+        "w": 51,
+        "h": 133
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 1,
+        "w": 51,
+        "h": 133
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 136
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "back_raid_2.png",
+      "frame": {
+        "x": 640,
+        "y": 0,
+        "w": 54,
+        "h": 134
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 0,
+        "w": 54,
+        "h": 134
+      },
+      "sourceSize": {
+        "w": 60,
+        "h": 136
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "back_raid_3.png",
+      "frame": {
+        "x": 694,
+        "y": 0,
+        "w": 54,
+        "h": 134
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 1,
+        "w": 54,
+        "h": 134
+      },
+      "sourceSize": {
+        "w": 60,
+        "h": 136
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "front_raid_2.png",
+      "frame": {
+        "x": 748,
+        "y": 0,
+        "w": 51,
+        "h": 134
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 1,
+        "w": 51,
+        "h": 134
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 136
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "side_raid_1.png",
+      "frame": {
+        "x": 799,
+        "y": 0,
+        "w": 166,
+        "h": 136
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 0,
+        "w": 166,
+        "h": 136
+      },
+      "sourceSize": {
+        "w": 179,
+        "h": 141
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "side_raid_2.png",
+      "frame": {
+        "x": 965,
+        "y": 0,
+        "w": 169,
+        "h": 136
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 0,
+        "w": 169,
+        "h": 136
+      },
+      "sourceSize": {
+        "w": 179,
+        "h": 141
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "side_raid_4.png",
+      "frame": {
+        "x": 1134,
+        "y": 0,
+        "w": 177,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 0,
+        "w": 177,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 179,
+        "h": 141
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "side_raid_5.png",
+      "frame": {
+        "x": 1311,
+        "y": 0,
+        "w": 173,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 0,
+        "w": 173,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 179,
+        "h": 141
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "side_raid_3.png",
+      "frame": {
+        "x": 1484,
+        "y": 0,
+        "w": 174,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 0,
+        "w": 174,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 179,
+        "h": 141
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  ],
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "wonda_horse.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1658,
+      "h": 140
+    },
+    "scale": 1
+  }
+}

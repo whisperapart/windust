@@ -1,0 +1,30 @@
+{
+  "name": "com.anpena.windust",
+  "displayName": "windust",
+  "version": "1.0.0",
+  "description": "Wind and Dust.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Jim Dai Cn",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cordova": "^12.0.0",
+    "dmg-builder": "^24.6.3",
+    "electron": "^25.4.0"
+  },
+  "cordova": {
+    "platforms": [
+      "electron",
+      "ios"
+    ]
+  },
+  "devDependencies": {
+    "cordova-electron": "^3.1.0",
+    "dmg-builder": "^24.6.3"
+  }
+}

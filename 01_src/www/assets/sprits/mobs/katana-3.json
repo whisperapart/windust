@@ -1,0 +1,586 @@
+{
+	"textures": [
+		{
+			"image": "texture",
+			"format": "RGBA8888",
+			"size": {
+				"w": 337,
+				"h": 323
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "attack-09.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 119,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 24,
+						"w": 110,
+						"h": 56
+					},
+					"frame": {
+						"x": 2,
+						"y": 2,
+						"w": 110,
+						"h": 56
+					}
+				},
+				{
+					"filename": "attack-07.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 119,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 20,
+						"w": 88,
+						"h": 61
+					},
+					"frame": {
+						"x": 2,
+						"y": 62,
+						"w": 88,
+						"h": 61
+					}
+				},
+				{
+					"filename": "attack-08.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 119,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 23,
+						"w": 87,
+						"h": 58
+					},
+					"frame": {
+						"x": 94,
+						"y": 62,
+						"w": 87,
+						"h": 58
+					}
+				},
+				{
+					"filename": "attack-06.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 119,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 20,
+						"w": 68,
+						"h": 61
+					},
+					"frame": {
+						"x": 94,
+						"y": 124,
+						"w": 68,
+						"h": 61
+					}
+				},
+				{
+					"filename": "attack-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 119,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 35,
+						"y": 17,
+						"w": 54,
+						"h": 64
+					},
+					"frame": {
+						"x": 2,
+						"y": 127,
+						"w": 54,
+						"h": 64
+					}
+				},
+				{
+					"filename": "attack-04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 119,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 45,
+						"y": 18,
+						"w": 48,
+						"h": 62
+					},
+					"frame": {
+						"x": 60,
+						"y": 189,
+						"w": 48,
+						"h": 62
+					}
+				},
+				{
+					"filename": "stand-04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 15,
+						"w": 43,
+						"h": 66
+					},
+					"frame": {
+						"x": 112,
+						"y": 189,
+						"w": 43,
+						"h": 66
+					}
+				},
+				{
+					"filename": "stand-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 15,
+						"w": 43,
+						"h": 66
+					},
+					"frame": {
+						"x": 159,
+						"y": 189,
+						"w": 43,
+						"h": 66
+					}
+				},
+				{
+					"filename": "stand-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 15,
+						"w": 43,
+						"h": 66
+					},
+					"frame": {
+						"x": 206,
+						"y": 2,
+						"w": 43,
+						"h": 66
+					}
+				},
+				{
+					"filename": "attack-05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 119,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 42,
+						"y": 20,
+						"w": 47,
+						"h": 60
+					},
+					"frame": {
+						"x": 2,
+						"y": 195,
+						"w": 47,
+						"h": 60
+					}
+				},
+				{
+					"filename": "attack-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 119,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 34,
+						"y": 17,
+						"w": 44,
+						"h": 64
+					},
+					"frame": {
+						"x": 185,
+						"y": 72,
+						"w": 44,
+						"h": 64
+					}
+				},
+				{
+					"filename": "stand-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 16,
+						"w": 43,
+						"h": 65
+					},
+					"frame": {
+						"x": 206,
+						"y": 140,
+						"w": 43,
+						"h": 65
+					}
+				},
+				{
+					"filename": "stand-00.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 16,
+						"w": 43,
+						"h": 65
+					},
+					"frame": {
+						"x": 253,
+						"y": 2,
+						"w": 43,
+						"h": 65
+					}
+				},
+				{
+					"filename": "walk-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 69,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 17,
+						"w": 43,
+						"h": 63
+					},
+					"frame": {
+						"x": 233,
+						"y": 72,
+						"w": 43,
+						"h": 63
+					}
+				},
+				{
+					"filename": "deak-00.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 17,
+						"w": 42,
+						"h": 64
+					},
+					"frame": {
+						"x": 253,
+						"y": 139,
+						"w": 42,
+						"h": 64
+					}
+				},
+				{
+					"filename": "deak-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 18,
+						"w": 42,
+						"h": 62
+					},
+					"frame": {
+						"x": 53,
+						"y": 255,
+						"w": 42,
+						"h": 62
+					}
+				},
+				{
+					"filename": "walk-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 69,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 16,
+						"w": 38,
+						"h": 64
+					},
+					"frame": {
+						"x": 253,
+						"y": 207,
+						"w": 38,
+						"h": 64
+					}
+				},
+				{
+					"filename": "deak-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 24,
+						"w": 42,
+						"h": 57
+					},
+					"frame": {
+						"x": 2,
+						"y": 259,
+						"w": 42,
+						"h": 57
+					}
+				},
+				{
+					"filename": "walk-00.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 69,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 16,
+						"w": 37,
+						"h": 64
+					},
+					"frame": {
+						"x": 206,
+						"y": 209,
+						"w": 37,
+						"h": 64
+					}
+				},
+				{
+					"filename": "attack-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 119,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 42,
+						"y": 16,
+						"w": 36,
+						"h": 64
+					},
+					"frame": {
+						"x": 280,
+						"y": 71,
+						"w": 36,
+						"h": 64
+					}
+				},
+				{
+					"filename": "deak-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 25,
+						"w": 41,
+						"h": 56
+					},
+					"frame": {
+						"x": 116,
+						"y": 2,
+						"w": 41,
+						"h": 56
+					}
+				},
+				{
+					"filename": "deak-04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 25,
+						"w": 41,
+						"h": 55
+					},
+					"frame": {
+						"x": 161,
+						"y": 2,
+						"w": 41,
+						"h": 55
+					}
+				},
+				{
+					"filename": "walk-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 69,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 17,
+						"w": 35,
+						"h": 63
+					},
+					"frame": {
+						"x": 300,
+						"y": 2,
+						"w": 35,
+						"h": 63
+					}
+				},
+				{
+					"filename": "deak-06.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 25,
+						"w": 40,
+						"h": 55
+					},
+					"frame": {
+						"x": 295,
+						"y": 207,
+						"w": 40,
+						"h": 55
+					}
+				},
+				{
+					"filename": "deak-05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 25,
+						"w": 40,
+						"h": 55
+					},
+					"frame": {
+						"x": 295,
+						"y": 266,
+						"w": 40,
+						"h": 55
+					}
+				},
+				{
+					"filename": "deak-08.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 26,
+						"w": 39,
+						"h": 54
+					},
+					"frame": {
+						"x": 99,
+						"y": 259,
+						"w": 39,
+						"h": 54
+					}
+				},
+				{
+					"filename": "deak-07.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 89,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 26,
+						"w": 39,
+						"h": 54
+					},
+					"frame": {
+						"x": 142,
+						"y": 259,
+						"w": 39,
+						"h": 54
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7"
+	}
+}

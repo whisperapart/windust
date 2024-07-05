@@ -1,0 +1,16 @@
+html,body{
+    color:white;background-color: #1a873a;
+}
+.version{
+    font-size:12px;color: #A7A7A7;
+    position: absolute;left:10px;top:10px;
+}
+.title-center{
+    font-size: 24px;width:100vw;height:20vh;text-align: center;color:goldenrod;
+}
+.div-left{
+    text-align: right; width: 40vw;margin-left: 10vw;padding-right: 10vw;
+}
+.div-right{
+    text-align: left; width: 40vw;margin-left: 10vw;padding-right: 10vw;
+}
